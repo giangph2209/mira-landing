@@ -444,6 +444,28 @@
   }
 }
 
+@keyframes orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-orbit-slow {
+  animation: orbit-rotate 34s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-rotate 48s linear infinite reverse;
+}
+
+.animate-orbit-fast {
+  animation: orbit-rotate 22s linear infinite;
+}
+
 .animate-region-float {
   animation: region-float 3.2s ease-in-out infinite;
 }
@@ -479,7 +501,10 @@
   }
 
   .animate-region-float,
-  .animate-region-pulse {
+  .animate-region-pulse,
+  .animate-orbit-slow,
+  .animate-orbit-reverse,
+  .animate-orbit-fast {
     animation: none;
   }
 }

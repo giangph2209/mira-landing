@@ -32,6 +32,7 @@ export async function POST(req: Request) {
         name: data.name,
         phone: data.phone,
         email: data.email,
+        company: data.company ?? '',
         serviceType: data.serviceType,
         message: data.message,
         status: 'new',

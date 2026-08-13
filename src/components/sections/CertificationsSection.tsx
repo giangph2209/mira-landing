@@ -49,7 +49,9 @@ function CertCard({ name, src }: { name: string; src: string }) {
       </div>
 
       <div className="relative flex min-h-[64px] items-center justify-center bg-[#edf7f0] px-3 pb-5 pt-9 sm:min-h-[72px] sm:pb-6 sm:pt-10">
-        <p className="text-center text-xs font-medium leading-snug text-text-dark sm:text-sm">{name}</p>
+        <p className="text-center text-xs font-medium leading-snug text-text-dark sm:text-sm">
+          {name}
+        </p>
       </div>
     </article>
   );
@@ -57,14 +59,13 @@ function CertCard({ name, src }: { name: string; src: string }) {
 
 export default function CertificationsSection() {
   return (
-    <section id="certifications" className="bg-[#f5f6f5] py-12 sm:py-16 lg:py-24">
+    <section id="certifications" className="bg-[#f5f6f5] py-14 lg:py-16">
       <div className="mx-auto w-full max-w-7xl section-container">
         <Reveal>
           <header className="mb-8 text-center sm:mb-12 lg:mb-14">
             <h2 className="font-heading text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight text-primary">
               Certifications
             </h2>
-            <p className="mt-3 text-sm text-text-gray sm:text-base lg:text-[17px]">Chứng chỉ</p>
           </header>
         </Reveal>
 

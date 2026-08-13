@@ -2,12 +2,27 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
 
 const TECH_CATEGORIES = [
-  { label: "Frontend", techs: ["React", "Next.js", "Vue", "Angular", "TypeScript"] },
+  {
+    label: "Frontend",
+    techs: ["React", "Next.js", "Vue", "Angular", "TypeScript"],
+  },
   { label: "Backend", techs: ["Node.js", "Python", "Java", "Go", ".NET"] },
-  { label: "Mobile", techs: ["React Native", "Flutter", "iOS (Swift)", "Android (Kotlin)"] },
-  { label: "AI / ML", techs: ["TensorFlow", "PyTorch", "OpenAI", "LangChain", "Hugging Face"] },
-  { label: "Cloud & DevOps", techs: ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform"] },
-  { label: "Data", techs: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Kafka"] },
+  {
+    label: "Mobile",
+    techs: ["React Native", "Flutter", "iOS (Swift)", "Android (Kotlin)"],
+  },
+  {
+    label: "AI / ML",
+    techs: ["TensorFlow", "PyTorch", "OpenAI", "LangChain", "Hugging Face"],
+  },
+  {
+    label: "Cloud & DevOps",
+    techs: ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform"],
+  },
+  {
+    label: "Data",
+    techs: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Kafka"],
+  },
 ];
 
 const TECH_ICONS: Record<string, string> = {
@@ -45,11 +60,13 @@ const TECH_ICONS: Record<string, string> = {
 
 export default function TechnicalExpertiseSection() {
   return (
-    <section id="expertise" className="section section--muted">
+    <section
+      id="expertise"
+      className="section--muted py-12 sm:py-14 lg:py-16"
+    >
       <div className="section-container">
         <Reveal>
           <SectionHeader
-            eyebrow="Tech stack"
             title={
               <>
                 Technical <span className="text-accent">Expertise</span>
@@ -67,7 +84,10 @@ export default function TechnicalExpertiseSection() {
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {category.techs.map((tech) => (
-                    <span key={tech} className="tag transition-colors hover:bg-[#e6f7ed]">
+                    <span
+                      key={tech}
+                      className="tag transition-colors hover:bg-[#e6f7ed]"
+                    >
                       <span>{TECH_ICONS[tech] || "⚡"}</span>
                       {tech}
                     </span>

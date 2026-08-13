@@ -6,42 +6,53 @@ const STEPS = [
     step: "01",
     title: "Requirement Analysis",
     subtitle: "Phân tích yêu cầu",
+    description:
+      "Tìm hiểu mục tiêu, nhu cầu và bài toán nghiệp vụ của doanh nghiệp.",
     iconSrc: "/images/process/1.png",
   },
   {
     step: "02",
-    title: "Architecture Design",
-    subtitle: "Thiết kế kiến trúc",
+    title: "Solution Design",
+    subtitle: "Tư vấn & thiết kế giải pháp",
+    description: "Phân tích yêu cầu và xây dựng định hướng giải pháp phù hợp.",
     iconSrc: "/images/process/2.png",
   },
   {
     step: "03",
     title: "Development",
     subtitle: "Phát triển phần mềm",
+    description: "Thiết kế, lập trình và xây dựng các chức năng của hệ thống.",
     iconSrc: "/images/process/3.png",
   },
   {
     step: "04",
     title: "Testing & QA",
-    subtitle: "Kiểm thử & QA",
+    subtitle: "Kiểm thử & đảm bảo chất lượng",
+    description:
+      "Kiểm thử sản phẩm và kiểm soát chất lượng trước khi đưa vào vận hành.",
     iconSrc: "/images/process/4.png",
   },
   {
     step: "05",
     title: "Deployment",
     subtitle: "Triển khai hệ thống",
+    description:
+      "Đưa hệ thống vào môi trường thực tế và hỗ trợ quá trình triển khai.",
     iconSrc: "/images/process/5.png",
   },
   {
     step: "06",
-    title: "UAT",
-    subtitle: "Kiểm thử chấp nhận",
+    title: "Operation",
+    subtitle: "Vận hành",
+    description: "Theo dõi, hỗ trợ và đảm bảo hệ thống hoạt động ổn định.",
     iconSrc: "/images/process/6.png",
   },
   {
     step: "07",
     title: "Maintenance",
-    subtitle: "Bảo trì & nâng cấp",
+    subtitle: "Bảo trì & cải tiến",
+    description:
+      "Cập nhật, sửa lỗi, bảo trì và cải tiến hệ thống theo nhu cầu thực tế.",
     iconSrc: "/images/process/7.png",
   },
 ];
@@ -50,11 +61,13 @@ function ProcessCard({
   step,
   title,
   subtitle,
+  description,
   iconSrc,
 }: {
   step: string;
   title: string;
   subtitle: string;
+  description: string;
   iconSrc: string;
 }) {
   return (
@@ -73,8 +86,19 @@ function ProcessCard({
         />
       </div>
 
-      <h3 className="text-center font-heading text-base font-bold leading-snug text-primary sm:text-[17px] lg:text-lg">{title}</h3>
-      <p className="mt-2 text-center text-xs leading-relaxed text-text-gray sm:text-sm">{subtitle}</p>
+      <h3 className="text-center font-heading text-base font-bold leading-snug text-primary sm:text-[17px] lg:text-lg">
+        {title}
+      </h3>
+      <p className="mt-1.5 text-center text-sm font-semibold leading-snug text-primary-light">
+        {subtitle}
+      </p>
+      <span
+        className="mx-auto mt-3 block h-px w-10 bg-primary/15"
+        aria-hidden
+      />
+      <p className="mt-3 text-center text-xs leading-relaxed text-text-gray sm:text-[13px]">
+        {description}
+      </p>
     </article>
   );
 }
@@ -84,7 +108,7 @@ export default function DevelopmentProcessSection() {
   const secondRow = STEPS.slice(4);
 
   return (
-    <section id="process" className="bg-white py-16 lg:py-24">
+    <section id="process" className="bg-white py-14 lg:py-16">
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
           <header className="mx-auto mb-12 max-w-[720px] text-center lg:mb-16">
@@ -92,7 +116,8 @@ export default function DevelopmentProcessSection() {
               Development Process
             </h2>
             <p className="mt-4 text-base leading-relaxed text-text-gray lg:text-[17px]">
-              Quy trình phát triển phần mềm chuyên nghiệp, minh bạch &amp; hiệu quả
+              Quy trình phát triển phần mềm chuyên nghiệp, minh bạch &amp; hiệu
+              quả
             </p>
           </header>
         </Reveal>

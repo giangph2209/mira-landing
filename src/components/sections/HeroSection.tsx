@@ -8,24 +8,49 @@ export default function HeroSection() {
       <Reveal className="flex max-w-[900px] flex-col items-center gap-5 sm:gap-6">
         <h1 className="text-[clamp(1.85rem,5vw,3.5rem)] font-bold leading-[1.15] tracking-tight">
           <span className="bg-gradient-to-r from-brand-blue to-primary bg-clip-text text-transparent">
-            Đối tác triển khai
+            Biến ý tưởng
           </span>
           <br />
-          <span className="text-gradient-primary">Phần mềm tin cậy</span>
+          <span className="text-gradient-primary">
+            thành giải pháp phần mềm thực tế
+          </span>
         </h1>
 
-        <p className="max-w-[640px] text-base font-medium leading-relaxed text-text-muted sm:text-lg md:text-xl">
-          Đồng hành cùng doanh nghiệp kiến tạo giá trị số bền vững.
+        <p className="max-w-200 text-base font-medium leading-relaxed text-text-muted sm:text-lg">
+          DVL Tech cung cấp dịch vụ tư vấn và phát triển phần mềm cho doanh
+          nghiệp, từ phân tích nhu cầu, xây dựng kế hoạch đến triển khai và vận
+          hành hệ thống.
+        </p>
+
+        <p className="max-w-200 text-base font-medium leading-relaxed text-text-muted sm:text-lg">
+          Với đội ngũ có{" "}
+          <span className="text-gradient-primary">
+            8–15 năm kinh nghiệm trong lĩnh vực công nghệ thông tin
+          </span>
+          , DVL Tech đồng hành cùng doanh nghiệp tại Việt Nam và Nhật Bản trong
+          các dự án phần mềm và chuyển đổi số.
         </p>
 
         <div className="mt-1 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-2 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-          <Button href="#contact" size="lg" className="w-full border-1 sm:w-auto" iconRight={<ArrowRightIcon size={18} />}>
-            Bắt đầu ngay
+          <Button
+            href="#contact"
+            size="lg"
+            className="w-full border-1 sm:w-auto"
+            iconRight={<ArrowRightIcon size={18} />}
+          >
+            Trao đổi về dự án
           </Button>
-          <Button href="#process" variant="outline" size="lg" className="w-full border-1 sm:w-auto" iconRight={<PlayOutlineIcon />}>
-            Tìm hiểu quy trình
+          <Button
+            href="#process"
+            variant="outline"
+            size="lg"
+            className="w-full border-1 sm:w-auto"
+            iconRight={<PlayOutlineIcon />}
+          >
+            Khám phá dịch vụ
           </Button>
         </div>
+        <span>Vietnam · Japan</span>
       </Reveal>
     </section>
   );

@@ -68,15 +68,26 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: SITE.legalName,
+  name: SITE.name,
+  legalName: SITE.legalName,
+  taxID: SITE.taxCode,
   url: SITE.url,
   logo: `${SITE.url}${SITE.ogImage}`,
   email: SITE.email,
+  telephone: SITE.phoneHref,
   description: SITE.description,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: SITE.address.street,
+    addressLocality: SITE.address.district,
+    addressRegion: SITE.address.city,
+    addressCountry: SITE.address.country,
+  },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
     email: SITE.email,
+    telephone: SITE.phoneHref,
     availableLanguage: ["Vietnamese", "English"],
   },
 };

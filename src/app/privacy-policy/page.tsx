@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SITE } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Chính sách bảo mật | DCSoftware',
@@ -110,10 +111,10 @@ export default function PrivacyPolicyPage() {
             Nếu bạn có bất kỳ câu hỏi nào về Chính sách bảo mật, vui lòng liên hệ:
           </p>
           <ul className="list-disc pl-6 space-y-1 text-sm md:text-base text-[#1F2933]">
-            <li>Email: digitalcenturysoftware@gmail.com</li>
-            <li>
-              Address: Tầng 18 Tòa nhà CEO Lô HH2-1 KĐT Mễ Trì Hạ, Đường Phạm Hùng, Phường Từ Liêm, TP Hà Nội, Việt Nam
-            </li>
+            <li>Công ty: {SITE.legalName} (Mã số thuế: {SITE.taxCode})</li>
+            <li>Email: {SITE.email}</li>
+            <li>Điện thoại: {SITE.phone}</li>
+            <li>Address: {SITE.address.full}</li>
           </ul>
         </section>
 

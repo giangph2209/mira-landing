@@ -4,6 +4,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import AIServicesSection from "@/components/sections/AIServicesSection";
 import WhyUsSection from "@/components/sections/WhyUsSection";
+import TeamSection from "@/components/sections/TeamSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import EngagementModelsSection from "@/components/sections/EngagementModelsSection";
 import DevelopmentProcessSection from "@/components/sections/DevelopmentProcessSection";
@@ -26,6 +27,7 @@ export default function Home() {
       <PartnersSection />
       <AIServicesSection />
       <WhyUsSection />
+      <TeamSection />
       <TestimonialsSection />
       <EngagementModelsSection />
       <DevelopmentProcessSection />

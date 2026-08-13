@@ -226,26 +226,39 @@ export default function CaseStudiesSection() {
                   >
                     {/* Left — nhận diện case */}
                     <div
-                      className={`relative flex min-h-[280px] shrink-0 flex-col justify-between overflow-hidden px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[440px] lg:w-[38%] lg:px-10 lg:py-12 ${item.tone}`}
+                      className={`relative isolate flex min-h-[280px] shrink-0 flex-col justify-between overflow-hidden px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[440px] lg:w-[38%] lg:px-10 lg:py-12 ${item.tone}`}
                     >
                       {item.image ? (
-                        <Image
-                          src={item.image}
-                          alt=""
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 38vw"
-                          className="object-cover"
-                          aria-hidden
-                        />
+                        <>
+                          <Image
+                            src={item.image}
+                            alt=""
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 38vw"
+                            className="object-cover object-center"
+                            aria-hidden
+                          />
+                          {/* duotone — kéo ảnh về đúng hệ xanh brand, giữ nguyên độ sáng tối */}
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 bg-primary opacity-70 mix-blend-color"
+                          />
+                          {/* nhấn thêm sắc xanh sâu vào vùng tối của ảnh */}
+                          <span
+                            aria-hidden
+                            className="absolute inset-0 bg-primary-800/45 mix-blend-multiply"
+                          />
+                        </>
                       ) : null}
-                      {/* phủ tối để chữ trắng luôn đọc được trên mọi ảnh */}
+
+                      {/* bóng mờ — tối hai đầu cho chữ trắng nổi, chừa sáng ở giữa cho chủ thể */}
                       <span
                         aria-hidden
-                        className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/55 to-black/25"
+                        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(3,61,40,0.92)_0%,rgba(3,61,40,0.55)_28%,rgba(3,61,40,0.28)_50%,rgba(3,61,40,0.78)_78%,rgba(2,26,16,0.96)_100%)]"
                       />
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl"
+                        className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary-pale/25 blur-2xl"
                       />
 
                       <div className="relative z-1">

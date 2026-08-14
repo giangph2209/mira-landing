@@ -5,8 +5,8 @@ import { ArrowRightIcon, PlayOutlineIcon } from "@/components/ui/Icons";
 export default function HeroSection() {
   return (
     <section className="relative flex flex-col items-center px-5 pb-16 pt-10 text-center sm:px-6 sm:pb-20 sm:pt-14 md:pt-20 lg:pb-28 lg:pt-24">
-      <Reveal className="flex max-w-[900px] flex-col items-center gap-5 sm:gap-6">
-        <h1 className="text-[clamp(1.85rem,5vw,3.5rem)] font-bold leading-[1.15] tracking-tight">
+      <Reveal className="flex max-w-[900px] flex-col items-center gap-4 sm:gap-6">
+        <h1 className="text-[clamp(1.55rem,5vw,3.5rem)] font-bold leading-[1.15] tracking-tight">
           <span className="bg-gradient-to-r from-brand-blue to-primary bg-clip-text text-transparent">
             Biến ý tưởng
           </span>
@@ -16,13 +16,13 @@ export default function HeroSection() {
           </span>
         </h1>
 
-        <p className="max-w-200 text-base font-medium leading-relaxed text-text-muted sm:text-lg">
+        <p className="max-w-200 text-[15px] font-medium leading-relaxed text-text-muted sm:text-lg">
           DVL Tech cung cấp dịch vụ tư vấn và phát triển phần mềm cho doanh
           nghiệp, từ phân tích nhu cầu, xây dựng kế hoạch đến triển khai và vận
           hành hệ thống.
         </p>
 
-        <p className="max-w-200 text-base font-medium leading-relaxed text-text-muted sm:text-lg">
+        <p className="max-w-200 text-[15px] font-medium leading-relaxed text-text-muted sm:text-lg">
           Với đội ngũ có{" "}
           <span className="text-gradient-primary">
             8–15 năm kinh nghiệm trong lĩnh vực công nghệ thông tin
@@ -41,7 +41,7 @@ export default function HeroSection() {
             Trao đổi về dự án
           </Button>
           <Button
-            href="#process"
+            href="#services"
             variant="outline"
             size="lg"
             className="w-full border-1 sm:w-auto"

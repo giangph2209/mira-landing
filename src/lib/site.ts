@@ -35,11 +35,10 @@ export const SITE = {
 
 export const NAV_ITEMS = [
   { label: "Dịch vụ", href: "#services" },
-  { label: "Giải pháp", href: "#why-us" },
   { label: "Quy trình", href: "#process" },
   { label: "Năng lực", href: "#expertise" },
-  { label: "Sản phẩm", href: "#case-studies" },
-  { label: "Khách hàng", href: "#testimonials" },
+  { label: "Case study", href: "#case-studies" },
+  { label: "Khách hàng", href: "#region" },
 ] as const;
 
 export const NAV_SECTION_IDS = NAV_ITEMS.map((item) => item.href.slice(1));

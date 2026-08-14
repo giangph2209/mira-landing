@@ -4,6 +4,8 @@ import { useState, type ChangeEvent, type FormEvent } from "react";
 import { ChevronDown, Mail, MapPin, Phone } from "lucide-react";
 import { ArrowRightIcon } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { inputClass, labelClass } from "@/components/ui/form-classes";
 import { SITE } from "@/lib/site";
 
 const CONTACT_ITEMS = [
@@ -18,11 +20,6 @@ const SOCIALS = [
   { id: "linkedin", label: "LinkedIn", href: "#" },
   { id: "slack", label: "Slack", href: "#" },
 ];
-
-const inputClass =
-  "w-full rounded-xl border border-gray-200 bg-[#f7f9f8] px-4 py-3.5 text-[15px] text-text-dark outline-none transition-colors placeholder:text-gray-400 focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/15 disabled:opacity-60";
-
-const labelClass = "mb-1.5 block text-sm font-semibold text-text-dark";
 
 const SERVICE_OPTIONS = [
   "Tư vấn xây dựng dự án phần mềm",
@@ -152,19 +149,18 @@ export default function CTASection() {
       <div className="section-container mx-auto w-full max-w-7xl">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
           <Reveal className="flex flex-col gap-8">
-            <div>
-              <h2 className="font-heading text-[clamp(1.85rem,3.5vw,2.75rem)] font-bold leading-tight">
-                <span className="text-primary-dark">
-                  Bắt đầu dự án cùng DVL Tech
-                </span>
-              </h2>
-              <p className="mt-4 max-w-[440px] text-[15px] leading-relaxed text-text-gray lg:text-base">
-                Bạn đang có ý tưởng xây dựng một hệ thống mới, cần phát triển
-                phần mềm hoặc muốn nâng cấp hệ thống hiện tại? Hãy liên hệ với
-                <br />
-                DVL Tech để cùng trao đổi về dự án.
-              </p>
-            </div>
+            <SectionHeader
+              align="left"
+              className="!mb-0"
+              eyebrow="Liên hệ"
+              title={
+                <>
+                  Bắt đầu dự án cùng{" "}
+                  <span className="text-accent">DVL Tech</span>
+                </>
+              }
+              description="Bạn đang có ý tưởng xây dựng một hệ thống mới, cần phát triển phần mềm hoặc muốn nâng cấp hệ thống hiện tại? Hãy liên hệ với DVL Tech để cùng trao đổi về dự án."
+            />
 
             <div className="flex flex-col gap-4">
               {CONTACT_ITEMS.map((item, index) => (

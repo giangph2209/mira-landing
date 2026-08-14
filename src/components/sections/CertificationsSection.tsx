@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const CERTS = [
   {
@@ -62,11 +63,7 @@ export default function CertificationsSection() {
     <section id="certifications" className="bg-[#f5f6f5] py-14 lg:py-16">
       <div className="mx-auto w-full max-w-7xl section-container">
         <Reveal>
-          <header className="mb-8 text-center sm:mb-12 lg:mb-14">
-            <h2 className="font-heading text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight text-primary">
-              Certifications
-            </h2>
-          </header>
+          <SectionHeader eyebrow="Credentials" title="Certifications" />
         </Reveal>
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-4 lg:gap-5">

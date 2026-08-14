@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 type Service = {
   id: string;
@@ -375,19 +376,13 @@ export default function AIServicesSection() {
 
       <div className="relative mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
-          <header className="mx-auto max-w-[860px] text-center">
-            <h2 className="mt-4 font-heading text-[clamp(1.75rem,4.5vw,3rem)] font-bold leading-tight text-primary">
-              DỊCH VỤ
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base lg:text-[17px]">
-              DVL Tech cung cấp các dịch vụ công nghệ nhằm hỗ trợ doanh nghiệp
-              từ giai đoạn hình thành ý tưởng đến phát triển, triển khai và vận
-              hành hệ thống.
-            </p>
-            <h3 className="mt-5 font-heading text-[clamp(1.1rem,2vw,1.5rem)] font-bold text-gradient-primary">
-              Giải pháp công nghệ cho toàn bộ vòng đời dự án
-            </h3>
-          </header>
+          <SectionHeader
+            className="!mb-0"
+            eyebrow="Our services"
+            title="Dịch vụ"
+            description="DVL Tech cung cấp các dịch vụ công nghệ nhằm hỗ trợ doanh nghiệp từ giai đoạn hình thành ý tưởng đến phát triển, triển khai và vận hành hệ thống."
+            tagline="Giải pháp công nghệ cho toàn bộ vòng đời dự án"
+          />
         </Reveal>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-12 lg:grid-cols-3 lg:gap-6">

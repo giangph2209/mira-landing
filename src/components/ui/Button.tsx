@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
 import { isHashHref, scrollToHash } from "@/lib/scroll";
 
-type ButtonVariant = "primary" | "outline" | "ghost" | "white";
+type ButtonVariant = "primary" | "outline" | "ghost" | "white" | "danger";
 type ButtonSize = "sm" | "md" | "lg";
 
 type BaseProps = {
@@ -16,9 +16,30 @@ type BaseProps = {
   iconLeft?: ReactNode;
 };
 
+function Spinner() {
+  return (
+    <svg
+      className="h-4 w-4 animate-spin"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" opacity="0.25" />
+      <path
+        d="M21 12a9 9 0 0 0-9-9"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 type ButtonAsButton = BaseProps &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: undefined;
+    /** hiện spinner và tự disable — dùng cho form đang submit */
+    loading?: boolean;
   };
 
 type ButtonAsLink = BaseProps & {
@@ -63,13 +84,19 @@ export default function Button({
     );
   }
 
-  const { type = "button", ...buttonProps } = props as ButtonAsButton;
+  const { type = "button", loading, disabled, ...buttonProps } = props as ButtonAsButton;
 
   return (
-    <button type={type} className={classes} {...buttonProps}>
-      {iconLeft}
+    <button
+      type={type}
+      className={classes}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
+      {...buttonProps}
+    >
+      {loading ? <Spinner /> : iconLeft}
       {children}
-      {iconRight}
+      {loading ? null : iconRight}
     </button>
   );
 }

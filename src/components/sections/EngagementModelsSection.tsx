@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ArrowActionButton from "@/components/ui/ArrowActionButton";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 type CardVariant = "green" | "light";
 
@@ -142,15 +143,15 @@ export default function EngagementModelsSection() {
     <section id="engagement" className="bg-[#f8f9f8] py-14 lg:py-16">
       <div className="mx-auto w-full max-w-7xl px-6">
         <Reveal>
-          <header className="mx-auto mb-12 max-w-180 text-center lg:mb-14">
-            <h2 className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-bold leading-tight text-primary">
-              Mô hình hợp tác linh hoạt
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-text-gray lg:text-[17px]">
-              DVL Tech có thể đồng hành với doanh nghiệp theo nhiều hình thức,
-              tùy thuộc vào quy mô, mục tiêu và yêu cầu của từng dự án.
-            </p>
-          </header>
+          <SectionHeader
+            eyebrow="Engagement models"
+            title={
+              <>
+                Mô hình hợp tác <span className="text-accent">linh hoạt</span>
+              </>
+            }
+            description="DVL Tech có thể đồng hành với doanh nghiệp theo nhiều hình thức, tùy thuộc vào quy mô, mục tiêu và yêu cầu của từng dự án."
+          />
         </Reveal>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-5 lg:gap-6">

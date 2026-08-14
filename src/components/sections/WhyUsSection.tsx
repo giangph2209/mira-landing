@@ -14,6 +14,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 type Reason = {
   id: string;
@@ -387,15 +388,15 @@ export default function WhyUsSection() {
     <section id="why-us" className="bg-[#f8faf9] py-12 sm:py-14 lg:py-16">
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
-          <header className="mx-auto mb-8 max-w-[820px] text-center sm:mb-12 lg:mb-14">
-            <h2 className="font-heading text-[clamp(1.85rem,4vw,3rem)] font-bold leading-tight text-primary">
-              Why Us
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base lg:text-[17px]">
-              Đội ngũ giàu kinh nghiệm. Quy trình chuyên nghiệp. Công nghệ phù
-              hợp.
-            </p>
-          </header>
+          <SectionHeader
+            eyebrow="Why DVL Tech"
+            title={
+              <>
+                Why <span className="text-accent">Us</span>
+              </>
+            }
+            description="Đội ngũ giàu kinh nghiệm. Quy trình chuyên nghiệp. Công nghệ phù hợp."
+          />
         </Reveal>
 
         <Reveal>

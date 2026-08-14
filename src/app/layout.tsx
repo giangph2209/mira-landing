@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, Roboto } from "next/font/google";
+import AnalyticsBeacon from "@/components/analytics/AnalyticsBeacon";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
@@ -65,32 +66,8 @@ export const metadata: Metadata = {
   },
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE.name,
-  legalName: SITE.legalName,
-  taxID: SITE.taxCode,
-  url: SITE.url,
-  logo: `${SITE.url}${SITE.ogImage}`,
-  email: SITE.email,
-  telephone: SITE.phoneHref,
-  description: SITE.description,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: SITE.address.street,
-    addressLocality: SITE.address.district,
-    addressRegion: SITE.address.city,
-    addressCountry: SITE.address.country,
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: SITE.email,
-    telephone: SITE.phoneHref,
-    availableLanguage: ["Vietnamese", "English"],
-  },
-};
+// JSON-LD Organization đã được chuyển sang src/app/page.tsx: schema này thuộc về trang chủ,
+// và để ở root layout thì nó rò cả sang /privacy-policy lẫn khu vực /admin.
 
 export default function RootLayout({
   children,
@@ -98,11 +75,10 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`${ibmPlexSans.variable} ${roboto.variable}`}>
       <body className="antialiased">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
         {children}
+        {/* Client component nên KHÔNG làm layout server này thành dynamic —
+            "/" và "/privacy-policy" vẫn được sinh tĩnh */}
+        <AnalyticsBeacon />
       </body>
     </html>
   );

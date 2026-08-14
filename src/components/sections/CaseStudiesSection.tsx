@@ -226,7 +226,7 @@ export default function CaseStudiesSection() {
                   >
                     {/* Left — nhận diện case */}
                     <div
-                      className={`relative isolate flex min-h-[280px] shrink-0 flex-col justify-between overflow-hidden px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[440px] lg:w-[38%] lg:px-10 lg:py-12 ${item.tone}`}
+                      className={`relative isolate flex min-h-[280px] shrink-0 flex-col gap-5 overflow-hidden px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[440px] lg:w-[38%] lg:px-10 lg:py-12 ${item.tone}`}
                     >
                       {item.image ? (
                         <>
@@ -254,7 +254,7 @@ export default function CaseStudiesSection() {
                       {/* bóng mờ — tối hai đầu cho chữ trắng nổi, chừa sáng ở giữa cho chủ thể */}
                       <span
                         aria-hidden
-                        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(3,61,40,0.92)_0%,rgba(3,61,40,0.55)_28%,rgba(3,61,40,0.28)_50%,rgba(3,61,40,0.78)_78%,rgba(2,26,16,0.96)_100%)]"
+                        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(1,32,21,0.74)_40%,rgba(2,45,29,0.7)_50%,rgba(2,45,29,0.7)_50%,rgba(2,33,21,0.88)_78%,rgba(1,17,10,0.98)_100%)]"
                       />
                       <span
                         aria-hidden
@@ -293,13 +293,6 @@ export default function CaseStudiesSection() {
                             </div>
                           </>
                         ) : null}
-
-                        <span
-                          aria-hidden
-                          className="mt-8 block font-heading text-[5rem] font-bold leading-none text-white/10"
-                        >
-                          {item.number}
-                        </span>
                       </div>
                     </div>
 

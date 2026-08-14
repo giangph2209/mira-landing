@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const TESTIMONIALS = [
   {
@@ -130,15 +131,15 @@ export default function TestimonialsSection() {
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
         <Reveal>
-          <header className="mx-auto mb-8 max-w-[820px] text-center sm:mb-10 lg:mb-12">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/12 bg-white/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-primary backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary-light" />
-              Testimonials
-            </span>
-            <h2 className="mt-4 font-heading text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight text-primary">
-              Khách hàng nói gì về DVL Tech
-            </h2>
-          </header>
+          <SectionHeader
+            eyebrow="Testimonials"
+            title={
+              <>
+                Khách hàng nói gì về{" "}
+                <span className="text-accent">DVL Tech</span>
+              </>
+            }
+          />
         </Reveal>
 
         <Reveal>
@@ -203,7 +204,7 @@ export default function TestimonialsSection() {
                             </p>
                           ))}
 
-                          <CloseQuoteDecor />
+                          {/* <CloseQuoteDecor /> */}
                         </div>
                       </article>
                     ))}

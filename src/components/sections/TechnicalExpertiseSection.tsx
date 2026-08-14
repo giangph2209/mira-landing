@@ -67,6 +67,7 @@ export default function TechnicalExpertiseSection() {
       <div className="section-container">
         <Reveal>
           <SectionHeader
+            eyebrow="Tech stack"
             title={
               <>
                 Technical <span className="text-accent">Expertise</span>

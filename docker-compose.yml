@@ -1,13 +1,47 @@
-version: '3.8'
+# khoá `version:` đã lỗi thời ở Compose v2 và chỉ sinh cảnh báo
 
 services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: mira-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      # Lưu UTC, chuyển múi giờ ở từng truy vấn
+      TZ: UTC
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks:
+      - internal
+    # Cố ý KHÔNG publish 5432 ra host: chỉ container app trong network `internal`
+    # mới truy cập được.
+
   nextjs:
     build: .
     container_name: dclandingpage
     restart: always
+    env_file: .env
+    depends_on:
+      postgres:
+        # Không có healthcheck thì app đua với DB lúc khởi động nguội và crash-loop;
+        # entrypoint chạy `prisma migrate deploy` nên bắt buộc DB phải sẵn sàng trước.
+        condition: service_healthy
     networks:
       - web
+      - internal
+
+volumes:
+  pgdata:
 
 networks:
   web:
     external: true
+  internal:

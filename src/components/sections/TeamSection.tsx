@@ -6,6 +6,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 type TeamStat = {
   value: string;
@@ -203,15 +204,16 @@ export default function TeamSection() {
 
       <div className="relative mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
-          <header className="mx-auto max-w-[820px] text-center">
-            <h2 className="font-heading text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight text-primary">
-              Đội ngũ phía sau mỗi dự án
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base lg:text-[17px]">
-              DVL Tech xây dựng đội ngũ theo mô hình phối hợp giữa quản lý dự
-              án, phát triển phần mềm và kiểm thử chất lượng.
-            </p>
-          </header>
+          <SectionHeader
+            className="!mb-0"
+            eyebrow="Our team"
+            title={
+              <>
+                Đội ngũ phía sau <span className="text-accent">mỗi dự án</span>
+              </>
+            }
+            description="DVL Tech xây dựng đội ngũ theo mô hình phối hợp giữa quản lý dự án, phát triển phần mềm và kiểm thử chất lượng."
+          />
         </Reveal>
 
         <Reveal className="mt-8 lg:mt-10" delay={80}>

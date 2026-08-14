@@ -4,7 +4,8 @@ import dynamic from "next/dynamic";
 
 const RegionSection = dynamic(() => import("@/components/sections/RegionSection"), {
   ssr: false,
-  loading: () => <div className="min-h-[320px] bg-white" aria-hidden />,
+  // giữ id để anchor "#region" và scroll spy hoạt động ngay cả khi chunk chưa tải xong
+  loading: () => <div id="region" className="min-h-[320px] bg-white" aria-hidden />,
 });
 
 export default function RegionSectionLazy() {

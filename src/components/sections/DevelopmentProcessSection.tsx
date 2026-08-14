@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const STEPS = [
   {
@@ -111,15 +112,15 @@ export default function DevelopmentProcessSection() {
     <section id="process" className="bg-white py-14 lg:py-16">
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
-          <header className="mx-auto mb-12 max-w-[720px] text-center lg:mb-16">
-            <h2 className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-bold leading-tight text-primary">
-              Development Process
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-text-gray lg:text-[17px]">
-              Quy trình phát triển phần mềm chuyên nghiệp, minh bạch &amp; hiệu
-              quả
-            </p>
-          </header>
+          <SectionHeader
+            eyebrow="How we work"
+            title={
+              <>
+                Development <span className="text-accent">Process</span>
+              </>
+            }
+            description="Quy trình phát triển phần mềm chuyên nghiệp, minh bạch & hiệu quả."
+          />
         </Reveal>
 
         <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12">

@@ -75,15 +75,32 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section className="space-y-4 mt-8">
-          <h2 className="text-xl font-semibold text-[#0B1F4A]">5. Cookies</h2>
-          <p className="text-sm md:text-base text-[#1F2933]">Website có thể sử dụng cookies để:</p>
+          <h2 className="text-xl font-semibold text-[#0B1F4A]">5. Cookies và dữ liệu truy cập</h2>
+          <p className="text-sm md:text-base text-[#1F2933]">
+            Website sử dụng hệ thống thống kê truy cập do chính chúng tôi vận hành, không chia sẻ
+            dữ liệu với bên thứ ba và không dùng cho mục đích quảng cáo. Hệ thống đặt hai cookie
+            kỹ thuật:
+          </p>
           <ul className="list-disc pl-6 space-y-1 text-sm md:text-base text-[#1F2933]">
-            <li>Ghi nhớ tùy chọn người dùng</li>
-            <li>Phân tích hành vi truy cập</li>
-            <li>Cải thiện trải nghiệm</li>
+            <li>
+              <span className="font-mono text-xs">mira_vid</span> — mã ngẫu nhiên nhận diện trình
+              duyệt, lưu tối đa 400 ngày, dùng để phân biệt khách mới và khách quay lại
+            </li>
+            <li>
+              <span className="font-mono text-xs">mira_sid</span> — mã ngẫu nhiên của một phiên
+              truy cập, hết hạn sau 30 phút không hoạt động
+            </li>
           </ul>
           <p className="text-sm md:text-base text-[#1F2933]">
-            Bạn có thể tắt cookies trong trình duyệt, nhưng một số tính năng có thể bị ảnh hưởng.
+            Cùng với đó, mỗi lượt truy cập được ghi nhận: địa chỉ IP, thông tin trình duyệt và hệ
+            điều hành (User-Agent), đường dẫn trang đã xem, thời điểm và thời lượng xem, trang giới
+            thiệu và tham số chiến dịch (UTM) nếu có. Địa chỉ IP được lưu ở dạng nguyên bản nhằm
+            phục vụ thống kê và phát hiện truy cập bất thường; chúng tôi không dùng dịch vụ tra cứu
+            vị trí của bên thứ ba.
+          </p>
+          <p className="text-sm md:text-base text-[#1F2933]">
+            Dữ liệu truy cập được lưu tối đa 18 tháng. Bạn có thể tắt cookies trong trình duyệt,
+            nhưng một số tính năng có thể bị ảnh hưởng.
           </p>
         </section>
 
@@ -100,6 +117,9 @@ export default function PrivacyPolicyPage() {
           <p className="text-sm md:text-base text-[#1F2933]">Bạn có quyền:</p>
           <ul className="list-disc pl-6 space-y-1 text-sm md:text-base text-[#1F2933]">
             <li>Yêu cầu xem, chỉnh sửa hoặc xóa thông tin cá nhân</li>
+            <li>
+              Yêu cầu xóa dữ liệu truy cập gắn với thiết bị của bạn, bao gồm địa chỉ IP đã lưu
+            </li>
             <li>Từ chối nhận thông tin marketing</li>
             <li>Yêu cầu ngừng xử lý dữ liệu của bạn</li>
           </ul>

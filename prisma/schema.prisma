@@ -1,0 +1,275 @@
+// Mọi DateTime đều dùng @db.Timestamptz(3): mặc định của Prisma là `timestamp` KHÔNG timezone,
+// khi đó `AT TIME ZONE 'Asia/Ho_Chi_Minh'` trong query thống kê sẽ lệch 7 tiếng mà không báo lỗi.
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Auth
+// ---------------------------------------------------------------------------
+
+enum AdminRole {
+  OWNER
+  ADMIN
+  VIEWER
+}
+
+model AdminUser {
+  id             String    @id @default(cuid())
+  email          String    @unique
+  name           String
+  /// "scrypt$N$r$p$<salt-b64>$<hash-b64>"
+  passwordHash   String
+  role           AdminRole @default(ADMIN)
+  isActive       Boolean   @default(true)
+  failedAttempts Int       @default(0)
+  lockedUntil    DateTime? @db.Timestamptz(3)
+  lastLoginAt    DateTime? @db.Timestamptz(3)
+  createdAt      DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime  @updatedAt @db.Timestamptz(3)
+
+  sessions     AdminSession[]
+  assigned     ContactSubmission[]     @relation("AssignedTo")
+  notes        SubmissionNote[]
+  statusEvents SubmissionStatusEvent[]
+}
+
+model AdminSession {
+  id String @id @default(cuid())
+  /// sha256(giá trị cookie thô), hex — không bao giờ lưu token gốc
+  tokenHash  String    @unique
+  userId     String
+  user       AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ip         String?
+  userAgent  String?
+  createdAt  DateTime  @default(now()) @db.Timestamptz(3)
+  /// mốc idle-timeout, bump trong after() mỗi lần render trang admin
+  lastSeenAt DateTime  @default(now()) @db.Timestamptz(3)
+  /// hạn tuyệt đối
+  expiresAt  DateTime  @db.Timestamptz(3)
+  revokedAt  DateTime? @db.Timestamptz(3)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  ip        String
+  email     String?
+  success   Boolean
+  createdAt DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([ip, createdAt])
+  @@index([email, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Lead / form submit
+// ---------------------------------------------------------------------------
+
+enum SubmissionStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL_SENT
+  NEGOTIATING
+  WON
+  LOST
+  SPAM
+  ARCHIVED
+}
+
+enum SubmissionPriority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum SubmissionSource {
+  WEBSITE_FORM
+  MANUAL
+  IMPORT
+}
+
+model ContactSubmission {
+  id          String  @id @default(cuid())
+  name        String
+  phone       String
+  email       String
+  company     String?
+  /// giữ nguyên chuỗi SERVICE_OPTIONS gửi lên từ form
+  serviceType String
+  message     String  @db.Text
+
+  status   SubmissionStatus   @default(NEW)
+  priority SubmissionPriority @default(NORMAL)
+  source   SubmissionSource   @default(WEBSITE_FORM)
+
+  assignedToId String?
+  assignedTo   AdminUser? @relation("AssignedTo", fields: [assignedToId], references: [id], onDelete: SetNull)
+
+  // Attribution — cố ý KHÔNG phải foreign key: beacon ghi DB trong after() nên
+  // form gửi ở giây đầu tiên có thể tới trước khi row VisitorSession tồn tại.
+  // FK thật sẽ reject insert và làm mất lead.
+  visitorId    String?
+  sessionId    String?
+  landingPath  String?
+  referrer     String?
+  referrerHost String?
+  utmSource    String?
+  utmMedium    String?
+  utmCampaign  String?
+  ip           String?
+  userAgent    String?
+
+  contactedAt DateTime? @db.Timestamptz(3)
+  closedAt    DateTime? @db.Timestamptz(3)
+  createdAt   DateTime  @default(now()) @db.Timestamptz(3)
+  updatedAt   DateTime  @updatedAt @db.Timestamptz(3)
+
+  notes        SubmissionNote[]
+  statusEvents SubmissionStatusEvent[]
+
+  @@index([createdAt(sort: Desc)])
+  @@index([status, createdAt(sort: Desc)])
+  @@index([assignedToId, status, createdAt(sort: Desc)])
+  @@index([serviceType, createdAt(sort: Desc)])
+  @@index([email])
+  @@index([sessionId])
+}
+
+model SubmissionNote {
+  id           String            @id @default(cuid())
+  submissionId String
+  submission   ContactSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  authorId     String?
+  author       AdminUser?        @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  body         String            @db.Text
+  createdAt    DateTime          @default(now()) @db.Timestamptz(3)
+
+  @@index([submissionId, createdAt])
+}
+
+model SubmissionStatusEvent {
+  id           String            @id @default(cuid())
+  submissionId String
+  submission   ContactSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  fromStatus   SubmissionStatus?
+  toStatus     SubmissionStatus
+  actorId      String?
+  actor        AdminUser?        @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  note         String?
+  createdAt    DateTime          @default(now()) @db.Timestamptz(3)
+
+  @@index([submissionId, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Analytics
+// ---------------------------------------------------------------------------
+
+enum DeviceType {
+  DESKTOP
+  MOBILE
+  TABLET
+  OTHER
+}
+
+enum TrafficChannel {
+  DIRECT
+  ORGANIC_SEARCH
+  PAID_SEARCH
+  SOCIAL
+  REFERRAL
+  EMAIL
+  INTERNAL
+  OTHER
+}
+
+model Visitor {
+  /// == giá trị cookie mira_vid (uuid)
+  id            String   @id
+  firstSeenAt   DateTime @default(now()) @db.Timestamptz(3)
+  lastSeenAt    DateTime @default(now()) @db.Timestamptz(3)
+  sessionCount  Int      @default(0)
+  lastIp        String?
+  lastUserAgent String?
+  /// nullable — chỗ cắm resolver geo sau này, hiện chỉ điền khi reverse proxy gửi header
+  country       String?
+  city          String?
+  isBot         Boolean  @default(false)
+
+  sessions VisitorSession[]
+
+  @@index([firstSeenAt])
+  @@index([lastSeenAt])
+}
+
+/// Denormalise mạnh: device/browser/os/channel/referrer/ip/converted/pageviewCount đều nằm
+/// ngay trên row session, nên mọi tỷ lệ của dashboard là 1 lần quét range trên 1 bảng, không join.
+model VisitorSession {
+  /// == giá trị cookie mira_sid (uuid)
+  id        String  @id
+  visitorId String
+  visitor   Visitor @relation(fields: [visitorId], references: [id], onDelete: Cascade)
+
+  startedAt     DateTime @default(now()) @db.Timestamptz(3)
+  lastEventAt   DateTime @default(now()) @db.Timestamptz(3)
+  pageviewCount Int      @default(0)
+  /// Visitor.sessionCount tại thời điểm tạo phiên — = 1 nghĩa là khách mới
+  sessionCountAtStart Int @default(1)
+
+  entryPath    String
+  exitPath     String
+  referrer     String?
+  referrerHost String?
+  channel      TrafficChannel @default(DIRECT)
+  utmSource    String?
+  utmMedium    String?
+  utmCampaign  String?
+
+  ip          String?
+  userAgent   String?
+  deviceType  DeviceType @default(OTHER)
+  browserName String?
+  osName      String?
+  screenWidth Int?
+  language    String?
+  country     String?
+  city        String?
+  isBot       Boolean    @default(false)
+
+  converted   Boolean   @default(false)
+  convertedAt DateTime? @db.Timestamptz(3)
+
+  pageViews PageView[]
+
+  @@index([startedAt])
+  @@index([visitorId, startedAt])
+}
+
+model PageView {
+  /// Int chứ không BigInt: BigInt throw "Do not know how to serialize a BigInt" ở ranh giới RSC
+  id         Int            @id @default(autoincrement())
+  sessionId  String
+  session    VisitorSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  visitorId  String
+  path       String
+  title      String?
+  referrer   String?
+  occurredAt DateTime       @default(now()) @db.Timestamptz(3)
+  durationMs Int?
+  isBot      Boolean        @default(false)
+
+  @@index([occurredAt, path])
+  @@index([sessionId, occurredAt])
+}

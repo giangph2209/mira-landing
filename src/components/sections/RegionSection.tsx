@@ -9,6 +9,7 @@ import {
   createCoordinates,
 } from "@vnedyalk0v/react19-simple-maps";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 type RegionMarker = {
   id: string;
@@ -176,11 +177,14 @@ export default function RegionSection() {
     <section id="region" className="bg-white py-14 lg:py-16">
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
-          <header className="mb-8 text-center sm:mb-10 lg:mb-12">
-            <h2 className="font-heading text-[clamp(1.75rem,4vw,2.75rem)] font-bold leading-tight text-primary">
-              Khu vực khách hàng
-            </h2>
-          </header>
+          <SectionHeader
+            eyebrow="Vietnam · Japan"
+            title={
+              <>
+                Khu vực <span className="text-accent">khách hàng</span>
+              </>
+            }
+          />
         </Reveal>
 
         <Reveal delay={100}>

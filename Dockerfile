@@ -7,8 +7,16 @@ WORKDIR /app
 # dependencies (chỉ prod — đây là node_modules sẽ đi vào image cuối)
 FROM base AS deps
 
-# openssl: engine musl của Prisma link tới libssl
-RUN apk add --no-cache libc6-compat openssl
+# CỐ Ý KHÔNG cài libc6-compat.
+#
+# libc6-compat dựng symlink ld-linux-x86-64.so.2, khiến detect-libc (npm dùng để lọc
+# optionalDependencies) tưởng đây là glibc và cài @next/swc-linux-x64-gnu. Stage runner
+# không có gói đó nên binary gnu không load được, Next tụt xuống fallback WASM, và vì
+# `next start` cần SWC để transpile next.config.ts nên container chết ngay lúc khởi động.
+#
+# Bỏ libc6-compat -> detect-libc báo đúng musl -> npm cài @next/swc-linux-x64-musl.
+# Prisma không cần nó: binaryTargets đã khai linux-musl-openssl-3.0.x, chỉ cần openssl.
+RUN apk add --no-cache openssl
 
 COPY package.json package-lock.json ./
 # PHẢI copy prisma/ trước npm ci: postinstall của prisma chạy `prisma generate`,
@@ -17,10 +25,16 @@ COPY prisma ./prisma
 
 RUN npm ci --omit=dev
 
+# Chốt chặn: biến lỗi runtime im lặng ở trên thành lỗi build ồn ào.
+RUN test -d node_modules/@next/swc-linux-x64-musl \
+  || (echo "LOI: thieu @next/swc-linux-x64-musl (npm nhan nham libc?)"; ls node_modules/@next; exit 1)
+
 # builder
 FROM base AS builder
 
-RUN apk add --no-cache libc6-compat openssl
+# Cùng lý do như stage deps — builder cũng cần SWC musl để `next build` chạy native
+# thay vì bò qua fallback WASM.
+RUN apk add --no-cache openssl
 
 COPY package.json package-lock.json ./
 COPY prisma ./prisma
@@ -51,21 +65,21 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
+# --chown ngay lúc COPY, không `chown -R` sau: chown -R trên node_modules đẻ thêm một
+# layer nhân đôi vài trăm MB.
+COPY --from=deps --chown=node:node /app/node_modules ./node_modules
+COPY --from=builder --chown=node:node /app/.next ./.next
+COPY --from=builder --chown=node:node /app/public ./public
 # prisma/ cần cho `prisma migrate deploy` ở entrypoint và cho lệnh seed
-COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/package.json ./package.json
+COPY --from=builder --chown=node:node /app/prisma ./prisma
+COPY --from=builder --chown=node:node /app/package.json ./package.json
 # `next start` đọc lại next.config.ts TỪ ĐĨA lúc khởi động. Thiếu file này thì toàn bộ
 # cấu hình images (avif/webp, dangerouslyAllowSVG, CSP) im lặng quay về mặc định.
-COPY --from=builder /app/next.config.ts ./next.config.ts
-COPY docker-entrypoint.sh ./docker-entrypoint.sh
+COPY --from=builder --chown=node:node /app/next.config.ts ./next.config.ts
+COPY --chown=node:node docker-entrypoint.sh ./docker-entrypoint.sh
 
-RUN chmod +x ./docker-entrypoint.sh \
-  # .next/cache là nơi Next ghi ảnh đã tối ưu lúc chạy; user `node` phải ghi được.
-  && mkdir -p .next/cache \
-  && chown -R node:node /app/.next
+# .next/cache là nơi Next ghi ảnh đã tối ưu lúc chạy; user `node` phải ghi được.
+RUN chmod +x ./docker-entrypoint.sh && mkdir -p .next/cache && chown node:node .next/cache
 
 USER node
 

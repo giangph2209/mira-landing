@@ -1,7 +1,10 @@
 import type { MetadataRoute } from "next";
+import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.REACT_APP_BASE_URL || "https://mira.vn";
+  // Dùng chung SITE.url với robots.ts và metadata — trước đây file này đọc
+  // REACT_APP_BASE_URL riêng nên sitemap.xml trỏ sang domain khác hẳn phần còn lại.
+  const baseUrl = SITE.url;
 
   return [
     {

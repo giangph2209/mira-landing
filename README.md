@@ -1,4 +1,4 @@
-# mira-landing
+# dvl-landing (dvltechco.com)
 
 Landing page + khu vực quản trị của DVL Tech. Next.js 16 (App Router, Turbopack), React 19,
 Tailwind v4, PostgreSQL + Prisma.

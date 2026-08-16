@@ -3,7 +3,7 @@
 services:
   postgres:
     image: postgres:17-alpine
-    container_name: mira-postgres
+    container_name: dvltechco-postgres
     restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER}

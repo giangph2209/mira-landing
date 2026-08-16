@@ -38,7 +38,7 @@ export default function LoginForm({ nextPath }: { nextPath: string }) {
           autoFocus
           defaultValue={state.email ?? ""}
           className={inputClass}
-          placeholder="admin@muratech.com"
+          placeholder="admin@dvltechco.com"
         />
       </div>
 

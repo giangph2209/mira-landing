@@ -1,0 +1,33 @@
+# Không có file này thì `COPY . .` ở stage builder sẽ nuốt cả node_modules của host
+# (binary Windows/glibc, hỏng trên Alpine) và .env thật (bí mật bị nướng vào image).
+
+.git
+.gitignore
+
+node_modules
+.next
+out
+build
+coverage
+
+# .env thật chỉ được nạp lúc chạy qua `env_file:` của compose, KHÔNG bao giờ vào image
+.env
+.env.*
+!.env.example
+
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+Dockerfile
+.dockerignore
+docker-compose.yml
+deploy.sh
+README.md
+AGENTS.md
+CLAUDE.md
+.vscode
+.idea
+.DS_Store

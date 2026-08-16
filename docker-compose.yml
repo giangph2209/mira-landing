@@ -25,10 +25,32 @@ services:
     # mới truy cập được.
 
   nextjs:
-    build: .
-    container_name: dclandingpage
+    build:
+      context: .
+      args:
+        # NEXT_PUBLIC_* bị inline vào bundle lúc build, `env_file` lúc chạy không đổi được.
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+    # nginx proxy_pass tới http://dvltechco:3000 — tên container CHÍNH LÀ hostname mà
+    # Docker DNS phân giải trên network `web`. Đổi tên ở đây là hỏng reverse proxy.
+    container_name: dvltechco
     restart: always
     env_file: .env
+    # Cố ý KHÔNG `ports:` — nginx nằm cùng network `web` nên gọi thẳng cổng 3000 trong
+    # container; publish ra host chỉ mở thêm đường vòng qua HTTPS.
+    expose:
+      - "3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
     depends_on:
       postgres:
         # Không có healthcheck thì app đua với DB lúc khởi động nguội và crash-loop;

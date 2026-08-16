@@ -2,7 +2,9 @@ export const SITE = {
   name: "Mura Tech",
   legalName: "CÔNG TY CỔ PHẦN CÔNG NGHỆ DVL",
   taxCode: "0111398643",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://muratech.com",
+  // `||` chứ không phải `??`: build arg không truyền sẽ inline thành chuỗi rỗng, và ""
+  // lọt qua `??` — mọi URL tuyệt đối (canonical, OG, JSON-LD) sẽ hỏng im lặng.
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://dvltechco.com",
   locale: "vi_VN",
   email: "dvltechs@gmail.com",
   phone: "0387.989.300",

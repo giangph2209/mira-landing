@@ -7,7 +7,7 @@ import { inputClass, labelClass } from "@/components/ui/form-classes";
 import {
   changePassword,
   type ChangePasswordState,
-} from "@/app/admin/(app)/account/actions";
+} from "@/app/(portal)/admin/(app)/account/actions";
 
 const initial: ChangePasswordState = {};
 

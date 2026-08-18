@@ -6,28 +6,33 @@ import { ArrowRightIcon } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { inputClass, labelClass } from "@/components/ui/form-classes";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { SITE } from "@/lib/site";
 
-const CONTACT_ITEMS = [
-  { id: "email", label: "Email", value: SITE.email, Icon: Mail },
-  { id: "phone", label: "Phone", value: SITE.phone, Icon: Phone },
-  { id: "address", label: "Address", value: SITE.address.full, Icon: MapPin },
+type ContactId = keyof Dictionary["cta"]["contact"];
+type ServiceId = keyof Dictionary["cta"]["serviceOptions"];
+
+const CONTACT_ITEMS: { id: ContactId; value: string; Icon: typeof Mail }[] = [
+  { id: "email", value: SITE.email, Icon: Mail },
+  { id: "phone", value: SITE.phone, Icon: Phone },
+  { id: "address", value: SITE.address.full, Icon: MapPin },
 ];
 
-const SOCIALS = [
-  { id: "github", label: "GitHub", href: "#" },
-  { id: "x", label: "X", href: "#" },
-  { id: "linkedin", label: "LinkedIn", href: "#" },
-  { id: "slack", label: "Slack", href: "#" },
-];
-
-const SERVICE_OPTIONS = [
-  "Tư vấn xây dựng dự án phần mềm",
-  "Phát triển phần mềm",
-  "Tích hợp hệ thống",
-  "Bảo trì & vận hành",
-  "Tư vấn công nghệ",
-  "Khác",
+/**
+ * `value` là thứ được GỬI LÊN API và lưu vào cột ContactSubmission.serviceType,
+ * còn nhãn hiển thị mới lấy từ dictionary.
+ *
+ * Cố ý KHÔNG gửi nhãn đã dịch: admin nhóm và lọc theo giá trị này (xem
+ * listServiceTypes trong src/lib/submissions.ts), dịch nó sẽ làm cùng một dịch vụ
+ * bị tách thành ba nhóm khác nhau tùy ngôn ngữ khách đang xem.
+ */
+const SERVICE_OPTIONS: { id: ServiceId; value: string }[] = [
+  { id: "consulting", value: "Tư vấn xây dựng dự án phần mềm" },
+  { id: "development", value: "Phát triển phần mềm" },
+  { id: "integration", value: "Tích hợp hệ thống" },
+  { id: "maintenance", value: "Bảo trì & vận hành" },
+  { id: "techAdvisory", value: "Tư vấn công nghệ" },
+  { id: "other", value: "Khác" },
 ];
 
 type FormState = {
@@ -44,7 +49,7 @@ type SubmitStatus = {
   message: string;
 } | null;
 
-export default function CTASection() {
+export default function CTASection({ dict }: { dict: Dictionary["cta"] }) {
   const [form, setForm] = useState<FormState>({
     fullName: "",
     email: "",
@@ -82,7 +87,7 @@ export default function CTASection() {
     ) {
       setSubmitStatus({
         type: "error",
-        message: "Vui lòng kiểm tra lại thông tin bắt buộc.",
+        message: dict.errors.missingFields,
       });
       return;
     }
@@ -90,7 +95,7 @@ export default function CTASection() {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
       setSubmitStatus({
         type: "error",
-        message: "Email không hợp lệ.",
+        message: dict.errors.invalidEmail,
       });
       return;
     }
@@ -112,32 +117,28 @@ export default function CTASection() {
         }),
       });
 
+      // API trả message tiếng Việt cứng. Nếu hiển thị thẳng thì khách đọc bản
+      // /en hay /ja sẽ thấy lỗi tiếng Việt, nên chỉ dùng statusCode và tự tra
+      // chuỗi trong dictionary.
       const data = (await res.json().catch(() => null)) as {
         statusCode?: number;
-        message?: string;
       } | null;
 
       if (!data || data.statusCode !== 201) {
         setSubmitStatus({
           type: "error",
           message:
-            data?.message ||
-            "Đã xảy ra lỗi khi gửi yêu cầu, vui lòng thử lại sau.",
+            data?.statusCode === 400 ? dict.errors.missingFields : dict.errors.server,
         });
         return;
       }
 
       setHasSubmitted(true);
-      setSubmitStatus({
-        type: "success",
-        message:
-          data.message ||
-          "Cảm ơn bạn đã liên hệ, chúng tôi sẽ phản hồi sớm nhất.",
-      });
+      setSubmitStatus({ type: "success", message: dict.success.description });
     } catch {
       setSubmitStatus({
         type: "error",
-        message: "Không thể kết nối tới máy chủ, vui lòng thử lại sau.",
+        message: dict.errors.network,
       });
     } finally {
       setIsSubmitting(false);
@@ -152,14 +153,14 @@ export default function CTASection() {
             <SectionHeader
               align="left"
               className="!mb-0"
-              eyebrow="Liên hệ"
+              eyebrow={dict.eyebrow}
               title={
                 <>
-                  Bắt đầu dự án cùng{" "}
-                  <span className="text-accent">DVL Tech</span>
+                  {dict.titleBefore}
+                  <span className="text-accent">{dict.titleAccent}</span>
                 </>
               }
-              description="Bạn đang có ý tưởng xây dựng một hệ thống mới, cần phát triển phần mềm hoặc muốn nâng cấp hệ thống hiện tại? Hãy liên hệ với DVL Tech để cùng trao đổi về dự án."
+              description={dict.description}
             />
 
             <div className="flex flex-col gap-4">
@@ -182,7 +183,7 @@ export default function CTASection() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-medium text-primary">
-                      {item.label}
+                      {dict.contact[item.id]}
                     </p>
                     <p className=" text-[15px] font-semibold text-text-dark">
                       {item.value}
@@ -221,11 +222,10 @@ export default function CTASection() {
                   <div className="h-6 w-6 rounded bg-primary/40" aria-hidden />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-primary-dark">
-                  Gửi yêu cầu
+                  {dict.success.title}
                 </h3>
                 <p className="mt-2 text-text-gray">
-                  {submitStatus?.message ||
-                    "We usually respond within 24 hours."}
+                  {submitStatus?.message || dict.success.description}
                 </p>
               </div>
             ) : (
@@ -236,14 +236,14 @@ export default function CTASection() {
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label htmlFor="contact-name" className={labelClass}>
-                      Họ và tên <span className="text-red-500">*</span>
+                      {dict.form.name} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="contact-name"
                       type="text"
                       required
                       autoComplete="name"
-                      placeholder="Nguyễn Văn A"
+                      placeholder={dict.form.namePlaceholder}
                       value={form.fullName}
                       onChange={update("fullName")}
                       disabled={isSubmitting}
@@ -253,14 +253,14 @@ export default function CTASection() {
 
                   <div>
                     <label htmlFor="contact-phone" className={labelClass}>
-                      Số điện thoại <span className="text-red-500">*</span>
+                      {dict.form.phone} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="contact-phone"
                       type="tel"
                       required
                       autoComplete="tel"
-                      placeholder="09xx xxx xxx"
+                      placeholder={dict.form.phonePlaceholder}
                       value={form.phone}
                       onChange={update("phone")}
                       disabled={isSubmitting}
@@ -270,14 +270,14 @@ export default function CTASection() {
 
                   <div>
                     <label htmlFor="contact-email" className={labelClass}>
-                      Email <span className="text-red-500">*</span>
+                      {dict.form.email} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="contact-email"
                       type="email"
                       required
                       autoComplete="email"
-                      placeholder="ten@congty.com"
+                      placeholder={dict.form.emailPlaceholder}
                       value={form.email}
                       onChange={update("email")}
                       disabled={isSubmitting}
@@ -287,13 +287,13 @@ export default function CTASection() {
 
                   <div>
                     <label htmlFor="contact-company" className={labelClass}>
-                      Công ty
+                      {dict.form.company}
                     </label>
                     <input
                       id="contact-company"
                       type="text"
                       autoComplete="organization"
-                      placeholder="Tên doanh nghiệp"
+                      placeholder={dict.form.companyPlaceholder}
                       value={form.company}
                       onChange={update("company")}
                       disabled={isSubmitting}
@@ -304,7 +304,7 @@ export default function CTASection() {
 
                 <div className="mt-4">
                   <label htmlFor="contact-service" className={labelClass}>
-                    Bạn đang cần hỗ trợ về?{" "}
+                    {dict.form.service}{" "}
                     <span className="text-red-500">*</span>
                   </label>
                   <div className="relative">
@@ -319,15 +319,15 @@ export default function CTASection() {
                       }`}
                     >
                       <option value="" disabled>
-                        Chọn nhu cầu của bạn
+                        {dict.form.servicePlaceholder}
                       </option>
                       {SERVICE_OPTIONS.map((option) => (
                         <option
-                          key={option}
-                          value={option}
+                          key={option.id}
+                          value={option.value}
                           className="text-text-dark"
                         >
-                          {option}
+                          {dict.serviceOptions[option.id]}
                         </option>
                       ))}
                     </select>
@@ -341,13 +341,13 @@ export default function CTASection() {
 
                 <div className="mt-4">
                   <label htmlFor="contact-message" className={labelClass}>
-                    Nội dung <span className="text-red-500">*</span>
+                    {dict.form.message} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="contact-message"
                     rows={5}
                     required
-                    placeholder="Hãy mô tả ngắn gọn nhu cầu hoặc dự án của bạn."
+                    placeholder={dict.form.messagePlaceholder}
                     value={form.message}
                     onChange={update("message")}
                     disabled={isSubmitting}
@@ -360,7 +360,7 @@ export default function CTASection() {
                   disabled={isSubmitting}
                   className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-light to-primary-dark px-8 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_28px_rgba(14,128,63,0.35)] transition-transform hover:scale-[1.02] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100 sm:w-auto"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? dict.form.submitting : dict.form.submit}
                   {!isSubmitting ? <ArrowRightIcon size={18} /> : null}
                 </button>
 

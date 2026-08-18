@@ -5,35 +5,16 @@ import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
+import { t } from "@/lib/i18n/format";
 
-const TESTIMONIALS = [
-  {
-    paragraphs: [
-      "When we assigned comprehensive quality evaluation to Mura System, I was also consulted through a third party. We appreciate Mura System's proactive approach and effective communication, and that they realized user-oriented system quality design and met our requirements.",
-      "We will continue to leverage their talents and technology in our future projects with high expectations for their support. Mura System is a trusted partner, and I highly recommend their excellent service and team. / We are very satisfied with Mura System's services.",
-    ],
-    name: "Mr. Takeyama Kazuyuki, Manager",
-    company: "Systena Corporation, Japan",
-    logoSrc: "/images/bg/systena.png",
-  },
-  {
-    paragraphs: [
-      "Mura Solution's engineering team demonstrated exceptional expertise and always met deadlines. They truly understand our business and propose innovative solutions that deliver measurable results.",
-      "Their collaborative approach and transparent communication made the entire engagement smooth and productive. We look forward to continuing our partnership on future initiatives.",
-    ],
-    name: "Sarah Johnson, VP Engineering",
-    company: "Unqork, United States",
-    logoSrc: "/images/bg/systena.png",
-  },
-  {
-    paragraphs: [
-      "We have partnered with Mura Solution for over three years, and every project has exceeded our expectations. The quality of their code and professional delivery process is outstanding.",
-      "They consistently bring strong technical leadership and reliable execution. Mura Solution is a partner we trust for complex, mission-critical software development.",
-    ],
-    name: "Michael Torres, Director of Technology",
-    company: "Ness, Global",
-    logoSrc: "/images/bg/systena.png",
-  },
+type TestimonialId = keyof Dictionary["testimonials"]["items"];
+
+/** Thứ tự hiển thị + logo; lời chứng thực lấy theo id từ dictionary. */
+const TESTIMONIALS: { id: TestimonialId; logoSrc: string }[] = [
+  { id: "systena", logoSrc: "/images/bg/systena.png" },
+  { id: "unqork", logoSrc: "/images/bg/systena.png" },
+  { id: "ness", logoSrc: "/images/bg/systena.png" },
 ];
 
 const DOT_GRID =
@@ -75,7 +56,11 @@ function CloseQuoteDecor() {
   );
 }
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({
+  dict,
+}: {
+  dict: Dictionary["testimonials"];
+}) {
   const [active, setActive] = useState(0);
   const total = TESTIMONIALS.length;
   const isFirst = active === 0;
@@ -98,6 +83,7 @@ export default function TestimonialsSection() {
     ].join(" ");
 
   const current = TESTIMONIALS[active];
+  const currentCopy = dict.items[current.id];
 
   return (
     <section
@@ -132,11 +118,11 @@ export default function TestimonialsSection() {
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
         <Reveal>
           <SectionHeader
-            eyebrow="Testimonials"
+            eyebrow={dict.eyebrow}
             title={
               <>
-                Khách hàng nói gì về{" "}
-                <span className="text-accent">DVL Tech</span>
+                {dict.titleBefore}
+                <span className="text-accent">{dict.titleAccent}</span>
               </>
             }
           />
@@ -161,7 +147,7 @@ export default function TestimonialsSection() {
                       <span className="mb-5 inline-flex items-center rounded-2xl bg-white px-4 py-3 shadow-[0_8px_24px_rgba(13,138,67,0.14)] ring-1 ring-primary/8">
                         <Image
                           src={current.logoSrc}
-                          alt={current.company}
+                          alt={currentCopy.company}
                           width={140}
                           height={40}
                           className="h-7 w-auto object-contain"
@@ -170,14 +156,14 @@ export default function TestimonialsSection() {
                     ) : null}
 
                     <p className="font-heading text-lg font-bold leading-tight text-primary-dark lg:text-xl">
-                      {current.name}
+                      {currentCopy.name}
                     </p>
                     <span
                       aria-hidden
                       className="my-2.5 block h-0.5 w-8 rounded-full bg-primary-light"
                     />
                     <p className="text-sm text-text-gray lg:text-[15px]">
-                      {current.company}
+                      {currentCopy.company}
                     </p>
                   </div>
                 </aside>
@@ -191,11 +177,11 @@ export default function TestimonialsSection() {
                   >
                     {TESTIMONIALS.map((item) => (
                       <article
-                        key={item.name}
+                        key={item.id}
                         className="flex w-full shrink-0 flex-col px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-10"
                       >
                         <div className="relative flex flex-1 flex-col justify-center gap-4 pr-0 sm:gap-5 sm:pr-4">
-                          {item.paragraphs.map((paragraph) => (
+                          {dict.items[item.id].paragraphs.map((paragraph) => (
                             <p
                               key={paragraph.slice(0, 32)}
                               className="text-sm leading-[1.75] text-text-dark sm:text-[15px] lg:text-base"
@@ -220,7 +206,7 @@ export default function TestimonialsSection() {
                         key={index}
                         type="button"
                         onClick={() => setActive(index)}
-                        aria-label={`Go to testimonial ${index + 1}`}
+                        aria-label={t(dict.goTo, { index: index + 1 })}
                         aria-current={index === active ? "true" : undefined}
                         className={
                           index === active
@@ -244,7 +230,7 @@ export default function TestimonialsSection() {
                     type="button"
                     onClick={prev}
                     disabled={isFirst}
-                    aria-label="Previous testimonial"
+                    aria-label={dict.previous}
                     className={navButtonClass(isFirst)}
                   >
                     <ChevronLeftIcon className="h-4 w-4" />
@@ -253,7 +239,7 @@ export default function TestimonialsSection() {
                     type="button"
                     onClick={next}
                     disabled={isLast}
-                    aria-label="Next testimonial"
+                    aria-label={dict.next}
                     className={navButtonClass(isLast)}
                   >
                     <ChevronRightIcon className="h-4 w-4" />

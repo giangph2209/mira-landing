@@ -7,76 +7,29 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
-type TeamStat = {
-  value: string;
-  label: string;
-  detail: string;
-};
+type StatId = keyof Dictionary["team"]["stats"];
+type RoleId = keyof Dictionary["team"]["roles"];
 
-type TeamRole = {
-  id: string;
-  count: string;
-  title: string;
-  description: string;
-  Icon: LucideIcon;
-};
-
-const TEAM_STATS: TeamStat[] = [
-  {
-    value: "20",
-    label: "Nhân sự",
-    detail: "Đội ngũ gồm: 3 PM · 12 Developers · 5 Tester/QA",
-  },
-  {
-    value: "8–15",
-    label: "Năm kinh nghiệm",
-    detail: "Kinh nghiệm của đội ngũ sáng lập và nhân sự chủ chốt.",
-  },
-  {
-    value: "5",
-    label: "Dự án đang vận hành",
-    detail:
-      "Các dự án phần mềm đang được DVL Tech vận hành và hỗ trợ cho khách hàng tại Nhật Bản.",
-  },
-  {
-    value: "2",
-    label: "Thị trường",
-    detail: "Việt Nam · Nhật Bản",
-  },
+/** Con số không dịch; nhãn và diễn giải lấy từ dictionary theo id. */
+const TEAM_STATS: { id: StatId; value: string }[] = [
+  { id: "people", value: "20" },
+  { id: "experience", value: "8–15" },
+  { id: "projects", value: "5" },
+  { id: "markets", value: "2" },
 ];
 
-const TEAM_ROLES: TeamRole[] = [
-  {
-    id: "pm",
-    count: "3",
-    title: "Project Managers",
-    description:
-      "Quản lý phạm vi, tiến độ, nguồn lực và phối hợp giữa các bên trong dự án.",
-    Icon: ClipboardList,
-  },
-  {
-    id: "dev",
-    count: "12",
-    title: "Developers",
-    description:
-      "Phát triển và triển khai các sản phẩm, ứng dụng và hệ thống phần mềm.",
-    Icon: CodeXml,
-  },
-  {
-    id: "qa",
-    count: "5",
-    title: "Tester / QA",
-    description:
-      "Kiểm thử và kiểm soát chất lượng sản phẩm trong quá trình phát triển và vận hành.",
-    Icon: SearchCheck,
-  },
+const TEAM_ROLES: { id: RoleId; count: string; Icon: LucideIcon }[] = [
+  { id: "pm", count: "3", Icon: ClipboardList },
+  { id: "dev", count: "12", Icon: CodeXml },
+  { id: "qa", count: "5", Icon: SearchCheck },
 ];
 
 const DOT_GRID =
   "radial-gradient(circle at center, rgba(255,255,255,0.16) 1px, transparent 1px)";
 
-function StatsBand() {
+function StatsBand({ dict }: { dict: Dictionary["team"]["stats"] }) {
   return (
     <div className="gradient-primary relative overflow-hidden rounded-[24px] p-6 shadow-[0_18px_50px_rgba(5,85,55,0.28)] sm:rounded-[28px] sm:p-8 lg:p-10">
       <div
@@ -96,7 +49,7 @@ function StatsBand() {
       <div className="relative grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
         {TEAM_STATS.map((stat, index) => (
           <div
-            key={stat.label}
+            key={stat.id}
             className={[
               "relative flex flex-col lg:px-7",
               index === 0 ? "lg:pl-0" : "",
@@ -115,10 +68,10 @@ function StatsBand() {
               {stat.value}
             </span>
             <span className="mt-2.5 text-sm font-semibold uppercase tracking-[0.1em] text-primary-pale sm:text-[15px]">
-              {stat.label}
+              {dict[stat.id].label}
             </span>
             <span className="mt-2 text-[13px] leading-relaxed text-white/75">
-              {stat.detail}
+              {dict[stat.id].detail}
             </span>
           </div>
         ))}
@@ -127,8 +80,17 @@ function StatsBand() {
   );
 }
 
-function RoleCard({ role, isLast }: { role: TeamRole; isLast: boolean }) {
-  const { Icon, count, title, description } = role;
+function RoleCard({
+  role,
+  copy,
+  isLast,
+}: {
+  role: (typeof TEAM_ROLES)[number];
+  copy: Dictionary["team"]["roles"][RoleId];
+  isLast: boolean;
+}) {
+  const { Icon, count } = role;
+  const { title, description } = copy;
 
   return (
     <div className="group relative h-full">
@@ -187,7 +149,7 @@ function RoleCard({ role, isLast }: { role: TeamRole; isLast: boolean }) {
   );
 }
 
-export default function TeamSection() {
+export default function TeamSection({ dict }: { dict: Dictionary["team"] }) {
   return (
     <section
       id="team"
@@ -206,24 +168,29 @@ export default function TeamSection() {
         <Reveal>
           <SectionHeader
             className="!mb-0"
-            eyebrow="Our team"
+            eyebrow={dict.eyebrow}
             title={
               <>
-                Đội ngũ phía sau <span className="text-accent">mỗi dự án</span>
+                {dict.titleBefore}
+                <span className="text-accent">{dict.titleAccent}</span>
               </>
             }
-            description="DVL Tech xây dựng đội ngũ theo mô hình phối hợp giữa quản lý dự án, phát triển phần mềm và kiểm thử chất lượng."
+            description={dict.description}
           />
         </Reveal>
 
         <Reveal className="mt-8 lg:mt-10" delay={80}>
-          <StatsBand />
+          <StatsBand dict={dict.stats} />
         </Reveal>
 
         <div className="mt-4 grid grid-cols-1 gap-4 sm:gap-5 lg:mt-6 lg:grid-cols-3 lg:gap-6">
           {TEAM_ROLES.map((role, index) => (
             <Reveal key={role.id} className="h-full" delay={index * 90}>
-              <RoleCard role={role} isLast={index === TEAM_ROLES.length - 1} />
+              <RoleCard
+                role={role}
+                copy={dict.roles[role.id]}
+                isLast={index === TEAM_ROLES.length - 1}
+              />
             </Reveal>
           ))}
         </div>

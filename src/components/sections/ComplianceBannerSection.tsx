@@ -2,9 +2,15 @@ import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { ArrowRightIcon } from "@/components/ui/Icons";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
+import { t } from "@/lib/i18n/format";
 import { SITE } from "@/lib/site";
 
-export default function ComplianceBannerSection() {
+export default function ComplianceBannerSection({
+  dict,
+}: {
+  dict: Dictionary["compliance"];
+}) {
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto w-full max-w-7xl section-container">
@@ -18,25 +24,21 @@ export default function ComplianceBannerSection() {
                 className="!mb-0"
                 title={
                   <>
-                    Meet compliance requirements.
+                    {dict.titleLine1}
                     <br />
-                    Build <span className="text-accent">smarter trust.</span>
+                    {dict.titleLine2Before}
+                    <span className="text-accent">{dict.titleLine2Accent}</span>
                   </>
                 }
-                description={
-                  <>
-                    Use {SITE.name}&apos;s flexible building blocks to keep your
-                    customers&apos; data secure and compliant at all times.
-                  </>
-                }
+                description={t(dict.description, { name: SITE.name })}
               />
 
               <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                 <Button href="#contact" size="lg" className="w-full sm:w-auto" iconRight={<ArrowRightIcon size={18} />}>
-                  Request a demo
+                  {dict.ctaPrimary}
                 </Button>
                 <Button href="#contact" variant="outline" size="lg" className="w-full sm:w-auto">
-                  Call for us
+                  {dict.ctaSecondary}
                 </Button>
               </div>
             </div>

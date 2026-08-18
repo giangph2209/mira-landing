@@ -1,0 +1,627 @@
+{
+  "meta": {
+    "defaultTitle": "DVL Tech – Your trusted software delivery partner",
+    "description": "DVL Tech is a trusted software delivery partner. Custom software development, IT outsourcing, AI solutions and technology consulting for businesses in Vietnam and worldwide.",
+    "keywords": [
+      "DVL Tech",
+      "software development",
+      "software delivery",
+      "IT outsourcing Vietnam",
+      "custom software",
+      "custom software development",
+      "AI software",
+      "AI solutions",
+      "software consulting",
+      "technology partner",
+      "software implementation partner"
+    ],
+    "privacyTitle": "Privacy Policy"
+  },
+  "nav": {
+    "items": [
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Process",
+        "href": "#process"
+      },
+      {
+        "label": "Expertise",
+        "href": "#expertise"
+      },
+      {
+        "label": "Case studies",
+        "href": "#case-studies"
+      },
+      {
+        "label": "Clients",
+        "href": "#region"
+      }
+    ],
+    "contact": "Contact us",
+    "toggleMenu": "Toggle menu",
+    "mainNavLabel": "Main navigation",
+    "mobileNavLabel": "Mobile navigation",
+    "languageLabel": "Language"
+  },
+  "hero": {
+    "titleLine1": "Turning ideas",
+    "titleLine2": "into software that works",
+    "lead": "DVL Tech provides software consulting and development for businesses — from analysing your needs and shaping the plan to deploying and running the system.",
+    "experienceBefore": "With a team holding ",
+    "experienceHighlight": "8–15 years of experience in information technology",
+    "experienceAfter": ", DVL Tech works alongside businesses in Vietnam and Japan on software and digital transformation projects.",
+    "ctaPrimary": "Discuss your project",
+    "ctaSecondary": "Explore services",
+    "markets": [
+      "Vietnam",
+      "Japan"
+    ],
+    "marketsLabel": "Markets we operate in"
+  },
+  "partners": {
+    "logoAlt": "DVL Tech partner {name}"
+  },
+  "compliance": {
+    "titleLine1": "Meet compliance requirements.",
+    "titleLine2Before": "Build ",
+    "titleLine2Accent": "smarter trust.",
+    "description": "Use {name}'s flexible building blocks to keep your customers' data secure and compliant at all times.",
+    "ctaPrimary": "Request a demo",
+    "ctaSecondary": "Call us"
+  },
+  "certifications": {
+    "eyebrow": "Credentials",
+    "title": "Certifications"
+  },
+  "expertise": {
+    "eyebrow": "Tech stack",
+    "titleBefore": "Technical ",
+    "titleAccent": "Expertise",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "aiml": "AI / ML",
+      "cloud": "Cloud & DevOps",
+      "data": "Data"
+    }
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "titleBefore": "Development ",
+    "titleAccent": "Process",
+    "description": "A professional, transparent and effective software development process.",
+    "steps": {
+      "requirement": {
+        "title": "Requirement Analysis",
+        "subtitle": "",
+        "description": "Understanding your goals, needs and the business problem to be solved."
+      },
+      "design": {
+        "title": "Solution Design",
+        "subtitle": "",
+        "description": "Analysing requirements and shaping a solution that fits your context."
+      },
+      "development": {
+        "title": "Development",
+        "subtitle": "",
+        "description": "Designing, coding and building the functionality of the system."
+      },
+      "testing": {
+        "title": "Testing & QA",
+        "subtitle": "",
+        "description": "Testing the product and controlling quality before it goes live."
+      },
+      "deployment": {
+        "title": "Deployment",
+        "subtitle": "",
+        "description": "Bringing the system into the real environment and supporting the rollout."
+      },
+      "operation": {
+        "title": "Operation",
+        "subtitle": "",
+        "description": "Monitoring, supporting and keeping the system running reliably."
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "subtitle": "",
+        "description": "Updating, fixing, maintaining and improving the system as needs evolve."
+      }
+    }
+  },
+  "engagement": {
+    "eyebrow": "Engagement models",
+    "titleBefore": "Flexible ",
+    "titleAccent": "ways to work together",
+    "description": "DVL Tech can work with your business in several ways, depending on the scale, goals and requirements of each project.",
+    "learnMore": "Learn more about {title}",
+    "models": {
+      "projectBased": {
+        "title": "Project Based",
+        "description": "Suited to projects with a clear scope and defined goals. DVL Tech walks with you from requirement analysis through development and deployment."
+      },
+      "dedicatedTeam": {
+        "title": "Dedicated Team",
+        "description": "An engineering team provided to match your needs, suited to projects that require long-term development capacity."
+      },
+      "softwareConsulting": {
+        "title": "Software Consulting",
+        "description": "Advice on solutions, architecture, process and the direction of your software systems."
+      },
+      "maintenanceOperation": {
+        "title": "Maintenance & Operation",
+        "description": "Support for maintaining, operating, updating and improving the system after it goes live."
+      }
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Our work",
+    "titleBefore": "Case ",
+    "titleAccent": "Studies",
+    "viewAll": "See all projects",
+    "badge": "CASE STUDY",
+    "problemLabel": "The problem",
+    "involvementLabel": "What DVL Tech did",
+    "resultLabel": "Outcome",
+    "goTo": "View case study {index}",
+    "previous": "Previous case study",
+    "next": "Next case study",
+    "items": {
+      "lifecycle": {
+        "title": "Lifecycle",
+        "subtitle": "City services brought into one app",
+        "desc": "Lifecycle is a system for managing and tracking activity across a city, while giving residents a range of everyday services in one place.",
+        "features": [
+          "Shopping",
+          "Parks",
+          "Schools",
+          "Shelters",
+          "Chat",
+          "Call",
+          "Contact city authorities"
+        ],
+        "problem": "Bring a city's services and information together in a single app so residents can reach what they need far more easily.",
+        "involvement": [
+          "Requirement analysis",
+          "System development",
+          "Testing",
+          "Operation & maintenance"
+        ],
+        "result": "The system is in operation across several cities in Japan, and DVL Tech continues to support, maintain and improve it as needs evolve."
+      },
+      "foodWaste": {
+        "title": "Food waste reduction app",
+        "subtitle": "",
+        "desc": "An app connecting food suppliers with users, helping put products that would otherwise go to waste to good use.",
+        "features": [],
+        "problem": "Cut the volume of food thrown away and create a more convenient way to distribute food products that still have value.",
+        "involvement": [
+          "System development",
+          "Business logic implementation",
+          "Testing"
+        ],
+        "result": "The app was built to address a real social problem, pairing technology with the goal of reducing food waste."
+      },
+      "businessChat": {
+        "title": "Business Chat & Call Application",
+        "subtitle": "",
+        "desc": "An application supporting business-to-business communication through messaging and calling. It lets users exchange information quickly and conveniently as they work.",
+        "features": [],
+        "problem": "Create one central communication channel for businesses, making information exchange easier and reducing reliance on many separate tools.",
+        "involvement": [
+          "Feature development",
+          "Business logic implementation",
+          "Testing",
+          "Operational support"
+        ],
+        "result": "The system provides direct communication between businesses, serving the need to exchange information in a working environment."
+      },
+      "toyLabel": {
+        "title": "Toy Label Management System",
+        "subtitle": "",
+        "desc": "A system for managing the information and processes around labelling for toy products.",
+        "features": [],
+        "problem": "Centralise label information, reduce manual handling, and make it easy to track and update product details.",
+        "involvement": [
+          "Requirement analysis",
+          "System development",
+          "Testing",
+          "Operational support"
+        ],
+        "result": "The system digitised and centralised label information management, helping the business handle its data far more efficiently."
+      },
+      "accessibilitySupport": {
+        "title": "Accessibility support application",
+        "subtitle": "",
+        "desc": "An application built to help vulnerable people reach the information, services and support that fit their needs.",
+        "features": [],
+        "problem": "Create a technology tool that makes support information and services genuinely easy to reach in everyday life.",
+        "involvement": [
+          "System development",
+          "Business logic implementation",
+          "Testing",
+          "Operational support"
+        ],
+        "result": ""
+      }
+    },
+    "viewCase": "View case study"
+  },
+  "whyUs": {
+    "eyebrow": "Why DVL Tech",
+    "titleBefore": "Why ",
+    "titleAccent": "Us",
+    "description": "An experienced team. A professional process. The right technology.",
+    "reasons": {
+      "capability": {
+        "title": "Software development capability",
+        "description": "A team of PMs, developers and testers/QA, so every project is managed, built and quality-controlled through a clear process."
+      },
+      "ai": {
+        "title": "Applied AI",
+        "description": "DVL Tech actively applies AI within the development process to raise productivity and shorten delivery time."
+      },
+      "japan": {
+        "title": "Experience with Japanese clients",
+        "description": "DVL Tech currently works with clients in Japan and directly operates a number of software projects across different sectors."
+      },
+      "longTerm": {
+        "title": "A long-term partnership",
+        "description": "DVL Tech does not just build and hand over software — we also maintain, update, operate and improve the system."
+      },
+      "speed": {
+        "title": "Speed of delivery",
+        "description": "Focused on identifying the right problem, choosing a solution that fits, and delivering it efficiently."
+      },
+      "cost": {
+        "title": "Competitive cost",
+        "description": "Optimising resources and the development process to deliver solutions priced to match your needs and budget."
+      },
+      "stack": {
+        "title": "A broad technology base",
+        "description": "The team has experience across many technologies and platforms, including:"
+      },
+      "experience": {
+        "title": "Real-world experience",
+        "description": "DVL Tech was founded in 2026, and its founding team and key staff bring 8–15 years of experience in information technology and software development."
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "title": "Services",
+    "description": "DVL Tech provides technology services that support businesses from the earliest idea through development, deployment and day-to-day operation.",
+    "tagline": "Technology across the whole project lifecycle",
+    "featuredBadge": "Flagship service",
+    "featuredCta": "Discuss your project",
+    "items": {
+      "projectConsulting": {
+        "title": "Software project consulting",
+        "description": "Analysing needs, defining scope, building the plan and setting the solution direction for your software project. \nDVL Tech turns a business problem into a delivery plan that is clear, achievable and aligned with your real goals."
+      },
+      "analysisDesign": {
+        "title": "Consulting, analysis & design",
+        "description": "Business analysis, system requirements and a technology direction that fits what your organisation actually needs.",
+        "highlights": [
+          "Current-state review and business analysis",
+          "Detailed system requirement specification",
+          "Advice on choosing the right technology"
+        ]
+      },
+      "development": {
+        "title": "Software development & delivery",
+        "description": "Designing, developing and testing products, applications and software systems to your requirements."
+      },
+      "integration": {
+        "title": "System integration",
+        "description": "Integrating systems, applications and data sources into one coherent, efficient operating environment."
+      },
+      "operations": {
+        "title": "Application management & operation",
+        "description": "Administration, maintenance, updates and keeping software systems running reliably after go-live."
+      },
+      "security": {
+        "title": "Security & information safety",
+        "description": "Helping keep software products, information systems and data safe throughout operation."
+      },
+      "quality": {
+        "title": "Software quality assessment & audit",
+        "description": "Advising on, assessing and auditing software quality so you can control quality and reduce project risk.",
+        "highlights": [
+          "Functional and performance testing",
+          "Source code review and quality assessment",
+          "Audit of project documentation and process",
+          "Risk reporting and improvement recommendations"
+        ]
+      },
+      "techTransfer": {
+        "title": "Technology transfer",
+        "description": "Transferring the technology, systems and knowledge you need to run and evolve the solution independently."
+      },
+      "pricing": {
+        "title": "Software valuation consulting",
+        "description": "Advice and support for assessing and valuing software products and solutions to suit your needs."
+      },
+      "distribution": {
+        "title": "Software product distribution",
+        "description": "Supplying and distributing software products that match how your business uses and operates them."
+      },
+      "web": {
+        "title": "Websites & information systems",
+        "description": "Designing, hosting and maintaining websites and the information systems that support your operations.",
+        "highlights": [
+          "Website design and development",
+          "Hosting infrastructure and operation",
+          "Internal portal development",
+          "Maintenance, updates and content optimisation"
+        ]
+      },
+      "data": {
+        "title": "Data & databases",
+        "description": "Support for updating, searching, storing and processing data, and for getting value out of your databases."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "titleBefore": "What clients say about ",
+    "titleAccent": "DVL Tech",
+    "goTo": "Go to testimonial {index}",
+    "previous": "Previous testimonial",
+    "next": "Next testimonial",
+    "items": {
+      "systena": {
+        "paragraphs": [
+          "When we assigned comprehensive quality evaluation to DVL Tech, I was also consulted through a third party. We appreciate DVL Tech's proactive approach and effective communication, and that they realized user-oriented system quality design and met our requirements.",
+          "We will continue to leverage their talents and technology in our future projects with high expectations for their support. DVL Tech is a trusted partner, and I highly recommend their excellent service and team."
+        ],
+        "name": "Mr. Takeyama Kazuyuki, Manager",
+        "company": "Systena Corporation, Japan"
+      },
+      "unqork": {
+        "paragraphs": [
+          "DVL Tech's engineering team demonstrated exceptional expertise and always met deadlines. They truly understand our business and propose innovative solutions that deliver measurable results.",
+          "Their collaborative approach and transparent communication made the entire engagement smooth and productive. We look forward to continuing our partnership on future initiatives."
+        ],
+        "name": "Sarah Johnson, VP Engineering",
+        "company": "Unqork, United States"
+      },
+      "ness": {
+        "paragraphs": [
+          "We have partnered with DVL Tech for over three years, and every project has exceeded our expectations. The quality of their code and professional delivery process is outstanding.",
+          "They consistently bring strong technical leadership and reliable execution. DVL Tech is a partner we trust for complex, mission-critical software development."
+        ],
+        "name": "Michael Torres, Director of Technology",
+        "company": "Ness, Global"
+      }
+    }
+  },
+  "region": {
+    "eyebrow": "Vietnam · Japan",
+    "titleBefore": "Where our ",
+    "titleAccent": "clients are",
+    "mapError": "Could not load the map data.",
+    "mapLoading": "Loading map",
+    "countries": {
+      "vn": "Vietnam",
+      "jp": "Japan"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: 19 March 2026",
+    "intro": "At {company}, we respect and are committed to protecting the privacy of users, clients and partners who visit our website.",
+    "collect": {
+      "heading": "1. Information we collect",
+      "intro": "We may collect the following information when you use the website:",
+      "items": [
+        "Full name",
+        "Email",
+        "Phone number",
+        "Company name",
+        "Enquiry or consultation request content",
+        "Technical information: IP address, browser, device, browsing behaviour"
+      ]
+    },
+    "purpose": {
+      "heading": "2. How we use the information",
+      "intro": "The information is used to:",
+      "items": [
+        "Respond to enquiries and advise on services",
+        "Get in touch about projects and partnerships",
+        "Improve the user experience on the website",
+        "Analyse data to improve our products and marketing",
+        "Send service information (if you consent)"
+      ]
+    },
+    "sharing": {
+      "heading": "3. Sharing information",
+      "noSellBefore": "{company} ",
+      "noSellStrong": "does not sell, trade or rent",
+      "noSellAfter": " your personal information.",
+      "casesIntro": "We only share information in the following cases:",
+      "items": [
+        "With partners that help us operate the system (hosting, email, analytics, etc.)",
+        "When required by law enforcement authorities",
+        "When necessary to protect the legitimate interests of the company"
+      ]
+    },
+    "security": {
+      "heading": "4. Data security",
+      "intro": "We apply appropriate security measures:",
+      "items": [
+        "HTTPS/SSL encryption for data in transit",
+        "Restricted internal access",
+        "Data stored on secured systems"
+      ],
+      "caveat": "That said, no method of transmission or storage can be guaranteed absolutely secure."
+    },
+    "cookies": {
+      "heading": "5. Cookies and browsing data",
+      "intro": "The website uses an analytics system we run ourselves. We do not share the data with third parties and do not use it for advertising. The system sets two technical cookies:",
+      "visitorCookie": "a random identifier for your browser, stored for up to 400 days, used to distinguish new visitors from returning ones",
+      "sessionCookie": "a random identifier for a single visit, expiring after 30 minutes of inactivity",
+      "tracked": "Alongside these, each visit records: IP address, browser and operating system information (User-Agent), the page paths viewed, the time and duration of each view, the referring page and campaign parameters (UTM) where present. IP addresses are stored in their original form for statistics and to detect unusual access; we do not use any third-party geolocation lookup service.",
+      "retention": "Browsing data is retained for a maximum of 18 months. You can disable cookies in your browser, though some features may be affected."
+    },
+    "thirdParty": {
+      "heading": "6. Third-party links",
+      "body": "The website may contain links to other websites. {company} is not responsible for the content or privacy practices of those third parties."
+    },
+    "rights": {
+      "heading": "7. Your rights",
+      "intro": "You have the right to:",
+      "items": [
+        "Request access to, correction of, or deletion of your personal information",
+        "Request deletion of browsing data tied to your device, including stored IP addresses",
+        "Opt out of marketing communications",
+        "Request that we stop processing your data"
+      ]
+    },
+    "contactSection": {
+      "heading": "8. Contact",
+      "intro": "If you have any questions about this Privacy Policy, please get in touch:",
+      "company": "Company",
+      "taxCode": "Tax code",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    },
+    "updates": "{company} may update this Privacy Policy from time to time. Any changes will be published on the website."
+  },
+  "cta": {
+    "eyebrow": "Contact",
+    "titleBefore": "Start your project with ",
+    "titleAccent": "DVL Tech",
+    "description": "Have an idea for a new system, need software built, or want to modernise what you already run? Get in touch with DVL Tech and let's talk it through.",
+    "contact": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    },
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Jane Doe",
+      "phone": "Phone number",
+      "phonePlaceholder": "+84 9xx xxx xxx",
+      "email": "Email",
+      "emailPlaceholder": "you@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "service": "What do you need help with?",
+      "servicePlaceholder": "Select what you need",
+      "message": "Message",
+      "messagePlaceholder": "Briefly describe your needs or your project.",
+      "submit": "Send message",
+      "submitting": "Sending..."
+    },
+    "serviceOptions": {
+      "consulting": "Software project consulting",
+      "development": "Software development",
+      "integration": "System integration",
+      "maintenance": "Maintenance & operation",
+      "techAdvisory": "Technology advisory",
+      "other": "Something else"
+    },
+    "success": {
+      "title": "Request sent",
+      "description": "Thank you for reaching out — we will get back to you shortly."
+    },
+    "errors": {
+      "missingFields": "Please check the required fields.",
+      "invalidEmail": "That email address is not valid.",
+      "server": "Something went wrong while sending your request. Please try again later.",
+      "network": "Could not reach the server. Please try again later."
+    }
+  },
+  "team": {
+    "eyebrow": "Our team",
+    "titleBefore": "The team behind ",
+    "titleAccent": "every project",
+    "description": "DVL Tech builds its teams around close collaboration between project management, software development and quality assurance.",
+    "stats": {
+      "people": {
+        "label": "People",
+        "detail": "The team: 3 PMs · 12 Developers · 5 Testers/QA"
+      },
+      "experience": {
+        "label": "Years of experience",
+        "detail": "Experience across the founding team and key staff."
+      },
+      "projects": {
+        "label": "Projects in operation",
+        "detail": "Software projects DVL Tech currently operates and supports for clients in Japan."
+      },
+      "markets": {
+        "label": "Markets",
+        "detail": "Vietnam · Japan"
+      }
+    },
+    "roles": {
+      "pm": {
+        "title": "Project Managers",
+        "description": "Managing scope, schedule and resources, and coordinating between everyone involved."
+      },
+      "dev": {
+        "title": "Developers",
+        "description": "Building and shipping products, applications and software systems."
+      },
+      "qa": {
+        "title": "Tester / QA",
+        "description": "Testing and controlling product quality throughout development and operation."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Software Consulting & Development",
+    "capabilities": [
+      "Consulting",
+      "Software development",
+      "System integration",
+      "Operation & Maintenance"
+    ],
+    "markets": [
+      "Vietnam",
+      "Japan"
+    ],
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "contactTitle": "Contact",
+    "comingSoon": "Coming soon",
+    "updating": "To be updated",
+    "services": [
+      "Software project consulting",
+      "Software development",
+      "System integration",
+      "Software audit & verification",
+      "Maintenance & operation",
+      "Security & information safety",
+      "Technology transfer",
+      "Data & databases"
+    ],
+    "company": {
+      "about": "About DVL Tech",
+      "team": "Our Team",
+      "caseStudies": "Case Studies",
+      "careers": "Careers"
+    },
+    "contact": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address"
+    },
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    },
+    "rights": "© {year} DVL Tech. All rights reserved.",
+    "taxCode": "Tax code"
+  },
+  "floatingActions": {
+    "scrollTop": "Scroll back to top",
+    "hotline": "Open quick contact actions"
+  }
+}

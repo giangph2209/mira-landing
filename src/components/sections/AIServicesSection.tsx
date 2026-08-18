@@ -19,148 +19,61 @@ import {
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
-type Service = {
-  id: string;
-  no: string;
+type ServiceId = keyof Dictionary["services"]["items"];
+
+/** Phần copy của một dịch vụ; `highlights` chỉ có ở vài dịch vụ. */
+type ServiceCopy = {
   title: string;
   description: string;
+  highlights?: readonly string[];
+};
+
+type Service = {
+  /** khớp key trong dictionary.services.items */
+  id: ServiceId;
+  no: string;
   Icon: LucideIcon;
   /** flagship service — green surface + decorative orb */
   featured?: boolean;
-  badge?: string;
-  cta?: { label: string; href: string };
   /** bento span applied to the grid cell */
   span?: string;
   /** two-column cards lay their icon beside the text on lg */
   wide?: boolean;
-  /** sub-items — fills the taller/wider bento cells */
-  highlights?: string[];
 };
 
 const SERVICES: Service[] = [
   {
-    id: "project-consulting",
+    id: "projectConsulting",
     no: "01",
-    title: "Tư vấn xây dựng dự án phần mềm",
-    description:
-      "Phân tích nhu cầu, xác định phạm vi, xây dựng kế hoạch và định hướng giải pháp cho dự án phần mềm. \nDVL Tech giúp doanh nghiệp chuyển hóa bài toán nghiệp vụ thành một kế hoạch triển khai rõ ràng, khả thi và phù hợp với mục tiêu thực tế.",
     Icon: Lightbulb,
     featured: true,
-    badge: "Dịch vụ trọng tâm",
-    cta: { label: "Trao đổi về dự án", href: "#contact" },
     span: "sm:col-span-2 lg:col-span-2",
   },
-  {
-    id: "analysis-design",
-    no: "02",
-    title: "Tư vấn, phân tích & thiết kế",
-    description:
-      "Phân tích nghiệp vụ, yêu cầu hệ thống và xây dựng định hướng giải pháp công nghệ phù hợp với nhu cầu của doanh nghiệp.",
-    Icon: DraftingCompass,
-    highlights: [
-      "Khảo sát hiện trạng và phân tích nghiệp vụ",
-      "Đặc tả yêu cầu hệ thống chi tiết",
-      "Tư vấn lựa chọn công nghệ phù hợp",
-    ],
-  },
-  {
-    id: "development",
-    no: "03",
-    title: "Phát triển & sản xuất phần mềm",
-    description:
-      "Thiết kế, phát triển và kiểm thử các sản phẩm, ứng dụng và hệ thống phần mềm theo yêu cầu.",
-    Icon: CodeXml,
-  },
-  {
-    id: "integration",
-    no: "04",
-    title: "Tích hợp hệ thống",
-    description:
-      "Tích hợp các hệ thống, ứng dụng và nguồn dữ liệu nhằm tạo ra môi trường vận hành thống nhất và hiệu quả.",
-    Icon: Blocks,
-  },
-  {
-    id: "operations",
-    no: "05",
-    title: "Quản lý & vận hành ứng dụng",
-    description:
-      "Hỗ trợ quản trị, bảo trì, cập nhật và duy trì hoạt động ổn định của hệ thống phần mềm sau triển khai.",
-    Icon: MonitorCog,
-  },
-  {
-    id: "security",
-    no: "06",
-    title: "Bảo mật & an toàn thông tin",
-    description:
-      "Hỗ trợ đảm bảo an toàn cho sản phẩm phần mềm, hệ thống thông tin và dữ liệu trong quá trình vận hành.",
-    Icon: ShieldCheck,
-  },
+  { id: "analysisDesign", no: "02", Icon: DraftingCompass },
+  { id: "development", no: "03", Icon: CodeXml },
+  { id: "integration", no: "04", Icon: Blocks },
+  { id: "operations", no: "05", Icon: MonitorCog },
+  { id: "security", no: "06", Icon: ShieldCheck },
   {
     id: "quality",
     no: "07",
-    title: "Đánh giá & thẩm tra chất lượng phần mềm",
-    description:
-      "Tư vấn, đánh giá và thẩm tra chất lượng phần mềm nhằm giúp doanh nghiệp kiểm soát chất lượng và giảm thiểu rủi ro trong dự án.",
     Icon: ClipboardCheck,
-    span: "lg:col-span-2",
+    span: "sm:col-span-2 lg:col-span-2",
     wide: true,
-    highlights: [
-      "Kiểm thử chức năng và hiệu năng",
-      "Rà soát, đánh giá chất lượng mã nguồn",
-      "Thẩm tra tài liệu và quy trình dự án",
-      "Báo cáo rủi ro và khuyến nghị cải tiến",
-    ],
   },
-  {
-    id: "tech-transfer",
-    no: "08",
-    title: "Chuyển giao công nghệ",
-    description:
-      "Hỗ trợ chuyển giao công nghệ, hệ thống và kiến thức cần thiết để doanh nghiệp có thể chủ động vận hành và phát triển giải pháp.",
-    Icon: Handshake,
-  },
-  {
-    id: "pricing",
-    no: "09",
-    title: "Tư vấn định giá phần mềm",
-    description:
-      "Tư vấn và hỗ trợ đánh giá, định giá sản phẩm và giải pháp phần mềm theo nhu cầu của doanh nghiệp.",
-    Icon: Calculator,
-  },
-  {
-    id: "distribution",
-    no: "10",
-    title: "Phân phối & cung cấp sản phẩm phần mềm",
-    description:
-      "Cung cấp và phân phối các sản phẩm phần mềm phù hợp với nhu cầu sử dụng và vận hành của doanh nghiệp.",
-    Icon: PackageCheck,
-  },
+  { id: "techTransfer", no: "08", Icon: Handshake },
+  { id: "pricing", no: "09", Icon: Calculator },
+  { id: "distribution", no: "10", Icon: PackageCheck },
   {
     id: "web",
     no: "11",
-    title: "Website & hệ thống thông tin",
-    description:
-      "Thiết kế, lưu trữ, duy trì trang thông tin điện tử và các hệ thống thông tin phục vụ hoạt động của doanh nghiệp.",
     Icon: Globe,
-    span: "lg:col-span-2",
+    span: "sm:col-span-2 lg:col-span-2",
     wide: true,
-    highlights: [
-      "Thiết kế và phát triển website",
-      "Lưu trữ, vận hành hạ tầng hosting",
-      "Xây dựng cổng thông tin nội bộ",
-      "Bảo trì, cập nhật và tối ưu nội dung",
-    ],
   },
-  {
-    id: "data",
-    no: "12",
-    title: "Dữ liệu & cơ sở dữ liệu",
-    description:
-      "Hỗ trợ cập nhật, tìm kiếm, lưu trữ, xử lý dữ liệu và khai thác cơ sở dữ liệu.",
-    Icon: Database,
-    span: "sm:col-span-2 lg:col-span-1",
-  },
+  { id: "data", no: "12", Icon: Database },
 ];
 
 const DOT_GRID =
@@ -220,8 +133,19 @@ function FeaturedOrb() {
   );
 }
 
-function FeaturedCard({ service }: { service: Service }) {
-  const { Icon, no, title, description, badge, cta } = service;
+function FeaturedCard({
+  service,
+  copy,
+  badge,
+  ctaLabel,
+}: {
+  service: Service;
+  copy: ServiceCopy;
+  badge: string;
+  ctaLabel: string;
+}) {
+  const { Icon, no } = service;
+  const { title, description } = copy;
 
   return (
     <article className="gradient-primary group relative flex h-full flex-col overflow-hidden rounded-[20px] p-6 shadow-[0_16px_44px_rgba(5,85,55,0.3)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_58px_rgba(5,85,55,0.4)] sm:p-8">
@@ -266,17 +190,17 @@ function FeaturedCard({ service }: { service: Service }) {
             {description}
           </p>
 
-          {cta ? (
-            <div className="mt-auto pt-6">
-              <Link
-                href={cta.href}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary shadow-[0_8px_20px_rgba(0,0,0,0.16)] transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                {cta.label}
-                <ArrowRight className="h-4 w-4" aria-hidden />
-              </Link>
-            </div>
-          ) : null}
+          {/* FeaturedCard chỉ dùng cho dịch vụ trọng tâm nên CTA luôn hiển thị;
+              trước đây `cta` là optional trên từng service. */}
+          <div className="mt-auto pt-6">
+            <Link
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary shadow-[0_8px_20px_rgba(0,0,0,0.16)] transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              {ctaLabel}
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </div>
         </div>
 
         <FeaturedOrb />
@@ -285,8 +209,15 @@ function FeaturedCard({ service }: { service: Service }) {
   );
 }
 
-function ServiceCard({ service }: { service: Service }) {
-  const { Icon, no, title, description, wide, highlights } = service;
+function ServiceCard({
+  service,
+  copy,
+}: {
+  service: Service;
+  copy: ServiceCopy;
+}) {
+  const { Icon, no, wide } = service;
+  const { title, description, highlights } = copy;
 
   return (
     <div className="group relative h-full">
@@ -358,7 +289,11 @@ function ServiceCard({ service }: { service: Service }) {
   );
 }
 
-export default function AIServicesSection() {
+export default function AIServicesSection({
+  dict,
+}: {
+  dict: Dictionary["services"];
+}) {
   return (
     <section
       id="services"
@@ -378,10 +313,10 @@ export default function AIServicesSection() {
         <Reveal>
           <SectionHeader
             className="!mb-0"
-            eyebrow="Our services"
-            title="Dịch vụ"
-            description="DVL Tech cung cấp các dịch vụ công nghệ nhằm hỗ trợ doanh nghiệp từ giai đoạn hình thành ý tưởng đến phát triển, triển khai và vận hành hệ thống."
-            tagline="Giải pháp công nghệ cho toàn bộ vòng đời dự án"
+            eyebrow={dict.eyebrow}
+            title={dict.title}
+            description={dict.description}
+            tagline={dict.tagline}
           />
         </Reveal>
 
@@ -393,9 +328,14 @@ export default function AIServicesSection() {
               delay={(index % 3) * 80}
             >
               {service.featured ? (
-                <FeaturedCard service={service} />
+                <FeaturedCard
+                  service={service}
+                  copy={dict.items[service.id]}
+                  badge={dict.featuredBadge}
+                  ctaLabel={dict.featuredCta}
+                />
               ) : (
-                <ServiceCard service={service} />
+                <ServiceCard service={service} copy={dict.items[service.id]} />
               )}
             </Reveal>
           ))}

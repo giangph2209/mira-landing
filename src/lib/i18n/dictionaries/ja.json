@@ -1,0 +1,627 @@
+{
+  "meta": {
+    "defaultTitle": "DVL Tech – 信頼できるソフトウェア開発パートナー",
+    "description": "DVL Tech は信頼できるソフトウェア開発パートナーです。ベトナムおよび世界の企業向けに、ソフトウェア開発、IT オフショア、AI ソリューション、技術コンサルティングを提供します。",
+    "keywords": [
+      "DVL Tech",
+      "ソフトウェア開発",
+      "システム開発",
+      "オフショア開発 ベトナム",
+      "カスタムソフトウェア",
+      "custom software development",
+      "AI ソフトウェア",
+      "AI ソリューション",
+      "ソフトウェアコンサルティング",
+      "技術パートナー",
+      "software implementation partner"
+    ],
+    "privacyTitle": "プライバシーポリシー"
+  },
+  "nav": {
+    "items": [
+      {
+        "label": "サービス",
+        "href": "#services"
+      },
+      {
+        "label": "開発プロセス",
+        "href": "#process"
+      },
+      {
+        "label": "技術力",
+        "href": "#expertise"
+      },
+      {
+        "label": "導入事例",
+        "href": "#case-studies"
+      },
+      {
+        "label": "お客様",
+        "href": "#region"
+      }
+    ],
+    "contact": "お問い合わせ",
+    "toggleMenu": "メニューを開閉",
+    "mainNavLabel": "メインナビゲーション",
+    "mobileNavLabel": "モバイルナビゲーション",
+    "languageLabel": "言語"
+  },
+  "hero": {
+    "titleLine1": "アイデアを、",
+    "titleLine2": "実際に動くソフトウェアへ",
+    "lead": "DVL Tech は、要件の分析から計画の策定、システムの導入・運用まで、企業向けのソフトウェアコンサルティングと開発を提供します。",
+    "experienceBefore": "",
+    "experienceHighlight": "IT 分野で 8〜15 年の経験を持つチーム",
+    "experienceAfter": "が、ベトナムと日本の企業のソフトウェア開発およびデジタルトランスフォーメーションを支援します。",
+    "ctaPrimary": "プロジェクトを相談する",
+    "ctaSecondary": "サービスを見る",
+    "markets": [
+      "ベトナム",
+      "日本"
+    ],
+    "marketsLabel": "対応市場"
+  },
+  "partners": {
+    "logoAlt": "DVL Tech のパートナー {name}"
+  },
+  "compliance": {
+    "titleLine1": "Meet compliance requirements.",
+    "titleLine2Before": "Build ",
+    "titleLine2Accent": "smarter trust.",
+    "description": "{name} の柔軟なビルディングブロックで、お客様のデータを常に安全かつコンプライアンスに準拠した状態に保ちます。",
+    "ctaPrimary": "デモを依頼する",
+    "ctaSecondary": "電話で問い合わせる"
+  },
+  "certifications": {
+    "eyebrow": "Credentials",
+    "title": "Certifications"
+  },
+  "expertise": {
+    "eyebrow": "Tech stack",
+    "titleBefore": "Technical ",
+    "titleAccent": "Expertise",
+    "categories": {
+      "frontend": "フロントエンド",
+      "backend": "バックエンド",
+      "mobile": "モバイル",
+      "aiml": "AI / ML",
+      "cloud": "クラウド & DevOps",
+      "data": "データ"
+    }
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "titleBefore": "Development ",
+    "titleAccent": "Process",
+    "description": "専門的で透明性が高く、効率的なソフトウェア開発プロセス。",
+    "steps": {
+      "requirement": {
+        "title": "Requirement Analysis",
+        "subtitle": "要件分析",
+        "description": "お客様の目標、ニーズ、および業務上の課題を把握します。"
+      },
+      "design": {
+        "title": "Solution Design",
+        "subtitle": "ソリューション設計",
+        "description": "要件を分析し、状況に適したソリューションの方向性を策定します。"
+      },
+      "development": {
+        "title": "Development",
+        "subtitle": "ソフトウェア開発",
+        "description": "システムの機能を設計・実装し、構築します。"
+      },
+      "testing": {
+        "title": "Testing & QA",
+        "subtitle": "テスト & 品質保証",
+        "description": "本番稼働前に製品をテストし、品質を管理します。"
+      },
+      "deployment": {
+        "title": "Deployment",
+        "subtitle": "システム導入",
+        "description": "システムを本番環境へ導入し、展開作業を支援します。"
+      },
+      "operation": {
+        "title": "Operation",
+        "subtitle": "運用",
+        "description": "システムが安定して稼働するよう監視・サポートします。"
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "subtitle": "保守 & 改善",
+        "description": "実際のニーズに応じて、更新・修正・保守・改善を行います。"
+      }
+    }
+  },
+  "engagement": {
+    "eyebrow": "Engagement models",
+    "titleBefore": "柔軟な",
+    "titleAccent": "協業モデル",
+    "description": "DVL Tech は、プロジェクトの規模・目的・要件に応じて、さまざまな形で企業を支援します。",
+    "learnMore": "{title} について詳しく見る",
+    "models": {
+      "projectBased": {
+        "title": "Project Based",
+        "description": "範囲と目標が明確なプロジェクトに適しています。DVL Tech が要件分析から開発・導入まで伴走します。"
+      },
+      "dedicatedTeam": {
+        "title": "Dedicated Team",
+        "description": "お客様のニーズに合わせて技術チームを提供します。長期的な開発リソースが必要なプロジェクトに適しています。"
+      },
+      "softwareConsulting": {
+        "title": "Software Consulting",
+        "description": "ソリューション、アーキテクチャ、プロセス、システム構築の方向性についてご相談に応じます。"
+      },
+      "maintenanceOperation": {
+        "title": "Maintenance & Operation",
+        "description": "導入後のシステムの保守・運用・更新・改善を支援します。"
+      }
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Our work",
+    "titleBefore": "Case ",
+    "titleAccent": "Studies",
+    "viewAll": "すべての事例を見る",
+    "badge": "CASE STUDY",
+    "problemLabel": "課題",
+    "involvementLabel": "DVL Tech の担当範囲",
+    "resultLabel": "成果",
+    "goTo": "{index} 番目の事例を見る",
+    "previous": "前の事例",
+    "next": "次の事例",
+    "items": {
+      "lifecycle": {
+        "title": "Lifecycle",
+        "subtitle": "都市サービスを 1 つのアプリに",
+        "desc": "Lifecycle は、都市内の活動を管理・追跡するとともに、住民向けにさまざまな生活サービスを提供するシステムです。",
+        "features": [
+          "買い物",
+          "公園",
+          "学校",
+          "避難所",
+          "チャット",
+          "通話",
+          "自治体への問い合わせ"
+        ],
+        "problem": "都市のサービスと情報を 1 つのアプリに集約し、住民が必要な情報やサービスにアクセスしやすくすること。",
+        "involvement": [
+          "要件分析",
+          "システム開発",
+          "テスト",
+          "運用・保守"
+        ],
+        "result": "本システムは日本国内の複数の都市で稼働しており、DVL Tech が実際のニーズに応じて継続的に支援・保守・改善を行っています。"
+      },
+      "foodWaste": {
+        "title": "食品ロス削減支援アプリ",
+        "subtitle": "",
+        "desc": "食品供給者と利用者をつなぎ、廃棄されるおそれのある商品を活用するためのアプリです。",
+        "features": [],
+        "problem": "廃棄される食品の量を減らし、まだ利用価値のある食品をより手軽に流通させる方法をつくること。",
+        "involvement": [
+          "システム開発",
+          "業務ロジックの実装",
+          "テスト"
+        ],
+        "result": "実際の社会課題の解決を目指し、技術と食品ロス削減という目的を組み合わせて開発されたアプリです。"
+      },
+      "businessChat": {
+        "title": "Business Chat & Call Application",
+        "subtitle": "",
+        "desc": "メッセージと通話により企業間のコミュニケーションを支援するアプリケーションです。業務のなかで情報を素早く円滑にやり取りできます。",
+        "features": [],
+        "problem": "企業向けに集約されたコミュニケーション基盤を用意し、情報のやり取りを容易にするとともに、複数ツールへの依存を減らすこと。",
+        "involvement": [
+          "機能開発",
+          "業務ロジックの実装",
+          "テスト",
+          "運用支援"
+        ],
+        "result": "企業間で直接やり取りできる機能を提供し、業務環境における情報交換のニーズに応えています。"
+      },
+      "toyLabel": {
+        "title": "Toy Label Management System",
+        "subtitle": "",
+        "desc": "玩具製品のラベルに関する情報と業務プロセスを管理するシステムです。",
+        "features": [],
+        "problem": "ラベル情報を一元管理し、手作業を減らすとともに、製品情報の追跡・更新を容易にすること。",
+        "involvement": [
+          "要件分析",
+          "システム開発",
+          "テスト",
+          "運用支援"
+        ],
+        "result": "ラベル情報の管理をデジタル化・一元化し、より効率的なデータ管理を実現しました。"
+      },
+      "accessibilitySupport": {
+        "title": "要支援者向け支援アプリ",
+        "subtitle": "",
+        "desc": "支援を必要とする方が、自身のニーズに合った情報・サービス・支援先にアクセスできるよう開発されたアプリケーションです。",
+        "features": [],
+        "problem": "生活のなかで支援に関する情報やサービスに、無理なくたどり着ける技術的な手段をつくること。",
+        "involvement": [
+          "システム開発",
+          "業務ロジックの実装",
+          "テスト",
+          "運用支援"
+        ],
+        "result": ""
+      }
+    },
+    "viewCase": "事例を見る"
+  },
+  "whyUs": {
+    "eyebrow": "Why DVL Tech",
+    "titleBefore": "Why ",
+    "titleAccent": "Us",
+    "description": "経験豊富なチーム。確立されたプロセス。最適な技術。",
+    "reasons": {
+      "capability": {
+        "title": "ソフトウェア開発力",
+        "description": "PM・開発者・テスター/QA で構成されたチームにより、明確なプロセスに沿った 管理・開発・品質管理を実現します。"
+      },
+      "ai": {
+        "title": "AI の活用",
+        "description": "DVL Tech は開発プロセスに AI を積極的に取り入れ、生産性の向上と納期の短縮を図っています。"
+      },
+      "japan": {
+        "title": "日本のお客様との実績",
+        "description": "DVL Tech は現在、日本のお客様と協業し、さまざまな分野のソフトウェアプロジェクトを直接運用しています。"
+      },
+      "longTerm": {
+        "title": "長期的なパートナーシップ",
+        "description": "DVL Tech は開発・納品にとどまらず、保守・更新・運用・改善まで継続して支援します。"
+      },
+      "speed": {
+        "title": "導入までのスピード",
+        "description": "正しい課題を見極め、適切なソリューションを選び、効率的に実行することに注力しています。"
+      },
+      "cost": {
+        "title": "競争力のあるコスト",
+        "description": "リソースと開発プロセスを最適化し、ニーズと予算に見合った価格でソリューションを提供します。"
+      },
+      "stack": {
+        "title": "幅広い技術基盤",
+        "description": "チームは以下をはじめとする多様な技術・プラットフォームの経験を有しています。"
+      },
+      "experience": {
+        "title": "実践に基づく経験",
+        "description": "DVL Tech は 2026 年に設立され、創業メンバーと中核スタッフは IT およびソフトウェア開発分野で 8〜15 年の経験を有しています。"
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "title": "サービス",
+    "description": "DVL Tech は、アイデアの構想段階から開発・導入・運用まで、企業を支える技術サービスを提供します。",
+    "tagline": "プロジェクトのライフサイクル全体を支える技術",
+    "featuredBadge": "重点サービス",
+    "featuredCta": "プロジェクトを相談する",
+    "items": {
+      "projectConsulting": {
+        "title": "ソフトウェアプロジェクトのコンサルティング",
+        "description": "ニーズの分析、スコープの定義、計画の策定、ソリューション方針の立案までを担います。\nDVL Tech は、業務上の課題を、明確で実現可能かつ実際の目標に沿った導入計画へと落とし込みます。"
+      },
+      "analysisDesign": {
+        "title": "コンサルティング・分析・設計",
+        "description": "業務分析、システム要件の整理、そして企業のニーズに適した技術方針の策定を行います。",
+        "highlights": [
+          "現状調査と業務分析",
+          "詳細なシステム要件定義",
+          "適切な技術選定のアドバイス"
+        ]
+      },
+      "development": {
+        "title": "ソフトウェアの開発・製造",
+        "description": "ご要望に応じた製品・アプリケーション・システムの設計、開発、テストを行います。"
+      },
+      "integration": {
+        "title": "システム統合",
+        "description": "システム・アプリケーション・データソースを統合し、一貫性のある効率的な運用環境を実現します。"
+      },
+      "operations": {
+        "title": "アプリケーションの管理・運用",
+        "description": "導入後のシステムについて、管理・保守・更新を行い、安定稼働を維持します。"
+      },
+      "security": {
+        "title": "セキュリティ・情報保護",
+        "description": "運用期間を通じて、ソフトウェア製品・情報システム・データの安全性を確保します。"
+      },
+      "quality": {
+        "title": "ソフトウェア品質の評価・監査",
+        "description": "ソフトウェア品質の助言・評価・監査を通じて、品質管理とプロジェクトリスクの低減を支援します。",
+        "highlights": [
+          "機能テストおよび性能テスト",
+          "ソースコードのレビューと品質評価",
+          "プロジェクト文書およびプロセスの監査",
+          "リスク報告と改善提案"
+        ]
+      },
+      "techTransfer": {
+        "title": "技術移転",
+        "description": "お客様が自律的に運用・発展できるよう、必要な技術・システム・ノウハウを移転します。"
+      },
+      "pricing": {
+        "title": "ソフトウェア評価・価格算定のコンサルティング",
+        "description": "ニーズに応じて、ソフトウェア製品およびソリューションの評価・価格算定を支援します。"
+      },
+      "distribution": {
+        "title": "ソフトウェア製品の提供・販売",
+        "description": "お客様の利用形態と運用に適したソフトウェア製品を提供・販売します。"
+      },
+      "web": {
+        "title": "ウェブサイト・情報システム",
+        "description": "事業活動を支えるウェブサイトおよび情報システムの設計・ホスティング・保守を行います。",
+        "highlights": [
+          "ウェブサイトの設計・開発",
+          "ホスティング基盤の運用",
+          "社内ポータルの構築",
+          "保守・更新・コンテンツ最適化"
+        ]
+      },
+      "data": {
+        "title": "データ・データベース",
+        "description": "データの更新・検索・保管・処理と、データベースの活用を支援します。"
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "titleBefore": "お客様の声 — ",
+    "titleAccent": "DVL Tech",
+    "goTo": "{index} 番目のお客様の声へ",
+    "previous": "前のお客様の声",
+    "next": "次のお客様の声",
+    "items": {
+      "systena": {
+        "paragraphs": [
+          "品質評価全般を DVL Tech に委託するにあたり、第三者を通じた相談も行いました。DVL Tech の主体的な取り組みと的確なコミュニケーション、そしてユーザー視点に立ったシステム品質設計を実現し、当社の要件を満たしていただいた点を高く評価しています。",
+          "今後のプロジェクトでも、引き続き皆様の能力と技術を活かしていただきたいと期待しています。DVL Tech は信頼できるパートナーであり、その優れたサービスとチームを自信を持って推薦します。"
+        ],
+        "name": "竹山 和幸 様（マネージャー）",
+        "company": "株式会社システナ（日本）"
+      },
+      "unqork": {
+        "paragraphs": [
+          "DVL Tech のエンジニアリングチームは卓越した専門性を示し、常に納期を守ってくれました。当社のビジネスを深く理解し、測定可能な成果につながる革新的な提案をしてくれます。",
+          "協働的な進め方と透明性の高いコミュニケーションにより、プロジェクト全体が円滑かつ生産的に進みました。今後の取り組みでも継続してご一緒できることを楽しみにしています。"
+        ],
+        "name": "Sarah Johnson（VP Engineering）",
+        "company": "Unqork（アメリカ合衆国）"
+      },
+      "ness": {
+        "paragraphs": [
+          "DVL Tech とは 3 年以上にわたり協業していますが、どのプロジェクトも期待を上回る成果でした。コードの品質と、プロフェッショナルな納品プロセスは特筆に値します。",
+          "常に確かな技術的リーダーシップと信頼できる実行力を発揮してくれます。DVL Tech は、複雑でミッションクリティカルなソフトウェア開発を任せられるパートナーです。"
+        ],
+        "name": "Michael Torres（Director of Technology）",
+        "company": "Ness（グローバル）"
+      }
+    }
+  },
+  "region": {
+    "eyebrow": "ベトナム · 日本",
+    "titleBefore": "お客様の",
+    "titleAccent": "対応地域",
+    "mapError": "地図データを読み込めませんでした。",
+    "mapLoading": "地図を読み込み中",
+    "countries": {
+      "vn": "ベトナム",
+      "jp": "日本"
+    }
+  },
+  "privacy": {
+    "title": "プライバシーポリシー",
+    "lastUpdated": "最終更新日: 2026年3月19日",
+    "intro": "{company} は、当ウェブサイトをご利用いただくユーザー、お客様、パートナーのプライバシーを尊重し、その保護に努めます。",
+    "collect": {
+      "heading": "1. 収集する情報",
+      "intro": "当ウェブサイトのご利用にあたり、以下の情報を収集する場合があります。",
+      "items": [
+        "氏名",
+        "メールアドレス",
+        "電話番号",
+        "会社名",
+        "お問い合わせ・ご相談の内容",
+        "技術情報: IP アドレス、ブラウザ、デバイス、閲覧行動"
+      ]
+    },
+    "purpose": {
+      "heading": "2. 情報の利用目的",
+      "intro": "収集した情報は次の目的で利用します。",
+      "items": [
+        "お問い合わせへの回答およびサービスのご案内",
+        "プロジェクトや協業に関するご連絡",
+        "ウェブサイトのユーザー体験の改善",
+        "製品およびマーケティング改善のためのデータ分析",
+        "サービス情報の送付（ご同意いただいた場合）"
+      ]
+    },
+    "sharing": {
+      "heading": "3. 情報の共有",
+      "noSellBefore": "{company} はお客様の個人情報を",
+      "noSellStrong": "販売・交換・貸与することはありません",
+      "noSellAfter": "。",
+      "casesIntro": "以下の場合に限り情報を共有します。",
+      "items": [
+        "システム運用を支援するパートナー（ホスティング、メール、アクセス解析など）との共有",
+        "法執行機関から要請があった場合",
+        "当社の正当な権利を保護するために必要な場合"
+      ]
+    },
+    "security": {
+      "heading": "4. セキュリティ",
+      "intro": "当社は適切な安全管理措置を講じています。",
+      "items": [
+        "HTTPS/SSL による通信の暗号化",
+        "社内アクセス権限の制限",
+        "安全なシステム上でのデータ保管"
+      ],
+      "caveat": "ただし、送信または保管のいかなる方法も、絶対的な安全性を保証するものではありません。"
+    },
+    "cookies": {
+      "heading": "5. Cookie とアクセスデータ",
+      "intro": "当ウェブサイトでは自社運用のアクセス解析を使用しており、第三者とデータを共有せず、広告目的にも利用しません。次の 2 つの技術的 Cookie を設定します。",
+      "visitorCookie": "ブラウザを識別するランダムな ID。最長 400 日間保存し、新規訪問者と再訪問者の区別に使用します",
+      "sessionCookie": "1 回の訪問を識別するランダムな ID。30 分間操作がないと失効します",
+      "tracked": "あわせて、各アクセスについて次の情報を記録します: IP アドレス、ブラウザおよび OS の情報 (User-Agent)、閲覧したページのパス、閲覧日時と滞在時間、参照元ページ、キャンペーンパラメータ (UTM)。IP アドレスは統計および不正アクセス検知のため元の形式で保存し、第三者の位置情報検索サービスは利用しません。",
+      "retention": "アクセスデータの保存期間は最長 18 か月です。ブラウザの設定で Cookie を無効にできますが、一部の機能に影響が出る場合があります。"
+    },
+    "thirdParty": {
+      "heading": "6. 第三者サイトへのリンク",
+      "body": "当ウェブサイトには他のウェブサイトへのリンクが含まれる場合があります。{company} は、それら第三者のコンテンツやプライバシーポリシーについて責任を負いません。"
+    },
+    "rights": {
+      "heading": "7. お客様の権利",
+      "intro": "お客様には次の権利があります。",
+      "items": [
+        "個人情報の開示・訂正・削除の請求",
+        "保存された IP アドレスを含む、ご利用端末に紐づくアクセスデータの削除請求",
+        "マーケティング情報の受信の停止",
+        "データ処理の停止の請求"
+      ]
+    },
+    "contactSection": {
+      "heading": "8. お問い合わせ",
+      "intro": "本プライバシーポリシーに関するご質問は、以下までご連絡ください。",
+      "company": "会社名",
+      "taxCode": "納税者番号",
+      "email": "メール",
+      "phone": "電話",
+      "address": "住所"
+    },
+    "updates": "{company} は本プライバシーポリシーを随時更新する場合があります。変更内容はウェブサイト上で公開します。"
+  },
+  "cta": {
+    "eyebrow": "お問い合わせ",
+    "titleBefore": "プロジェクトを ",
+    "titleAccent": "DVL Tech",
+    "description": "新しいシステムの構想、ソフトウェア開発のご依頼、既存システムの刷新など、まずは DVL Tech にご相談ください。",
+    "contact": {
+      "email": "メール",
+      "phone": "電話",
+      "address": "住所"
+    },
+    "form": {
+      "name": "お名前",
+      "namePlaceholder": "山田 太郎",
+      "phone": "電話番号",
+      "phonePlaceholder": "090-0000-0000",
+      "email": "メールアドレス",
+      "emailPlaceholder": "you@company.com",
+      "company": "会社名",
+      "companyPlaceholder": "貴社名",
+      "service": "ご相談内容",
+      "servicePlaceholder": "ご相談内容をお選びください",
+      "message": "お問い合わせ内容",
+      "messagePlaceholder": "ご要望やプロジェクトの概要をご記入ください。",
+      "submit": "送信する",
+      "submitting": "送信中..."
+    },
+    "serviceOptions": {
+      "consulting": "ソフトウェアプロジェクトのコンサルティング",
+      "development": "ソフトウェア開発",
+      "integration": "システム統合",
+      "maintenance": "保守・運用",
+      "techAdvisory": "技術アドバイザリー",
+      "other": "その他"
+    },
+    "success": {
+      "title": "送信しました",
+      "description": "お問い合わせありがとうございます。追ってご連絡いたします。"
+    },
+    "errors": {
+      "missingFields": "必須項目をご確認ください。",
+      "invalidEmail": "メールアドレスの形式が正しくありません。",
+      "server": "送信中にエラーが発生しました。しばらくしてからお試しください。",
+      "network": "サーバーに接続できませんでした。しばらくしてからお試しください。"
+    }
+  },
+  "team": {
+    "eyebrow": "Our team",
+    "titleBefore": "すべてのプロジェクトを",
+    "titleAccent": "支えるチーム",
+    "description": "DVL Tech は、プロジェクト管理・ソフトウェア開発・品質保証が密に連携する体制でチームを構成しています。",
+    "stats": {
+      "people": {
+        "label": "メンバー",
+        "detail": "構成: PM 3名 · 開発者 12名 · テスター/QA 5名"
+      },
+      "experience": {
+        "label": "経験年数",
+        "detail": "創業メンバーと中核スタッフの経験年数。"
+      },
+      "projects": {
+        "label": "稼働中のプロジェクト",
+        "detail": "DVL Tech が日本のお客様向けに運用・保守しているソフトウェアプロジェクト。"
+      },
+      "markets": {
+        "label": "対応市場",
+        "detail": "ベトナム · 日本"
+      }
+    },
+    "roles": {
+      "pm": {
+        "title": "Project Managers",
+        "description": "スコープ・スケジュール・リソースを管理し、関係者間の調整を行います。"
+      },
+      "dev": {
+        "title": "Developers",
+        "description": "製品・アプリケーション・システムの開発と導入を担当します。"
+      },
+      "qa": {
+        "title": "Tester / QA",
+        "description": "開発から運用まで、製品の品質をテスト・管理します。"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Software Consulting & Development",
+    "capabilities": [
+      "コンサルティング",
+      "ソフトウェア開発",
+      "システム統合",
+      "運用 & 保守"
+    ],
+    "markets": [
+      "ベトナム",
+      "日本"
+    ],
+    "servicesTitle": "サービス",
+    "companyTitle": "会社情報",
+    "contactTitle": "お問い合わせ",
+    "comingSoon": "近日公開",
+    "updating": "準備中",
+    "services": [
+      "ソフトウェアプロジェクトのコンサルティング",
+      "ソフトウェア開発",
+      "システム統合",
+      "ソフトウェア評価・検証",
+      "保守・運用",
+      "セキュリティ・情報保護",
+      "技術移転",
+      "データ・データベース"
+    ],
+    "company": {
+      "about": "DVL Tech について",
+      "team": "チーム紹介",
+      "caseStudies": "導入事例",
+      "careers": "採用情報"
+    },
+    "contact": {
+      "email": "メール",
+      "phone": "電話",
+      "address": "住所"
+    },
+    "legal": {
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約"
+    },
+    "rights": "© {year} DVL Tech. All rights reserved.",
+    "taxCode": "納税者番号"
+  },
+  "floatingActions": {
+    "scrollTop": "ページ上部へ戻る",
+    "hotline": "クイック連絡メニューを開く"
+  }
+}

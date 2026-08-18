@@ -2,13 +2,16 @@ import Image from "next/image";
 import ArrowActionButton from "@/components/ui/ArrowActionButton";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
+import { t } from "@/lib/i18n/format";
 
 type CardVariant = "green" | "light";
 
+type ModelId = keyof Dictionary["engagement"]["models"];
+
 type EngagementModel = {
-  id: string;
-  title: string;
-  description: string;
+  /** khớp key trong dictionary — title/description lấy từ đó */
+  id: ModelId;
   variant: CardVariant;
   iconSrc: string;
   filter?: string;
@@ -26,10 +29,7 @@ const SPAN_CLASS: Record<EngagementModel["colSpan"], string> = {
 
 const MODELS: EngagementModel[] = [
   {
-    id: "project-based",
-    title: "Project Based",
-    description:
-      "Phù hợp với các dự án có phạm vi và mục tiêu rõ ràng. DVL Tech đồng hành từ phân tích yêu cầu đến phát triển và triển khai hệ thống.",
+    id: "projectBased",
     variant: "green",
     iconSrc: "/images/models/icon-1.png",
     colSpan: 3,
@@ -37,30 +37,21 @@ const MODELS: EngagementModel[] = [
     filter: "/images/bg/project-base.png",
   },
   {
-    id: "dedicated-team",
-    title: "Dedicated Team",
-    description:
-      "Cung cấp đội ngũ kỹ thuật theo nhu cầu của doanh nghiệp, phù hợp với các dự án cần nguồn lực phát triển lâu dài.",
+    id: "dedicatedTeam",
     variant: "light",
     iconSrc: "/images/models/icon-4.png",
     colSpan: 2,
     background: "gradient",
   },
   {
-    id: "software-consulting",
-    title: "Software Consulting",
-    description:
-      "Tư vấn về giải pháp, kiến trúc, quy trình và định hướng xây dựng hệ thống phần mềm.",
+    id: "softwareConsulting",
     variant: "light",
     iconSrc: "/images/models/icon-2.png",
     colSpan: 2,
     background: "gradient",
   },
   {
-    id: "maintenance-operation",
-    title: "Maintenance & Operation",
-    description:
-      "Hỗ trợ bảo trì, vận hành, cập nhật và cải tiến hệ thống sau khi triển khai.",
+    id: "maintenanceOperation",
     variant: "green",
     iconSrc: "/images/models/icon-5.png",
     colSpan: 3,
@@ -69,8 +60,15 @@ const MODELS: EngagementModel[] = [
   },
 ];
 
-function EngagementCard({ model }: { model: EngagementModel }) {
+function EngagementCard({
+  model,
+  dict,
+}: {
+  model: EngagementModel;
+  dict: Dictionary["engagement"];
+}) {
   const isGreen = model.variant === "green";
+  const copy = dict.models[model.id];
 
   const surfaceClass = isGreen
     ? model.background === "image"
@@ -100,7 +98,7 @@ function EngagementCard({ model }: { model: EngagementModel }) {
         <div className="relative z-1 flex flex-col gap-5">
           <Image
             src={model.iconSrc}
-            alt={model.title}
+            alt={copy.title}
             width={48}
             height={48}
             className="h-12 w-12 object-contain"
@@ -113,7 +111,7 @@ function EngagementCard({ model }: { model: EngagementModel }) {
                 isGreen ? "text-white" : "text-text-dark",
               ].join(" ")}
             >
-              {model.title}
+              {copy.title}
             </h3>
             <p
               className={[
@@ -121,7 +119,7 @@ function EngagementCard({ model }: { model: EngagementModel }) {
                 isGreen ? "text-white" : "text-text-dark",
               ].join(" ")}
             >
-              {model.description}
+              {copy.description}
             </p>
           </div>
         </div>
@@ -130,7 +128,7 @@ function EngagementCard({ model }: { model: EngagementModel }) {
           <ArrowActionButton
             href="#contact"
             variant={isGreen ? "inverse" : "default"}
-            aria-label={`Learn more about ${model.title}`}
+            aria-label={t(dict.learnMore, { title: copy.title })}
           />
         </div>
       </article>
@@ -138,19 +136,24 @@ function EngagementCard({ model }: { model: EngagementModel }) {
   );
 }
 
-export default function EngagementModelsSection() {
+export default function EngagementModelsSection({
+  dict,
+}: {
+  dict: Dictionary["engagement"];
+}) {
   return (
     <section id="engagement" className="bg-[#f8f9f8] py-14 lg:py-16">
       <div className="mx-auto w-full max-w-7xl px-6">
         <Reveal>
           <SectionHeader
-            eyebrow="Engagement models"
+            eyebrow={dict.eyebrow}
             title={
               <>
-                Mô hình hợp tác <span className="text-accent">linh hoạt</span>
+                {dict.titleBefore}
+                <span className="text-accent">{dict.titleAccent}</span>
               </>
             }
-            description="DVL Tech có thể đồng hành với doanh nghiệp theo nhiều hình thức, tùy thuộc vào quy mô, mục tiêu và yêu cầu của từng dự án."
+            description={dict.description}
           />
         </Reveal>
 
@@ -161,7 +164,7 @@ export default function EngagementModelsSection() {
               delay={i * 70}
               className={SPAN_CLASS[model.colSpan]}
             >
-              <EngagementCard model={model} />
+              <EngagementCard model={model} dict={dict} />
             </Reveal>
           ))}
         </div>

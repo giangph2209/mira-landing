@@ -2,7 +2,7 @@
 
 import { LogOut } from "lucide-react";
 import { useFormStatus } from "react-dom";
-import { logout } from "@/app/admin/(app)/account/actions";
+import { logout } from "@/app/(portal)/admin/(app)/account/actions";
 
 function Inner() {
   const { pending } = useFormStatus();

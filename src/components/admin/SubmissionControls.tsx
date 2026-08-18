@@ -12,7 +12,7 @@ import {
   changeStatus,
   setPriority,
   type ActionState,
-} from "@/app/admin/(app)/submissions/actions";
+} from "@/app/(portal)/admin/(app)/submissions/actions";
 
 const initial: ActionState = {};
 

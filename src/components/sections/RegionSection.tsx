@@ -10,10 +10,13 @@ import {
 } from "@vnedyalk0v/react19-simple-maps";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
+
+type CountryId = keyof Dictionary["region"]["countries"];
 
 type RegionMarker = {
-  id: string;
-  name: string;
+  /** khớp key trong dictionary.region.countries */
+  id: CountryId;
   projects: number;
   coordinates: [number, number];
   flagCode: string;
@@ -21,47 +24,26 @@ type RegionMarker = {
 
 const MARKERS: RegionMarker[] = [
   {
-    id: "us",
-    name: "United States",
-    projects: 120,
-    coordinates: [-98, 39],
-    flagCode: "us",
-  },
-  {
-    id: "ru",
-    name: "Russia",
-    projects: 120,
-    coordinates: [100, 61],
-    flagCode: "ru",
-  },
-  {
     id: "vn",
-    name: "Vietnam",
-    projects: 120,
+    projects: 20,
     coordinates: [106, 16],
     flagCode: "vn",
   },
   {
     id: "jp",
-    name: "Japan",
-    projects: 120,
+    projects: 10,
     coordinates: [138, 36],
     flagCode: "jp",
-  },
-  {
-    id: "au",
-    name: "Australia",
-    projects: 220,
-    coordinates: [134, -25],
-    flagCode: "au",
   },
 ];
 
 function MarkerCard({
+  countryName,
   marker,
   visible,
   delayMs,
 }: {
+  countryName: string;
   marker: RegionMarker;
   visible: boolean;
   delayMs: number;
@@ -92,7 +74,7 @@ function MarkerCard({
           </div>
           <div className="mt-1 flex items-center justify-center gap-1.5">
             <span className="text-xs font-medium text-text-dark">
-              {marker.name}
+              {countryName}
             </span>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -117,7 +99,13 @@ function MarkerCard({
   );
 }
 
-function RegionListCard({ marker }: { marker: RegionMarker }) {
+function RegionListCard({
+  marker,
+  countryName,
+}: {
+  marker: RegionMarker;
+  countryName: string;
+}) {
   return (
     <div className="flex items-center justify-between gap-3 rounded-xl border border-[#b8e6c4] bg-white px-4 py-3 shadow-[0_4px_16px_rgba(14,128,63,0.08)]">
       <div>
@@ -130,7 +118,7 @@ function RegionListCard({ marker }: { marker: RegionMarker }) {
           </span>
         </div>
         <p className="mt-0.5 text-sm font-medium text-text-dark">
-          {marker.name}
+          {countryName}
         </p>
       </div>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -145,7 +133,7 @@ function RegionListCard({ marker }: { marker: RegionMarker }) {
   );
 }
 
-export default function RegionSection() {
+export default function RegionSection({ dict }: { dict: Dictionary["region"] }) {
   const [ready, setReady] = useState(false);
   const [geoData, setGeoData] = useState<object | null>(null);
   const [geoError, setGeoError] = useState(false);
@@ -178,10 +166,11 @@ export default function RegionSection() {
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
           <SectionHeader
-            eyebrow="Vietnam · Japan"
+            eyebrow={dict.eyebrow}
             title={
               <>
-                Khu vực <span className="text-accent">khách hàng</span>
+                {dict.titleBefore}
+                <span className="text-accent">{dict.titleAccent}</span>
               </>
             }
           />
@@ -191,12 +180,12 @@ export default function RegionSection() {
           <div className="relative mx-auto flex min-h-[200px] w-full max-w-[1100px] items-center justify-center overflow-hidden lg:overflow-visible">
             {geoError ? (
               <p className="text-sm text-text-gray">
-                Không tải được dữ liệu bản đồ.
+                {dict.mapError}
               </p>
             ) : !geoData ? (
               <div
                 className="h-10 w-10 animate-pulse rounded-full bg-primary/20"
-                aria-label="Loading map"
+                aria-label={dict.mapLoading}
               />
             ) : (
               <ComposableMap
@@ -247,6 +236,7 @@ export default function RegionSection() {
                   >
                     <MarkerCard
                       marker={marker}
+                      countryName={dict.countries[marker.id]}
                       visible={ready}
                       delayMs={180 + index * 140}
                     />
@@ -261,7 +251,11 @@ export default function RegionSection() {
         <Reveal delay={160}>
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:hidden">
             {MARKERS.map((marker) => (
-              <RegionListCard key={marker.id} marker={marker} />
+              <RegionListCard
+                key={marker.id}
+                marker={marker}
+                countryName={dict.countries[marker.id]}
+              />
             ))}
           </div>
         </Reveal>

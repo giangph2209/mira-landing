@@ -1,61 +1,20 @@
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
-const STEPS = [
-  {
-    step: "01",
-    title: "Requirement Analysis",
-    subtitle: "Phân tích yêu cầu",
-    description:
-      "Tìm hiểu mục tiêu, nhu cầu và bài toán nghiệp vụ của doanh nghiệp.",
-    iconSrc: "/images/process/1.png",
-  },
-  {
-    step: "02",
-    title: "Solution Design",
-    subtitle: "Tư vấn & thiết kế giải pháp",
-    description: "Phân tích yêu cầu và xây dựng định hướng giải pháp phù hợp.",
-    iconSrc: "/images/process/2.png",
-  },
-  {
-    step: "03",
-    title: "Development",
-    subtitle: "Phát triển phần mềm",
-    description: "Thiết kế, lập trình và xây dựng các chức năng của hệ thống.",
-    iconSrc: "/images/process/3.png",
-  },
-  {
-    step: "04",
-    title: "Testing & QA",
-    subtitle: "Kiểm thử & đảm bảo chất lượng",
-    description:
-      "Kiểm thử sản phẩm và kiểm soát chất lượng trước khi đưa vào vận hành.",
-    iconSrc: "/images/process/4.png",
-  },
-  {
-    step: "05",
-    title: "Deployment",
-    subtitle: "Triển khai hệ thống",
-    description:
-      "Đưa hệ thống vào môi trường thực tế và hỗ trợ quá trình triển khai.",
-    iconSrc: "/images/process/5.png",
-  },
-  {
-    step: "06",
-    title: "Operation",
-    subtitle: "Vận hành",
-    description: "Theo dõi, hỗ trợ và đảm bảo hệ thống hoạt động ổn định.",
-    iconSrc: "/images/process/6.png",
-  },
-  {
-    step: "07",
-    title: "Maintenance",
-    subtitle: "Bảo trì & cải tiến",
-    description:
-      "Cập nhật, sửa lỗi, bảo trì và cải tiến hệ thống theo nhu cầu thực tế.",
-    iconSrc: "/images/process/7.png",
-  },
+type StepId = keyof Dictionary["process"]["steps"];
+
+// Chỉ giữ phần KHÔNG dịch được: số thứ tự và đường dẫn icon. Tiêu đề, phụ đề và
+// mô tả lấy theo id từ dictionary.
+const STEPS: { id: StepId; step: string; iconSrc: string }[] = [
+  { id: "requirement", step: "01", iconSrc: "/images/process/1.png" },
+  { id: "design", step: "02", iconSrc: "/images/process/2.png" },
+  { id: "development", step: "03", iconSrc: "/images/process/3.png" },
+  { id: "testing", step: "04", iconSrc: "/images/process/4.png" },
+  { id: "deployment", step: "05", iconSrc: "/images/process/5.png" },
+  { id: "operation", step: "06", iconSrc: "/images/process/6.png" },
+  { id: "maintenance", step: "07", iconSrc: "/images/process/7.png" },
 ];
 
 function ProcessCard({
@@ -90,9 +49,13 @@ function ProcessCard({
       <h3 className="text-center font-heading text-base font-bold leading-snug text-primary sm:text-[17px] lg:text-lg">
         {title}
       </h3>
-      <p className="mt-1.5 text-center text-sm font-semibold leading-snug text-primary-light">
-        {subtitle}
-      </p>
+      {/* Bản tiếng Anh để subtitle rỗng vì title vốn đã là tiếng Anh — render
+          thẳng sẽ tạo một dòng trống lệch layout. */}
+      {subtitle ? (
+        <p className="mt-1.5 text-center text-sm font-semibold leading-snug text-primary-light">
+          {subtitle}
+        </p>
+      ) : null}
       <span
         className="mx-auto mt-3 block h-px w-10 bg-primary/15"
         aria-hidden
@@ -104,7 +67,11 @@ function ProcessCard({
   );
 }
 
-export default function DevelopmentProcessSection() {
+export default function DevelopmentProcessSection({
+  dict,
+}: {
+  dict: Dictionary["process"];
+}) {
   const firstRow = STEPS.slice(0, 4);
   const secondRow = STEPS.slice(4);
 
@@ -113,21 +80,22 @@ export default function DevelopmentProcessSection() {
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
           <SectionHeader
-            eyebrow="How we work"
+            eyebrow={dict.eyebrow}
             title={
               <>
-                Development <span className="text-accent">Process</span>
+                {dict.titleBefore}
+                <span className="text-accent">{dict.titleAccent}</span>
               </>
             }
-            description="Quy trình phát triển phần mềm chuyên nghiệp, minh bạch & hiệu quả."
+            description={dict.description}
           />
         </Reveal>
 
         <div className="flex flex-col gap-6 sm:gap-8 lg:gap-12">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-8">
             {firstRow.map((item, i) => (
-              <Reveal key={item.step} delay={i * 60}>
-                <ProcessCard {...item} />
+              <Reveal key={item.id} delay={i * 60}>
+                <ProcessCard step={item.step} iconSrc={item.iconSrc} {...dict.steps[item.id]} />
               </Reveal>
             ))}
           </div>
@@ -136,7 +104,7 @@ export default function DevelopmentProcessSection() {
             <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:w-[calc(75%-12px)] lg:grid-cols-3 lg:gap-8">
               {secondRow.map((item, index) => (
                 <Reveal
-                  key={item.step}
+                  key={item.id}
                   delay={(index + 4) * 60}
                   className={
                     index === secondRow.length - 1
@@ -144,7 +112,7 @@ export default function DevelopmentProcessSection() {
                       : ""
                   }
                 >
-                  <ProcessCard {...item} />
+                  <ProcessCard step={item.step} iconSrc={item.iconSrc} {...dict.steps[item.id]} />
                 </Reveal>
               ))}
             </div>

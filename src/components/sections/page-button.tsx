@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import { EllipsisIcon } from "@/components/icons/ellipsis-icon";
 import useScroll from "@/hooks/use-scroll";
 import { ArrowUp } from 'lucide-react'
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
-function Hotline() {
+function Hotline({ dict }: { dict: Dictionary["floatingActions"] }) {
   const [open, setOpen] = useState(false);
 
   const { isVisible } = useScroll();
@@ -36,7 +37,7 @@ function Hotline() {
         type="button"
         onClick={handleClick}
         className="fixed bottom-6 cursor-pointer right-6 z-50 flex size-[50px] items-center justify-center rounded-full bg-gradient-to-r from-[#6BF2C6] to-[#279AE7] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-200"
-        aria-label="Cuộn lên đầu trang"
+        aria-label={dict.scrollTop}
       >
         <ArrowUp size={20} />
       </button>
@@ -54,7 +55,7 @@ function Hotline() {
           className="relative z-100"
         >
           <button
-            aria-label="Open hotline actions"
+            aria-label={dict.hotline}
             onClick={() => setOpen((prev) => !prev)}
             className="max-lg:flex hidden size-[50px] rounded-full items-center justify-center bg-gray-200 border shadow-sm border-gray-300 hover:scale-105 transition-all duration-300"
           >

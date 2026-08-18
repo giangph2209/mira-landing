@@ -1,0 +1,627 @@
+{
+  "meta": {
+    "defaultTitle": "DVL Tech – Đối tác triển khai phần mềm tin cậy",
+    "description": "DVL Tech — đối tác triển khai phần mềm tin cậy. Phát triển phần mềm, outsource IT, giải pháp AI và tư vấn công nghệ cho doanh nghiệp Việt Nam và quốc tế.",
+    "keywords": [
+      "DVL Tech",
+      "phát triển phần mềm",
+      "triển khai phần mềm",
+      "outsource IT Việt Nam",
+      "phần mềm tùy chỉnh",
+      "custom software development",
+      "AI software",
+      "giải pháp AI",
+      "software consulting",
+      "đối tác công nghệ",
+      "software implementation partner"
+    ],
+    "privacyTitle": "Chính sách bảo mật"
+  },
+  "nav": {
+    "items": [
+      {
+        "label": "Dịch vụ",
+        "href": "#services"
+      },
+      {
+        "label": "Quy trình",
+        "href": "#process"
+      },
+      {
+        "label": "Năng lực",
+        "href": "#expertise"
+      },
+      {
+        "label": "Case study",
+        "href": "#case-studies"
+      },
+      {
+        "label": "Khách hàng",
+        "href": "#region"
+      }
+    ],
+    "contact": "Liên Hệ",
+    "toggleMenu": "Mở/đóng menu",
+    "mainNavLabel": "Điều hướng chính",
+    "mobileNavLabel": "Điều hướng trên di động",
+    "languageLabel": "Ngôn ngữ"
+  },
+  "hero": {
+    "titleLine1": "Biến ý tưởng",
+    "titleLine2": "thành giải pháp phần mềm thực tế",
+    "lead": "DVL Tech cung cấp dịch vụ tư vấn và phát triển phần mềm cho doanh nghiệp, từ phân tích nhu cầu, xây dựng kế hoạch đến triển khai và vận hành hệ thống.",
+    "experienceBefore": "Với đội ngũ có ",
+    "experienceHighlight": "8–15 năm kinh nghiệm trong lĩnh vực công nghệ thông tin",
+    "experienceAfter": ", DVL Tech đồng hành cùng doanh nghiệp tại Việt Nam và Nhật Bản trong các dự án phần mềm và chuyển đổi số.",
+    "ctaPrimary": "Trao đổi về dự án",
+    "ctaSecondary": "Khám phá dịch vụ",
+    "markets": [
+      "Vietnam",
+      "Japan"
+    ],
+    "marketsLabel": "Thị trường hoạt động"
+  },
+  "partners": {
+    "logoAlt": "Đối tác {name} của DVL Tech"
+  },
+  "compliance": {
+    "titleLine1": "Meet compliance requirements.",
+    "titleLine2Before": "Build ",
+    "titleLine2Accent": "smarter trust.",
+    "description": "Dùng các khối xây dựng linh hoạt của {name} để dữ liệu khách hàng của bạn luôn an toàn và tuân thủ quy định.",
+    "ctaPrimary": "Yêu cầu demo",
+    "ctaSecondary": "Gọi cho chúng tôi"
+  },
+  "certifications": {
+    "eyebrow": "Credentials",
+    "title": "Certifications"
+  },
+  "expertise": {
+    "eyebrow": "Tech stack",
+    "titleBefore": "Technical ",
+    "titleAccent": "Expertise",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "aiml": "AI / ML",
+      "cloud": "Cloud & DevOps",
+      "data": "Data"
+    }
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "titleBefore": "Development ",
+    "titleAccent": "Process",
+    "description": "Quy trình phát triển phần mềm chuyên nghiệp, minh bạch & hiệu quả.",
+    "steps": {
+      "requirement": {
+        "title": "Requirement Analysis",
+        "subtitle": "Phân tích yêu cầu",
+        "description": "Tìm hiểu mục tiêu, nhu cầu và bài toán nghiệp vụ của doanh nghiệp."
+      },
+      "design": {
+        "title": "Solution Design",
+        "subtitle": "Tư vấn & thiết kế giải pháp",
+        "description": "Phân tích yêu cầu và xây dựng định hướng giải pháp phù hợp."
+      },
+      "development": {
+        "title": "Development",
+        "subtitle": "Phát triển phần mềm",
+        "description": "Thiết kế, lập trình và xây dựng các chức năng của hệ thống."
+      },
+      "testing": {
+        "title": "Testing & QA",
+        "subtitle": "Kiểm thử & đảm bảo chất lượng",
+        "description": "Kiểm thử sản phẩm và kiểm soát chất lượng trước khi đưa vào vận hành."
+      },
+      "deployment": {
+        "title": "Deployment",
+        "subtitle": "Triển khai hệ thống",
+        "description": "Đưa hệ thống vào môi trường thực tế và hỗ trợ quá trình triển khai."
+      },
+      "operation": {
+        "title": "Operation",
+        "subtitle": "Vận hành",
+        "description": "Theo dõi, hỗ trợ và đảm bảo hệ thống hoạt động ổn định."
+      },
+      "maintenance": {
+        "title": "Maintenance",
+        "subtitle": "Bảo trì & cải tiến",
+        "description": "Cập nhật, sửa lỗi, bảo trì và cải tiến hệ thống theo nhu cầu thực tế."
+      }
+    }
+  },
+  "engagement": {
+    "eyebrow": "Engagement models",
+    "titleBefore": "Mô hình hợp tác ",
+    "titleAccent": "linh hoạt",
+    "description": "DVL Tech có thể đồng hành với doanh nghiệp theo nhiều hình thức, tùy thuộc vào quy mô, mục tiêu và yêu cầu của từng dự án.",
+    "learnMore": "Tìm hiểu thêm về {title}",
+    "models": {
+      "projectBased": {
+        "title": "Project Based",
+        "description": "Phù hợp với các dự án có phạm vi và mục tiêu rõ ràng. DVL Tech đồng hành từ phân tích yêu cầu đến phát triển và triển khai hệ thống."
+      },
+      "dedicatedTeam": {
+        "title": "Dedicated Team",
+        "description": "Cung cấp đội ngũ kỹ thuật theo nhu cầu của doanh nghiệp, phù hợp với các dự án cần nguồn lực phát triển lâu dài."
+      },
+      "softwareConsulting": {
+        "title": "Software Consulting",
+        "description": "Tư vấn về giải pháp, kiến trúc, quy trình và định hướng xây dựng hệ thống phần mềm."
+      },
+      "maintenanceOperation": {
+        "title": "Maintenance & Operation",
+        "description": "Hỗ trợ bảo trì, vận hành, cập nhật và cải tiến hệ thống sau khi triển khai."
+      }
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Our work",
+    "titleBefore": "Case ",
+    "titleAccent": "Studies",
+    "viewAll": "Xem tất cả dự án",
+    "badge": "CASE STUDY",
+    "problemLabel": "Bài toán",
+    "involvementLabel": "DVL Tech tham gia",
+    "resultLabel": "Kết quả",
+    "goTo": "Xem case study {index}",
+    "previous": "Case study trước",
+    "next": "Case study tiếp theo",
+    "items": {
+      "lifecycle": {
+        "title": "Lifecycle",
+        "subtitle": "Nền tảng tiện ích đô thị trên một ứng dụng",
+        "desc": "Lifecycle là hệ thống hỗ trợ quản lý và theo dõi các hoạt động trong một thành phố, đồng thời cung cấp nhiều tiện ích cho người dân.",
+        "features": [
+          "Mua sắm",
+          "Công viên",
+          "Trường học",
+          "Nơi trú ẩn",
+          "Chat",
+          "Call",
+          "Liên hệ chính quyền thành phố"
+        ],
+        "problem": "Tổng hợp các tiện ích và thông tin của thành phố trên một ứng dụng duy nhất, giúp người dân thuận tiện hơn trong việc tiếp cận các dịch vụ và thông tin cần thiết.",
+        "involvement": [
+          "Phân tích yêu cầu",
+          "Phát triển hệ thống",
+          "Kiểm thử",
+          "Vận hành & bảo trì"
+        ],
+        "result": "Hệ thống được đưa vào vận hành tại nhiều thành phố ở Nhật Bản và tiếp tục được DVL Tech hỗ trợ, bảo trì và cải tiến theo nhu cầu thực tế."
+      },
+      "foodWaste": {
+        "title": "Ứng dụng hỗ trợ giảm lãng phí thực phẩm",
+        "subtitle": "",
+        "desc": "Ứng dụng hỗ trợ kết nối các đơn vị cung cấp thực phẩm với người dùng, góp phần tận dụng các sản phẩm có nguy cơ bị lãng phí.",
+        "features": [],
+        "problem": "Giảm lượng thực phẩm bị bỏ đi và tạo ra một phương thức thuận tiện hơn để phân phối các sản phẩm thực phẩm còn giá trị sử dụng.",
+        "involvement": [
+          "Phát triển hệ thống",
+          "Xử lý chức năng nghiệp vụ",
+          "Kiểm thử"
+        ],
+        "result": "Ứng dụng được xây dựng nhằm giải quyết một bài toán xã hội thực tế, kết hợp công nghệ với mục tiêu giảm lãng phí thực phẩm."
+      },
+      "businessChat": {
+        "title": "Business Chat & Call Application",
+        "subtitle": "",
+        "desc": "Ứng dụng hỗ trợ giao tiếp giữa các doanh nghiệp thông qua các tính năng nhắn tin và gọi điện. Hệ thống giúp người dùng trao đổi thông tin nhanh chóng và thuận tiện hơn trong quá trình làm việc.",
+        "features": [],
+        "problem": "Tạo một kênh giao tiếp tập trung cho các doanh nghiệp, giúp trao đổi thông tin thuận tiện và giảm sự phụ thuộc vào nhiều công cụ liên lạc khác nhau.",
+        "involvement": [
+          "Phát triển chức năng",
+          "Xử lý nghiệp vụ",
+          "Kiểm thử",
+          "Hỗ trợ vận hành"
+        ],
+        "result": "Hệ thống cung cấp các chức năng giao tiếp trực tiếp giữa doanh nghiệp, phục vụ nhu cầu trao đổi thông tin trong môi trường công việc."
+      },
+      "toyLabel": {
+        "title": "Toy Label Management System",
+        "subtitle": "",
+        "desc": "Hệ thống hỗ trợ quản lý thông tin và quy trình liên quan đến nhãn dán của các sản phẩm đồ chơi.",
+        "features": [],
+        "problem": "Quản lý tập trung thông tin nhãn dán, giảm việc xử lý thủ công và giúp người dùng dễ dàng theo dõi, cập nhật thông tin sản phẩm.",
+        "involvement": [
+          "Phân tích yêu cầu",
+          "Phát triển hệ thống",
+          "Kiểm thử",
+          "Hỗ trợ vận hành"
+        ],
+        "result": "Hệ thống giúp số hóa và tập trung hóa quá trình quản lý thông tin nhãn dán, hỗ trợ doanh nghiệp quản lý dữ liệu hiệu quả hơn."
+      },
+      "accessibilitySupport": {
+        "title": "Ứng dụng hỗ trợ người yếu thế",
+        "subtitle": "",
+        "desc": "Ứng dụng được xây dựng nhằm hỗ trợ người yếu thế tiếp cận thông tin, dịch vụ hoặc các nguồn hỗ trợ phù hợp với nhu cầu của họ.",
+        "features": [],
+        "problem": "Tạo ra một công cụ công nghệ giúp người dùng dễ dàng tiếp cận các thông tin và dịch vụ hỗ trợ trong cuộc sống.",
+        "involvement": [
+          "Phát triển hệ thống",
+          "Xử lý chức năng nghiệp vụ",
+          "Kiểm thử",
+          "Hỗ trợ vận hành"
+        ],
+        "result": ""
+      }
+    },
+    "viewCase": "Xem case study"
+  },
+  "whyUs": {
+    "eyebrow": "Why DVL Tech",
+    "titleBefore": "Why ",
+    "titleAccent": "Us",
+    "description": "Đội ngũ giàu kinh nghiệm. Quy trình chuyên nghiệp. Công nghệ phù hợp.",
+    "reasons": {
+      "capability": {
+        "title": "Năng lực phát triển phần mềm",
+        "description": "Đội ngũ gồm PM, Developer và Tester/QA, giúp dự án được quản lý, phát triển và kiểm soát chất lượng theo quy trình rõ ràng."
+      },
+      "ai": {
+        "title": "Ứng dụng AI",
+        "description": "DVL Tech chủ động ứng dụng AI vào quá trình phát triển phần mềm nhằm nâng cao năng suất và tối ưu thời gian triển khai."
+      },
+      "japan": {
+        "title": "Kinh nghiệm với khách hàng Nhật Bản",
+        "description": "DVL Tech hiện đang hợp tác với khách hàng tại Nhật Bản và trực tiếp vận hành nhiều dự án phần mềm trong các lĩnh vực khác nhau."
+      },
+      "longTerm": {
+        "title": "Đồng hành lâu dài",
+        "description": "DVL Tech không chỉ phát triển và bàn giao phần mềm mà còn hỗ trợ bảo trì, cập nhật, vận hành và cải tiến hệ thống."
+      },
+      "speed": {
+        "title": "Tốc độ triển khai",
+        "description": "Tập trung vào việc xác định đúng vấn đề, lựa chọn giải pháp phù hợp và triển khai hiệu quả."
+      },
+      "cost": {
+        "title": "Chi phí cạnh tranh",
+        "description": "Tối ưu nguồn lực và quy trình phát triển để mang lại giải pháp có chi phí phù hợp với nhu cầu và ngân sách của doanh nghiệp."
+      },
+      "stack": {
+        "title": "Công nghệ đa dạng",
+        "description": "Đội ngũ có kinh nghiệm với nhiều công nghệ và nền tảng như:"
+      },
+      "experience": {
+        "title": "Kinh nghiệm thực tế",
+        "description": "DVL Tech được thành lập năm 2026, đội ngũ sáng lập và nhân sự chủ chốt đã có 8–15 năm kinh nghiệm trong lĩnh vực công nghệ thông tin và phát triển phần mềm."
+      }
+    }
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "title": "Dịch vụ",
+    "description": "DVL Tech cung cấp các dịch vụ công nghệ nhằm hỗ trợ doanh nghiệp từ giai đoạn hình thành ý tưởng đến phát triển, triển khai và vận hành hệ thống.",
+    "tagline": "Giải pháp công nghệ cho toàn bộ vòng đời dự án",
+    "featuredBadge": "Dịch vụ trọng tâm",
+    "featuredCta": "Trao đổi về dự án",
+    "items": {
+      "projectConsulting": {
+        "title": "Tư vấn xây dựng dự án phần mềm",
+        "description": "Phân tích nhu cầu, xác định phạm vi, xây dựng kế hoạch và định hướng giải pháp cho dự án phần mềm. \nDVL Tech giúp doanh nghiệp chuyển hóa bài toán nghiệp vụ thành một kế hoạch triển khai rõ ràng, khả thi và phù hợp với mục tiêu thực tế."
+      },
+      "analysisDesign": {
+        "title": "Tư vấn, phân tích & thiết kế",
+        "description": "Phân tích nghiệp vụ, yêu cầu hệ thống và xây dựng định hướng giải pháp công nghệ phù hợp với nhu cầu của doanh nghiệp.",
+        "highlights": [
+          "Khảo sát hiện trạng và phân tích nghiệp vụ",
+          "Đặc tả yêu cầu hệ thống chi tiết",
+          "Tư vấn lựa chọn công nghệ phù hợp"
+        ]
+      },
+      "development": {
+        "title": "Phát triển & sản xuất phần mềm",
+        "description": "Thiết kế, phát triển và kiểm thử các sản phẩm, ứng dụng và hệ thống phần mềm theo yêu cầu."
+      },
+      "integration": {
+        "title": "Tích hợp hệ thống",
+        "description": "Tích hợp các hệ thống, ứng dụng và nguồn dữ liệu nhằm tạo ra môi trường vận hành thống nhất và hiệu quả."
+      },
+      "operations": {
+        "title": "Quản lý & vận hành ứng dụng",
+        "description": "Hỗ trợ quản trị, bảo trì, cập nhật và duy trì hoạt động ổn định của hệ thống phần mềm sau triển khai."
+      },
+      "security": {
+        "title": "Bảo mật & an toàn thông tin",
+        "description": "Hỗ trợ đảm bảo an toàn cho sản phẩm phần mềm, hệ thống thông tin và dữ liệu trong quá trình vận hành."
+      },
+      "quality": {
+        "title": "Đánh giá & thẩm tra chất lượng phần mềm",
+        "description": "Tư vấn, đánh giá và thẩm tra chất lượng phần mềm nhằm giúp doanh nghiệp kiểm soát chất lượng và giảm thiểu rủi ro trong dự án.",
+        "highlights": [
+          "Kiểm thử chức năng và hiệu năng",
+          "Rà soát, đánh giá chất lượng mã nguồn",
+          "Thẩm tra tài liệu và quy trình dự án",
+          "Báo cáo rủi ro và khuyến nghị cải tiến"
+        ]
+      },
+      "techTransfer": {
+        "title": "Chuyển giao công nghệ",
+        "description": "Hỗ trợ chuyển giao công nghệ, hệ thống và kiến thức cần thiết để doanh nghiệp có thể chủ động vận hành và phát triển giải pháp."
+      },
+      "pricing": {
+        "title": "Tư vấn định giá phần mềm",
+        "description": "Tư vấn và hỗ trợ đánh giá, định giá sản phẩm và giải pháp phần mềm theo nhu cầu của doanh nghiệp."
+      },
+      "distribution": {
+        "title": "Phân phối & cung cấp sản phẩm phần mềm",
+        "description": "Cung cấp và phân phối các sản phẩm phần mềm phù hợp với nhu cầu sử dụng và vận hành của doanh nghiệp."
+      },
+      "web": {
+        "title": "Website & hệ thống thông tin",
+        "description": "Thiết kế, lưu trữ, duy trì trang thông tin điện tử và các hệ thống thông tin phục vụ hoạt động của doanh nghiệp.",
+        "highlights": [
+          "Thiết kế và phát triển website",
+          "Lưu trữ, vận hành hạ tầng hosting",
+          "Xây dựng cổng thông tin nội bộ",
+          "Bảo trì, cập nhật và tối ưu nội dung"
+        ]
+      },
+      "data": {
+        "title": "Dữ liệu & cơ sở dữ liệu",
+        "description": "Hỗ trợ cập nhật, tìm kiếm, lưu trữ, xử lý dữ liệu và khai thác cơ sở dữ liệu."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "titleBefore": "Khách hàng nói gì về ",
+    "titleAccent": "DVL Tech",
+    "goTo": "Tới lời chứng thực số {index}",
+    "previous": "Lời chứng thực trước",
+    "next": "Lời chứng thực tiếp theo",
+    "items": {
+      "systena": {
+        "paragraphs": [
+          "Khi giao toàn bộ việc đánh giá chất lượng cho DVL Tech, chúng tôi cũng tham vấn thêm qua một bên thứ ba. Chúng tôi đánh giá cao cách tiếp cận chủ động và khả năng trao đổi hiệu quả của DVL Tech, cũng như việc họ hiện thực hoá được thiết kế chất lượng hệ thống lấy người dùng làm trung tâm và đáp ứng đúng yêu cầu của chúng tôi.",
+          "Chúng tôi sẽ tiếp tục tận dụng năng lực và công nghệ của họ trong các dự án sắp tới với nhiều kỳ vọng. DVL Tech là một đối tác đáng tin cậy, và tôi thực sự muốn giới thiệu dịch vụ cùng đội ngũ xuất sắc của họ."
+        ],
+        "name": "Mr. Takeyama Kazuyuki, Manager",
+        "company": "Systena Corporation, Nhật Bản"
+      },
+      "unqork": {
+        "paragraphs": [
+          "Đội ngũ kỹ thuật của DVL Tech thể hiện chuyên môn vượt trội và luôn đúng hạn. Họ thực sự hiểu công việc kinh doanh của chúng tôi và đề xuất những giải pháp sáng tạo mang lại kết quả đo lường được.",
+          "Cách phối hợp và trao đổi minh bạch của họ khiến toàn bộ quá trình hợp tác diễn ra suôn sẻ và hiệu quả. Chúng tôi mong được tiếp tục đồng hành trong các dự án tiếp theo."
+        ],
+        "name": "Sarah Johnson, VP Engineering",
+        "company": "Unqork, Hoa Kỳ"
+      },
+      "ness": {
+        "paragraphs": [
+          "Chúng tôi đã hợp tác với DVL Tech hơn ba năm, và dự án nào cũng vượt kỳ vọng. Chất lượng mã nguồn và quy trình bàn giao chuyên nghiệp của họ rất đáng nể.",
+          "Họ luôn mang đến năng lực dẫn dắt kỹ thuật vững vàng và khả năng thực thi đáng tin cậy. DVL Tech là đối tác chúng tôi tin tưởng cho những dự án phần mềm phức tạp, trọng yếu."
+        ],
+        "name": "Michael Torres, Director of Technology",
+        "company": "Ness, Toàn cầu"
+      }
+    }
+  },
+  "region": {
+    "eyebrow": "Vietnam · Japan",
+    "titleBefore": "Khu vực ",
+    "titleAccent": "khách hàng",
+    "mapError": "Không tải được dữ liệu bản đồ.",
+    "mapLoading": "Đang tải bản đồ",
+    "countries": {
+      "vn": "Việt Nam",
+      "jp": "Nhật Bản"
+    }
+  },
+  "privacy": {
+    "title": "Chính sách bảo mật",
+    "lastUpdated": "Cập nhật lần cuối: 19/03/2026",
+    "intro": "Tại {company}, chúng tôi tôn trọng và cam kết bảo vệ quyền riêng tư của người dùng, khách hàng và đối tác khi truy cập website.",
+    "collect": {
+      "heading": "1. Thông tin chúng tôi thu thập",
+      "intro": "Chúng tôi có thể thu thập các thông tin sau khi bạn sử dụng website:",
+      "items": [
+        "Họ và tên",
+        "Email",
+        "Số điện thoại",
+        "Tên công ty",
+        "Nội dung liên hệ / yêu cầu tư vấn",
+        "Thông tin kỹ thuật: địa chỉ IP, trình duyệt, thiết bị, hành vi truy cập"
+      ]
+    },
+    "purpose": {
+      "heading": "2. Mục đích sử dụng thông tin",
+      "intro": "Thông tin được sử dụng nhằm:",
+      "items": [
+        "Phản hồi yêu cầu và tư vấn dịch vụ",
+        "Liên hệ trao đổi về dự án, hợp tác",
+        "Cải thiện trải nghiệm người dùng trên website",
+        "Phân tích dữ liệu để tối ưu sản phẩm và marketing",
+        "Gửi thông tin dịch vụ (nếu bạn đồng ý)"
+      ]
+    },
+    "sharing": {
+      "heading": "3. Chia sẻ thông tin",
+      "noSellBefore": "{company} ",
+      "noSellStrong": "không bán, trao đổi hoặc cho thuê",
+      "noSellAfter": " thông tin cá nhân của bạn.",
+      "casesIntro": "Chúng tôi chỉ chia sẻ thông tin trong các trường hợp:",
+      "items": [
+        "Với các đối tác hỗ trợ vận hành hệ thống (hosting, email, analytics,...)",
+        "Khi có yêu cầu từ cơ quan pháp luật",
+        "Khi cần thiết để bảo vệ quyền lợi hợp pháp của công ty"
+      ]
+    },
+    "security": {
+      "heading": "4. Bảo mật thông tin",
+      "intro": "Chúng tôi áp dụng các biện pháp bảo mật phù hợp:",
+      "items": [
+        "Sử dụng HTTPS/SSL để mã hóa dữ liệu",
+        "Hạn chế quyền truy cập nội bộ",
+        "Lưu trữ dữ liệu trên hệ thống an toàn"
+      ],
+      "caveat": "Tuy nhiên, không có phương thức truyền tải hoặc lưu trữ nào đảm bảo an toàn tuyệt đối."
+    },
+    "cookies": {
+      "heading": "5. Cookies và dữ liệu truy cập",
+      "intro": "Website sử dụng hệ thống thống kê truy cập do chính chúng tôi vận hành, không chia sẻ dữ liệu với bên thứ ba và không dùng cho mục đích quảng cáo. Hệ thống đặt hai cookie kỹ thuật:",
+      "visitorCookie": "mã ngẫu nhiên nhận diện trình duyệt, lưu tối đa 400 ngày, dùng để phân biệt khách mới và khách quay lại",
+      "sessionCookie": "mã ngẫu nhiên của một phiên truy cập, hết hạn sau 30 phút không hoạt động",
+      "tracked": "Cùng với đó, mỗi lượt truy cập được ghi nhận: địa chỉ IP, thông tin trình duyệt và hệ điều hành (User-Agent), đường dẫn trang đã xem, thời điểm và thời lượng xem, trang giới thiệu và tham số chiến dịch (UTM) nếu có. Địa chỉ IP được lưu ở dạng nguyên bản nhằm phục vụ thống kê và phát hiện truy cập bất thường; chúng tôi không dùng dịch vụ tra cứu vị trí của bên thứ ba.",
+      "retention": "Dữ liệu truy cập được lưu tối đa 18 tháng. Bạn có thể tắt cookies trong trình duyệt, nhưng một số tính năng có thể bị ảnh hưởng."
+    },
+    "thirdParty": {
+      "heading": "6. Liên kết bên thứ ba",
+      "body": "Website có thể chứa liên kết đến các website khác. {company} không chịu trách nhiệm về nội dung hoặc chính sách bảo mật của các bên thứ ba này."
+    },
+    "rights": {
+      "heading": "7. Quyền của bạn",
+      "intro": "Bạn có quyền:",
+      "items": [
+        "Yêu cầu xem, chỉnh sửa hoặc xóa thông tin cá nhân",
+        "Yêu cầu xóa dữ liệu truy cập gắn với thiết bị của bạn, bao gồm địa chỉ IP đã lưu",
+        "Từ chối nhận thông tin marketing",
+        "Yêu cầu ngừng xử lý dữ liệu của bạn"
+      ]
+    },
+    "contactSection": {
+      "heading": "8. Liên hệ",
+      "intro": "Nếu bạn có bất kỳ câu hỏi nào về Chính sách bảo mật, vui lòng liên hệ:",
+      "company": "Công ty",
+      "taxCode": "Mã số thuế",
+      "email": "Email",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ"
+    },
+    "updates": "{company} có thể cập nhật Chính sách bảo mật này theo thời gian. Mọi thay đổi sẽ được đăng tải trên website."
+  },
+  "cta": {
+    "eyebrow": "Liên hệ",
+    "titleBefore": "Bắt đầu dự án cùng ",
+    "titleAccent": "DVL Tech",
+    "description": "Bạn đang có ý tưởng xây dựng một hệ thống mới, cần phát triển phần mềm hoặc muốn nâng cấp hệ thống hiện tại? Hãy liên hệ với DVL Tech để cùng trao đổi về dự án.",
+    "contact": {
+      "email": "Email",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ"
+    },
+    "form": {
+      "name": "Họ và tên",
+      "namePlaceholder": "Nguyễn Văn A",
+      "phone": "Số điện thoại",
+      "phonePlaceholder": "09xx xxx xxx",
+      "email": "Email",
+      "emailPlaceholder": "ten@congty.com",
+      "company": "Công ty",
+      "companyPlaceholder": "Tên doanh nghiệp",
+      "service": "Bạn đang cần hỗ trợ về?",
+      "servicePlaceholder": "Chọn nhu cầu của bạn",
+      "message": "Nội dung",
+      "messagePlaceholder": "Hãy mô tả ngắn gọn nhu cầu hoặc dự án của bạn.",
+      "submit": "Gửi yêu cầu",
+      "submitting": "Đang gửi..."
+    },
+    "serviceOptions": {
+      "consulting": "Tư vấn xây dựng dự án phần mềm",
+      "development": "Phát triển phần mềm",
+      "integration": "Tích hợp hệ thống",
+      "maintenance": "Bảo trì & vận hành",
+      "techAdvisory": "Tư vấn công nghệ",
+      "other": "Khác"
+    },
+    "success": {
+      "title": "Đã gửi yêu cầu",
+      "description": "Cảm ơn bạn đã liên hệ, chúng tôi sẽ phản hồi sớm nhất."
+    },
+    "errors": {
+      "missingFields": "Vui lòng kiểm tra lại thông tin bắt buộc.",
+      "invalidEmail": "Email không hợp lệ.",
+      "server": "Đã xảy ra lỗi khi gửi yêu cầu, vui lòng thử lại sau.",
+      "network": "Không thể kết nối tới máy chủ, vui lòng thử lại sau."
+    }
+  },
+  "team": {
+    "eyebrow": "Our team",
+    "titleBefore": "Đội ngũ phía sau ",
+    "titleAccent": "mỗi dự án",
+    "description": "DVL Tech xây dựng đội ngũ theo mô hình phối hợp giữa quản lý dự án, phát triển phần mềm và kiểm thử chất lượng.",
+    "stats": {
+      "people": {
+        "label": "Nhân sự",
+        "detail": "Đội ngũ gồm: 3 PM · 12 Developers · 5 Tester/QA"
+      },
+      "experience": {
+        "label": "Năm kinh nghiệm",
+        "detail": "Kinh nghiệm của đội ngũ sáng lập và nhân sự chủ chốt."
+      },
+      "projects": {
+        "label": "Dự án đang vận hành",
+        "detail": "Các dự án phần mềm đang được DVL Tech vận hành và hỗ trợ cho khách hàng tại Nhật Bản."
+      },
+      "markets": {
+        "label": "Thị trường",
+        "detail": "Việt Nam · Nhật Bản"
+      }
+    },
+    "roles": {
+      "pm": {
+        "title": "Project Managers",
+        "description": "Quản lý phạm vi, tiến độ, nguồn lực và phối hợp giữa các bên trong dự án."
+      },
+      "dev": {
+        "title": "Developers",
+        "description": "Phát triển và triển khai các sản phẩm, ứng dụng và hệ thống phần mềm."
+      },
+      "qa": {
+        "title": "Tester / QA",
+        "description": "Kiểm thử và kiểm soát chất lượng sản phẩm trong quá trình phát triển và vận hành."
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Software Consulting & Development",
+    "capabilities": [
+      "Tư vấn",
+      "Phát triển phần mềm",
+      "Tích hợp hệ thống",
+      "Vận hành & Bảo trì"
+    ],
+    "markets": [
+      "Vietnam",
+      "Japan"
+    ],
+    "servicesTitle": "Dịch vụ",
+    "companyTitle": "Công ty",
+    "contactTitle": "Liên hệ",
+    "comingSoon": "Sắp có",
+    "updating": "Đang cập nhật",
+    "services": [
+      "Tư vấn xây dựng dự án phần mềm",
+      "Phát triển phần mềm",
+      "Tích hợp hệ thống",
+      "Đánh giá & thẩm tra phần mềm",
+      "Bảo trì & vận hành",
+      "Bảo mật & an toàn thông tin",
+      "Chuyển giao công nghệ",
+      "Dữ liệu & cơ sở dữ liệu"
+    ],
+    "company": {
+      "about": "Về DVL Tech",
+      "team": "Đội ngũ",
+      "caseStudies": "Case Studies",
+      "careers": "Tuyển dụng"
+    },
+    "contact": {
+      "email": "Email",
+      "phone": "Điện thoại",
+      "address": "Địa chỉ"
+    },
+    "legal": {
+      "privacy": "Chính sách bảo mật",
+      "terms": "Điều khoản sử dụng"
+    },
+    "rights": "© {year} DVL Tech. Bảo lưu mọi quyền.",
+    "taxCode": "Mã số thuế"
+  },
+  "floatingActions": {
+    "scrollTop": "Cuộn lên đầu trang",
+    "hotline": "Mở các liên hệ nhanh"
+  }
+}

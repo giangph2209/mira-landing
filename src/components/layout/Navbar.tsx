@@ -7,12 +7,17 @@ import Button from "@/components/ui/Button";
 import { ArrowRightIcon } from "@/components/ui/Icons";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { scrollToHash } from "@/lib/scroll";
-import { NAV_ITEMS, NAV_SECTION_IDS, SITE } from "@/lib/site";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
+import type { Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
+import { SITE } from "@/lib/site";
 
 function navItemClass(active: boolean) {
   return [
     "rounded-lg px-3 py-2 text-[15px] font-medium transition-colors",
-    active ? "bg-primary/5 text-primary" : "text-text-muted hover:bg-primary/5 hover:text-primary",
+    active
+      ? "bg-primary/5 text-primary"
+      : "text-text-muted hover:bg-primary/5 hover:text-primary",
   ].join(" ");
 }
 
@@ -23,10 +28,19 @@ function mobileNavItemClass(active: boolean) {
   ].join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({
+  dict,
+  lang,
+}: {
+  dict: Dictionary["nav"];
+  lang: Locale;
+}) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { activeHref, activate } = useScrollSpy(NAV_SECTION_IDS);
+  // Danh sách mục điều hướng giờ đến từ dictionary, nên id section phải suy ra từ đó
+  // thay vì lấy hằng số NAV_SECTION_IDS cũ.
+  const sectionIds = dict.items.map((item) => item.href.slice(1));
+  const { activeHref, activate } = useScrollSpy(sectionIds);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -57,7 +71,10 @@ export default function Navbar() {
       ].join(" ")}
     >
       <div className="section-container relative flex h-[72px] items-center justify-between gap-8">
-        <Link href="/" className="relative z-10 block w-25 shrink-0 md:w-32">
+        <Link
+          href={`/${lang}`}
+          className="relative z-10 block w-25 shrink-0 md:w-32"
+        >
           <Image
             src="/images/brand/logo-brand.png"
             alt={SITE.name}
@@ -68,8 +85,11 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden flex-1 items-center justify-center gap-2 md:gap-4 lg:flex" aria-label="Main">
-          {NAV_ITEMS.map((item) => (
+        <nav
+          className="hidden flex-1 items-center justify-center gap-2 md:gap-4 lg:flex"
+          aria-label={dict.mainNavLabel}
+        >
+          {dict.items.map((item) => (
             <a
               key={item.label}
               href={item.href}
@@ -85,24 +105,45 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="relative z-10 hidden xl:block">
+        <div className="relative z-10 hidden items-center gap-1 xl:flex">
+          <LanguageSwitcher current={lang} label={dict.languageLabel} />
           <Button href="#contact" size="sm" iconRight={<ArrowRightIcon />}>
-            Liên Hệ
+            {dict.contact}
           </Button>
+        </div>
+
+        <div className="relative z-10 flex items-center gap-1 xl:hidden pl-15">
+          <LanguageSwitcher current={lang} label={dict.languageLabel} />
         </div>
 
         <button
           type="button"
           className="relative z-10 rounded-lg p-2 text-text-muted lg:hidden"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          aria-label={dict.toggleMenu}
           aria-expanded={open}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden
+          >
             {open ? (
-              <path d="M6 18L18 6M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
             ) : (
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
             )}
           </svg>
         </button>
@@ -110,8 +151,8 @@ export default function Navbar() {
 
       {open ? (
         <div className="max-h-[calc(100vh-72px)] overflow-y-auto border-t border-gray-100 bg-white px-6 pb-6 lg:hidden">
-          <nav className="flex flex-col" aria-label="Mobile">
-            {NAV_ITEMS.map((item) => (
+          <nav className="flex flex-col" aria-label={dict.mobileNavLabel}>
+            {dict.items.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
@@ -133,7 +174,7 @@ export default function Navbar() {
             iconRight={<ArrowRightIcon />}
             onClick={() => setOpen(false)}
           >
-            Liên Hệ
+            {dict.contact}
           </Button>
         </div>
       ) : null}

@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
+import { t } from "@/lib/i18n/format";
 import { SITE } from "@/lib/site";
 
 type FooterLink = {
@@ -15,43 +18,16 @@ type ContactItem = {
   href?: string;
 };
 
-const SERVICE_LINKS: FooterLink[] = [
-  { label: "Tư vấn xây dựng dự án phần mềm", href: "#services" },
-  { label: "Phát triển phần mềm", href: "#services" },
-  { label: "Tích hợp hệ thống", href: "#services" },
-  { label: "Đánh giá & thẩm tra phần mềm", href: "#services" },
-  { label: "Bảo trì & vận hành", href: "#services" },
-  { label: "Bảo mật & an toàn thông tin", href: "#services" },
-  { label: "Chuyển giao công nghệ", href: "#services" },
-  { label: "Dữ liệu & cơ sở dữ liệu", href: "#services" },
-];
+/** Mọi dịch vụ cùng trỏ về #services; nhãn lấy theo thứ tự từ dictionary. */
+const SERVICE_HREF = "#services";
 
-const COMPANY_LINKS: FooterLink[] = [
-  { label: "About DVL Tech", href: "#why-us" },
-  { label: "Our Team", href: "#team" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Careers" },
+/** Thứ tự cố định, khớp key trong dictionary. `href` thiếu = chưa có trang đích. */
+const COMPANY_LINKS: { key: keyof Dictionary["footer"]["company"]; href?: string }[] = [
+  { key: "about", href: "#why-us" },
+  { key: "team", href: "#team" },
+  { key: "caseStudies", href: "#case-studies" },
+  { key: "careers" },
 ];
-
-const CONTACT_ITEMS: ContactItem[] = [
-  { label: "Email", value: SITE.email, href: `mailto:${SITE.email}` },
-  { label: "Phone", value: SITE.phone, href: `tel:${SITE.phoneHref}` },
-  { label: "Address", value: SITE.address.full },
-];
-
-const LEGAL_LINKS: FooterLink[] = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Use" },
-];
-
-const CAPABILITIES = [
-  "Tư vấn",
-  "Phát triển phần mềm",
-  "Tích hợp hệ thống",
-  "Vận hành & Bảo trì",
-];
-
-const MARKETS = ["Vietnam", "Japan"];
 
 const SOCIALS = [
   {
@@ -68,13 +44,17 @@ const SOCIALS = [
 
 const linkClass = "text-sm text-white/50 transition-colors hover:text-white";
 
-function FooterLinkItem({ label, href }: FooterLink) {
+function FooterLinkItem({
+  label,
+  href,
+  comingSoon,
+}: FooterLink & { comingSoon: string }) {
   if (!href) {
     return (
       <span className="inline-flex items-center gap-2 text-sm text-white/35">
         {label}
         <span className="rounded-full bg-white/8 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white/40">
-          Sắp có
+          {comingSoon}
         </span>
       </span>
     );
@@ -95,14 +75,31 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function FooterSection() {
+export default function FooterSection({
+  dict,
+  lang,
+}: {
+  dict: Dictionary["footer"];
+  lang: Locale;
+}) {
+  const contactItems: ContactItem[] = [
+    { label: dict.contact.email, value: SITE.email, href: `mailto:${SITE.email}` },
+    { label: dict.contact.phone, value: SITE.phone, href: `tel:${SITE.phoneHref}` },
+    { label: dict.contact.address, value: SITE.address.full },
+  ];
+
+  const legalLinks: FooterLink[] = [
+    { label: dict.legal.privacy, href: `/${lang}/privacy-policy` },
+    { label: dict.legal.terms },
+  ];
+
   return (
     <footer className="bg-[#0d1f17]">
       <div className="section-container pb-8 pt-12 sm:pb-10 sm:pt-16 lg:pt-20">
         <div className="grid grid-cols-1 gap-10 border-b border-white/10 pb-10 sm:grid-cols-2 sm:gap-y-12 sm:pb-12 lg:grid-cols-12 lg:gap-8">
           {/* brand */}
           <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-4">
-            <Link href="/">
+            <Link href={`/${lang}`}>
               <Image
                 src="/images/brand/logo-brand.png"
                 alt="DVL Tech"
@@ -114,10 +111,10 @@ export default function FooterSection() {
 
             <div>
               <p className="font-heading text-base font-bold text-white">
-                Software Consulting &amp; Development
+                {dict.tagline}
               </p>
               <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1.5 text-sm text-white/50">
-                {CAPABILITIES.map((item, index) => (
+                {dict.capabilities.map((item, index) => (
                   <span key={item} className="inline-flex items-center gap-2">
                     {index > 0 ? (
                       <span className="text-white/25" aria-hidden>
@@ -131,7 +128,7 @@ export default function FooterSection() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {MARKETS.map((market) => (
+              {dict.markets.map((market) => (
                 <span
                   key={market}
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/70"
@@ -169,31 +166,35 @@ export default function FooterSection() {
 
           {/* services — two columns, it is the longest list */}
           <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-4">
-            <SectionTitle>Dịch vụ</SectionTitle>
+            <SectionTitle>{dict.servicesTitle}</SectionTitle>
             <ul className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
-              {SERVICE_LINKS.map((link) => (
-                <li key={link.label}>
-                  <FooterLinkItem {...link} />
+              {dict.services.map((label) => (
+                <li key={label}>
+                  <FooterLinkItem label={label} href={SERVICE_HREF} comingSoon={dict.comingSoon} />
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <SectionTitle>Công ty</SectionTitle>
+            <SectionTitle>{dict.companyTitle}</SectionTitle>
             <ul className="flex flex-col gap-2.5">
               {COMPANY_LINKS.map((link) => (
-                <li key={link.label}>
-                  <FooterLinkItem {...link} />
+                <li key={link.key}>
+                  <FooterLinkItem
+                    label={dict.company[link.key]}
+                    href={link.href}
+                    comingSoon={dict.comingSoon}
+                  />
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <SectionTitle>Liên hệ</SectionTitle>
+            <SectionTitle>{dict.contactTitle}</SectionTitle>
             <ul className="flex flex-col gap-3">
-              {CONTACT_ITEMS.map((item) => (
+              {contactItems.map((item) => (
                 <li key={item.label} className="flex flex-col gap-0.5">
                   <span className="text-xs font-semibold uppercase tracking-wide text-white/40">
                     {item.label}
@@ -204,7 +205,7 @@ export default function FooterSection() {
                     </a>
                   ) : (
                     <span className="text-sm text-white/35">
-                      {item.value ?? "Đang cập nhật"}
+                      {item.value ?? dict.updating}
                     </span>
                   )}
                 </li>
@@ -216,14 +217,14 @@ export default function FooterSection() {
         <div className="flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row">
           <div className="flex flex-col items-center gap-1 sm:items-start">
             <p className="text-[13px] text-white/30">
-              © {new Date().getFullYear()} DVL Tech. All rights reserved.
+              {t(dict.rights, { year: new Date().getFullYear() })}
             </p>
             <p className="text-center text-[13px] text-white/30 sm:text-left">
-              {SITE.legalName} · Mã số thuế: {SITE.taxCode}
+              {SITE.legalName} · {dict.taxCode}: {SITE.taxCode}
             </p>
           </div>
           <div className="flex gap-6">
-            {LEGAL_LINKS.map((item) =>
+            {legalLinks.map((item) =>
               item.href ? (
                 <Link
                   key={item.label}

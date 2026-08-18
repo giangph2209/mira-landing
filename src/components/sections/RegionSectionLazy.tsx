@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
 const RegionSection = dynamic(() => import("@/components/sections/RegionSection"), {
   ssr: false,
@@ -8,6 +9,10 @@ const RegionSection = dynamic(() => import("@/components/sections/RegionSection"
   loading: () => <div id="region" className="min-h-[320px] bg-white" aria-hidden />,
 });
 
-export default function RegionSectionLazy() {
-  return <RegionSection />;
+export default function RegionSectionLazy({
+  dict,
+}: {
+  dict: Dictionary["region"];
+}) {
+  return <RegionSection dict={dict} />;
 }

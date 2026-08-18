@@ -1,29 +1,16 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 import Reveal from "@/components/ui/Reveal";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
 
+// Nhãn nhóm nằm ở dictionary; danh sách công nghệ là tên riêng nên không dịch.
 const TECH_CATEGORIES = [
-  {
-    label: "Frontend",
-    techs: ["React", "Next.js", "Vue", "Angular", "TypeScript"],
-  },
-  { label: "Backend", techs: ["Node.js", "Python", "Java", "Go", ".NET"] },
-  {
-    label: "Mobile",
-    techs: ["React Native", "Flutter", "iOS (Swift)", "Android (Kotlin)"],
-  },
-  {
-    label: "AI / ML",
-    techs: ["TensorFlow", "PyTorch", "OpenAI", "LangChain", "Hugging Face"],
-  },
-  {
-    label: "Cloud & DevOps",
-    techs: ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform"],
-  },
-  {
-    label: "Data",
-    techs: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Kafka"],
-  },
-];
+  { id: "frontend", techs: ["React", "Next.js", "Vue", "Angular", "TypeScript"] },
+  { id: "backend", techs: ["Node.js", "Python", "Java", "Go", ".NET"] },
+  { id: "mobile", techs: ["React Native", "Flutter", "iOS (Swift)", "Android (Kotlin)"] },
+  { id: "aiml", techs: ["TensorFlow", "PyTorch", "OpenAI", "LangChain", "Hugging Face"] },
+  { id: "cloud", techs: ["AWS", "GCP", "Azure", "Docker", "Kubernetes", "Terraform"] },
+  { id: "data", techs: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch", "Kafka"] },
+] as const;
 
 const TECH_ICONS: Record<string, string> = {
   React: "⚛️",
@@ -58,7 +45,11 @@ const TECH_ICONS: Record<string, string> = {
   Kafka: "📨",
 };
 
-export default function TechnicalExpertiseSection() {
+export default function TechnicalExpertiseSection({
+  dict,
+}: {
+  dict: Dictionary["expertise"];
+}) {
   return (
     <section
       id="expertise"
@@ -67,10 +58,11 @@ export default function TechnicalExpertiseSection() {
       <div className="section-container">
         <Reveal>
           <SectionHeader
-            eyebrow="Tech stack"
+            eyebrow={dict.eyebrow}
             title={
               <>
-                Technical <span className="text-accent">Expertise</span>
+                {dict.titleBefore}
+                <span className="text-accent">{dict.titleAccent}</span>
               </>
             }
           />
@@ -78,10 +70,10 @@ export default function TechnicalExpertiseSection() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {TECH_CATEGORIES.map((category, i) => (
-            <Reveal key={category.label} delay={i * 60}>
+            <Reveal key={category.id} delay={i * 60}>
               <article className="card !p-8">
                 <h4 className="mb-4 border-b border-primary/10 pb-3 text-base font-semibold text-primary">
-                  {category.label}
+                  {dict.categories[category.id]}
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {category.techs.map((tech) => (

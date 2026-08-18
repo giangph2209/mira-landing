@@ -15,73 +15,32 @@ import {
 } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import type { Dictionary } from "@/lib/i18n/dictionaries";
+
+type ReasonId = keyof Dictionary["whyUs"]["reasons"];
 
 type Reason = {
-  id: string;
-  title: string;
-  description: string;
+  /** khớp key trong dictionary.whyUs.reasons */
+  id: ReasonId;
   Icon: LucideIcon;
+  /** tên công nghệ — không dịch */
   tags?: string[];
 };
 
 /** clockwise from the top of the wheel */
 const REASONS: Reason[] = [
-  {
-    id: "capability",
-    title: "Năng lực phát triển phần mềm",
-    description:
-      "Đội ngũ gồm PM, Developer và Tester/QA, giúp dự án được quản lý, phát triển và kiểm soát chất lượng theo quy trình rõ ràng.",
-    Icon: UsersRound,
-  },
-  {
-    id: "ai",
-    title: "Ứng dụng AI",
-    description:
-      "DVL Tech chủ động ứng dụng AI vào quá trình phát triển phần mềm nhằm nâng cao năng suất và tối ưu thời gian triển khai.",
-    Icon: BrainCircuit,
-  },
-  {
-    id: "japan",
-    title: "Kinh nghiệm với khách hàng Nhật Bản",
-    description:
-      "DVL Tech hiện đang hợp tác với khách hàng tại Nhật Bản và trực tiếp vận hành nhiều dự án phần mềm trong các lĩnh vực khác nhau.",
-    Icon: Globe,
-  },
-  {
-    id: "long-term",
-    title: "Đồng hành lâu dài",
-    description:
-      "DVL Tech không chỉ phát triển và bàn giao phần mềm mà còn hỗ trợ bảo trì, cập nhật, vận hành và cải tiến hệ thống.",
-    Icon: HeartHandshake,
-  },
-  {
-    id: "speed",
-    title: "Tốc độ triển khai",
-    description:
-      "Tập trung vào việc xác định đúng vấn đề, lựa chọn giải pháp phù hợp và triển khai hiệu quả.",
-    Icon: Rocket,
-  },
-  {
-    id: "cost",
-    title: "Chi phí cạnh tranh",
-    description:
-      "Tối ưu nguồn lực và quy trình phát triển để mang lại giải pháp có chi phí phù hợp với nhu cầu và ngân sách của doanh nghiệp.",
-    Icon: HandCoins,
-  },
+  { id: "capability", Icon: UsersRound },
+  { id: "ai", Icon: BrainCircuit },
+  { id: "japan", Icon: Globe },
+  { id: "longTerm", Icon: HeartHandshake },
+  { id: "speed", Icon: Rocket },
+  { id: "cost", Icon: HandCoins },
   {
     id: "stack",
-    title: "Công nghệ đa dạng",
-    description: "Đội ngũ có kinh nghiệm với nhiều công nghệ và nền tảng như:",
     Icon: Layers,
     tags: ["Java", "PHP", "Python", ".NET", "React", "Vue JS", "AWS"],
   },
-  {
-    id: "experience",
-    title: "Kinh nghiệm thực tế",
-    description:
-      "DVL Tech được thành lập năm 2026, đội ngũ sáng lập và nhân sự chủ chốt đã có 8–15 năm kinh nghiệm trong lĩnh vực công nghệ thông tin và phát triển phần mềm.",
-    Icon: Award,
-  },
+  { id: "experience", Icon: Award },
 ];
 
 /* ---------- wheel geometry (percentages of the square wrapper) ---------- */
@@ -182,7 +141,7 @@ const PLAIN_FILL =
 
 function SegmentIcon({ Icon }: { Icon: LucideIcon }) {
   return (
-    <span className="mx-auto flex h-9 w-9 items-center justify-center rounded-full bg-white/85 shadow-[0_4px_10px_rgba(13,138,67,0.14)] ring-1 ring-primary/10 lg:h-10 lg:w-10">
+    <span className="md:mx-auto flex h-9 w-9 items-center justify-center rounded-full bg-white/85 shadow-[0_4px_10px_rgba(13,138,67,0.14)] ring-1 ring-primary/10 lg:h-10 lg:w-10">
       <Icon
         className="h-[18px] w-[18px] text-primary lg:h-5 lg:w-5"
         strokeWidth={1.8}
@@ -240,7 +199,11 @@ function WheelCore() {
   );
 }
 
-function CapabilityWheel() {
+function CapabilityWheel({
+  reasons,
+}: {
+  reasons: Dictionary["whyUs"]["reasons"];
+}) {
   return (
     <div className="relative mx-auto hidden aspect-square w-full max-w-[840px] md:block">
       {/* faint outline that closes the wheel */}
@@ -289,7 +252,10 @@ function CapabilityWheel() {
             className="animate-region-float flex h-10 w-10 items-center justify-center rounded-2xl border border-white/70 bg-white/70 shadow-[0_8px_20px_rgba(13,138,67,0.14)] backdrop-blur-sm lg:h-11 lg:w-11"
             style={{ animationDelay: delay }}
           >
-            <Icon className="h-4 w-4 text-primary lg:h-[18px] lg:w-[18px]" strokeWidth={1.9} />
+            <Icon
+              className="h-4 w-4 text-primary lg:h-[18px] lg:w-[18px]"
+              strokeWidth={1.9}
+            />
           </div>
         </div>
       ))}
@@ -316,11 +282,11 @@ function CapabilityWheel() {
             <SegmentIcon Icon={segment.Icon} />
 
             <h3 className="mt-2 font-heading text-[clamp(0.75rem,1.35vw,0.98rem)] font-bold leading-tight text-primary">
-              {segment.title}
+              {reasons[segment.id].title}
             </h3>
 
             <p className="mt-1.5 text-[clamp(0.62rem,1.05vw,0.8rem)] leading-snug text-gray-600">
-              {segment.description}
+              {reasons[segment.id].description}
             </p>
 
             {segment.tags?.length ? (
@@ -345,7 +311,7 @@ function CapabilityWheel() {
 }
 
 /** below md the wheel is unreadable, so the same content stacks as cards */
-function ReasonCards() {
+function ReasonCards({ reasons }: { reasons: Dictionary["whyUs"]["reasons"] }) {
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:hidden">
       {SEGMENTS.map((segment) => (
@@ -359,11 +325,11 @@ function ReasonCards() {
           <div className="flex items-center gap-3">
             <SegmentIcon Icon={segment.Icon} />
             <h3 className="font-heading text-base font-bold leading-tight text-primary">
-              {segment.title}
+              {reasons[segment.id].title}
             </h3>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-gray-600">
-            {segment.description}
+            {reasons[segment.id].description}
           </p>
           {segment.tags?.length ? (
             <div className="mt-3 flex flex-wrap gap-1.5">
@@ -383,26 +349,27 @@ function ReasonCards() {
   );
 }
 
-export default function WhyUsSection() {
+export default function WhyUsSection({ dict }: { dict: Dictionary["whyUs"] }) {
   return (
     <section id="why-us" className="bg-[#f8faf9] py-12 sm:py-14 lg:py-16">
       <div className="mx-auto w-full max-w-[1280px] px-6">
         <Reveal>
           <SectionHeader
-            eyebrow="Why DVL Tech"
+            eyebrow={dict.eyebrow}
             title={
               <>
-                Why <span className="text-accent">Us</span>
+                {dict.titleBefore}
+                <span className="text-accent">{dict.titleAccent}</span>
               </>
             }
-            description="Đội ngũ giàu kinh nghiệm. Quy trình chuyên nghiệp. Công nghệ phù hợp."
+            description={dict.description}
           />
         </Reveal>
 
         <Reveal>
           <div className="mb-10 sm:mb-12 lg:mb-14">
-            <CapabilityWheel />
-            <ReasonCards />
+            <CapabilityWheel reasons={dict.reasons} />
+            <ReasonCards reasons={dict.reasons} />
           </div>
         </Reveal>
       </div>

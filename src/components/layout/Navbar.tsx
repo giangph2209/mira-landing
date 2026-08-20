@@ -73,13 +73,13 @@ export default function Navbar({
       <div className="section-container relative flex h-[72px] items-center justify-between gap-8">
         <Link
           href={`/${lang}`}
-          className="relative z-10 block w-25 shrink-0 md:w-32"
+          className="relative z-10 block w-10 shrink-0 md:w-18"
         >
           <Image
-            src="/images/brand/logo-brand.png"
+            src="/images/dvl-logo.png"
             alt={SITE.name}
-            width={160}
-            height={48}
+            width={80}
+            height={38}
             priority
             className="h-auto w-full object-contain"
           />

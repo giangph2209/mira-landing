@@ -16,5 +16,5 @@ export const SITE = {
     city: "TP Hà Nội",
     country: "VN",
   },
-  ogImage: "/images/brand/logo-brand.png",
+  ogImage: "/images/dvl-logo.png",
 } as const;

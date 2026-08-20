@@ -8,7 +8,7 @@ export default function AdminAuthLayout({ children }: { children: ReactNode }) {
       <div className="w-full max-w-[420px]">
         <div className="mb-8 flex justify-center">
           <Image
-            src="/images/brand/logo-brand.png"
+            src="/images/dvl-logo.png"
             alt={SITE.name}
             width={160}
             height={48}

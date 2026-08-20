@@ -22,7 +22,10 @@ type ContactItem = {
 const SERVICE_HREF = "#services";
 
 /** Thứ tự cố định, khớp key trong dictionary. `href` thiếu = chưa có trang đích. */
-const COMPANY_LINKS: { key: keyof Dictionary["footer"]["company"]; href?: string }[] = [
+const COMPANY_LINKS: {
+  key: keyof Dictionary["footer"]["company"];
+  href?: string;
+}[] = [
   { key: "about", href: "#why-us" },
   { key: "team", href: "#team" },
   { key: "caseStudies", href: "#case-studies" },
@@ -83,8 +86,16 @@ export default function FooterSection({
   lang: Locale;
 }) {
   const contactItems: ContactItem[] = [
-    { label: dict.contact.email, value: SITE.email, href: `mailto:${SITE.email}` },
-    { label: dict.contact.phone, value: SITE.phone, href: `tel:${SITE.phoneHref}` },
+    {
+      label: dict.contact.email,
+      value: SITE.email,
+      href: `mailto:${SITE.email}`,
+    },
+    {
+      label: dict.contact.phone,
+      value: SITE.phone,
+      href: `tel:${SITE.phoneHref}`,
+    },
     { label: dict.contact.address, value: SITE.address.full },
   ];
 
@@ -101,11 +112,11 @@ export default function FooterSection({
           <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-4">
             <Link href={`/${lang}`}>
               <Image
-                src="/images/brand/logo-brand.png"
+                src="/images/dvl-logo.png"
                 alt="DVL Tech"
-                width={160}
-                height={48}
-                className="h-10 w-auto object-contain brightness-0 invert"
+                width={180}
+                height={68}
+                className="h-15 w-auto object-contain brightness-0 invert"
               />
             </Link>
 
@@ -170,7 +181,11 @@ export default function FooterSection({
             <ul className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
               {dict.services.map((label) => (
                 <li key={label}>
-                  <FooterLinkItem label={label} href={SERVICE_HREF} comingSoon={dict.comingSoon} />
+                  <FooterLinkItem
+                    label={label}
+                    href={SERVICE_HREF}
+                    comingSoon={dict.comingSoon}
+                  />
                 </li>
               ))}
             </ul>

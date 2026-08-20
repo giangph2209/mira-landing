@@ -30,7 +30,7 @@ export default function AdminShell({
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-60 flex-col border-r border-[#e8ebe9] bg-white px-4 py-5 lg:flex">
         <Link href="/admin" className="mb-7 block px-2">
           <Image
-            src="/images/brand/logo-brand.png"
+            src="/images/dvl-logo.png"
             alt={SITE.name}
             width={160}
             height={48}
@@ -43,8 +43,12 @@ export default function AdminShell({
 
         <div className="mt-auto border-t border-[#f1f3f2] pt-3">
           <div className="px-3 pb-2">
-            <p className="truncate text-sm font-semibold text-text-dark">{user.name}</p>
-            <p className="truncate text-xs text-text-gray">{ROLE_LABEL[user.role]}</p>
+            <p className="truncate text-sm font-semibold text-text-dark">
+              {user.name}
+            </p>
+            <p className="truncate text-xs text-text-gray">
+              {ROLE_LABEL[user.role]}
+            </p>
           </div>
           <LogoutButton />
         </div>
@@ -54,7 +58,7 @@ export default function AdminShell({
       <header className="sticky top-0 z-40 flex h-14 items-center justify-between border-b border-[#e8ebe9] bg-white px-4 lg:hidden">
         <Link href="/admin">
           <Image
-            src="/images/brand/logo-brand.png"
+            src="/images/dvl-logo.png"
             alt={SITE.name}
             width={160}
             height={48}
@@ -77,7 +81,9 @@ export default function AdminShell({
           <AdminSidebar onNavigate={() => setMenuOpen(false)} />
           <div className="mt-3 flex items-center justify-between border-t border-[#f1f3f2] pt-3">
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-text-dark">{user.name}</p>
+              <p className="truncate text-sm font-semibold text-text-dark">
+                {user.name}
+              </p>
               <p className="truncate text-xs text-text-gray">{user.email}</p>
             </div>
             <LogoutButton />
@@ -85,7 +91,9 @@ export default function AdminShell({
         </div>
       ) : null}
 
-      <main className="px-4 py-6 sm:px-6 lg:ml-60 lg:px-8 lg:py-8">{children}</main>
+      <main className="px-4 py-6 sm:px-6 lg:ml-60 lg:px-8 lg:py-8">
+        {children}
+      </main>
     </div>
   );
 }

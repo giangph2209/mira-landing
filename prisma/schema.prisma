@@ -2,8 +2,12 @@
 // khi đó `AT TIME ZONE 'Asia/Ho_Chi_Minh'` trong query thống kê sẽ lệch 7 tiếng mà không báo lỗi.
 
 generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = ["native", "linux-musl-openssl-3.0.x"]
+  provider = "prisma-client-js"
+  // native                    — máy dev
+  // linux-musl-openssl-3.0.x  — image Docker (node:22-alpine) trên server tự quản
+  // rhel-openssl-3.0.x        — Vercel/AWS Lambda; thiếu nó thì Prisma Client build
+  //                             xong vẫn throw lúc chạy vì không tìm thấy query engine
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "rhel-openssl-3.0.x"]
 }
 
 datasource db {

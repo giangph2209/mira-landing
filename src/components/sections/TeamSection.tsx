@@ -37,6 +37,13 @@ function StatsBand({ dict }: { dict: Dictionary["team"]["stats"] }) {
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{ backgroundImage: DOT_GRID, backgroundSize: "18px 18px" }}
       />
+
+      {/* Lớp phủ tối.
+          Đầu gradient sáng nhất là #08904d — trên nền đó ngay cả chữ TRẮNG 100% cũng
+          chỉ đạt 4.11:1, dưới ngưỡng WCAG 4.5:1, nên không màu chữ nào cứu được.
+          Phủ đen 15% kéo nền xuống #077941, chữ trắng đạt 5.50:1.
+          Không sửa .gradient-primary vì class đó còn dùng ở 3 chỗ khác. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-black/15" />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-primary-pale/25 blur-3xl"
@@ -67,10 +74,10 @@ function StatsBand({ dict }: { dict: Dictionary["team"]["stats"] }) {
             <span className="font-heading text-[clamp(2rem,4.6vw,3.25rem)] font-bold leading-none text-white">
               {stat.value}
             </span>
-            <span className="mt-2.5 text-sm font-semibold uppercase tracking-[0.1em] text-primary-pale sm:text-[15px]">
+            <span className="mt-2.5 text-sm font-semibold uppercase tracking-[0.1em] text-white sm:text-[15px]">
               {dict[stat.id].label}
             </span>
-            <span className="mt-2 text-[13px] leading-relaxed text-white/75">
+            <span className="mt-2 text-[13px] leading-relaxed text-white/90">
               {dict[stat.id].detail}
             </span>
           </div>

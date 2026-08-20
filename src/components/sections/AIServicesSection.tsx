@@ -233,9 +233,18 @@ function ServiceCard({
           className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#f3fbf6] via-white to-white opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         />
 
+        {/* Quầng sáng góc phải trên — HIỆN SẴN ở trạng thái tĩnh.
+            Trước đây để opacity-0 và chỉ bật khi hover, nghĩa là suốt phần lớn thời
+            gian thẻ vẫn phẳng trơn. Giờ nó là điểm nhấn thường trực, còn hover chỉ
+            làm đậm và nở rộng thêm. */}
         <span
           aria-hidden
-          className="pointer-events-none absolute right-4 top-1 bg-gradient-to-b from-primary/20 to-primary/0 bg-clip-text font-heading text-[3.5rem] font-bold leading-none text-transparent transition-all duration-300 group-hover:from-primary/35"
+          className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary-light/25 blur-2xl transition-all duration-500 group-hover:scale-125 group-hover:bg-primary-light/45"
+        />
+
+        <span
+          aria-hidden
+          className="pointer-events-none absolute right-4 top-1 bg-gradient-to-br from-primary/25 via-primary-light/20 to-primary/0 bg-clip-text font-heading text-[3.9rem] font-bold leading-none tracking-tight text-transparent transition-all duration-300 group-hover:from-primary/45 group-hover:via-primary-light/35"
         >
           {no}
         </span>

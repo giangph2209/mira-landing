@@ -3,7 +3,14 @@ import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import AnalyticsBeacon from "@/components/analytics/AnalyticsBeacon";
 import { ibmPlexSans, notoSansJP, roboto } from "@/lib/fonts";
-import { HTML_LANG, LOCALES, OG_LOCALE, isLocale, type Locale } from "@/lib/i18n/config";
+import {
+  DEFAULT_LOCALE,
+  HTML_LANG,
+  LOCALES,
+  OG_LOCALE,
+  isLocale,
+  type Locale,
+} from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { SITE } from "@/lib/site";
 import "../../globals.css";
@@ -48,8 +55,9 @@ export async function generateMetadata({ params }: LayoutParams): Promise<Metada
       canonical: `/${lang}`,
       languages: {
         ...languageAlternates(),
-        // x-default trỏ về ngôn ngữ gốc cho khách không khớp locale nào
-        "x-default": "/vi",
+        // Suy ra từ DEFAULT_LOCALE, KHÔNG viết cứng: đổi ngôn ngữ mặc định mà
+        // quên sửa chỗ này thì x-default lệch với đích proxy chuyển hướng.
+        "x-default": `/${DEFAULT_LOCALE}`,
       },
     },
     openGraph: {

@@ -7,7 +7,14 @@ export const LOCALES = ["vi", "en", "ja"] as const;
 
 export type Locale = (typeof LOCALES)[number];
 
-export const DEFAULT_LOCALE: Locale = "vi";
+/**
+ * Locale dùng khi không dò được gì từ cookie hay Accept-Language.
+ *
+ * Cũng là đích của hreflang x-default — hai chỗ phải luôn khớp nhau, nếu không
+ * Google sẽ gửi khách không khớp ngôn ngữ nào tới một bản khác với bản mà proxy
+ * thực sự chuyển hướng tới.
+ */
+export const DEFAULT_LOCALE: Locale = "en";
 
 /** Nhãn hiển thị trong bộ chuyển ngôn ngữ — luôn viết bằng chính ngôn ngữ đó. */
 export const LOCALE_LABELS: Record<Locale, string> = {

@@ -38,24 +38,6 @@ function OpenQuoteIcon() {
   );
 }
 
-function CloseQuoteDecor() {
-  return (
-    <svg
-      width="120"
-      height="96"
-      viewBox="0 0 120 96"
-      fill="none"
-      aria-hidden
-      className="pointer-events-none absolute bottom-4 right-4 hidden text-gray-200 sm:block lg:bottom-6 lg:right-8"
-    >
-      <path
-        d="M40 96V62C40 44 48 30 64 20L68 26C58 32 52 40 52 50H64V96H40ZM88 96V62C88 44 96 30 112 20L116 26C106 32 100 40 100 50H112V96H88Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 export default function TestimonialsSection({
   dict,
 }: {

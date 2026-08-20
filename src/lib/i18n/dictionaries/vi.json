@@ -47,7 +47,7 @@
     "languageLabel": "Ngôn ngữ"
   },
   "hero": {
-    "titleLine1": "Biến ý tưởng",
+    "titleLine1": "Biến ý tưởng ",
     "titleLine2": "thành giải pháp phần mềm thực tế",
     "lead": "DVL Tech cung cấp dịch vụ tư vấn và phát triển phần mềm cho doanh nghiệp, từ phân tích nhu cầu, xây dựng kế hoạch đến triển khai và vận hành hệ thống.",
     "experienceBefore": "Với đội ngũ có ",
@@ -65,9 +65,9 @@
     "logoAlt": "Đối tác {name} của DVL Tech"
   },
   "compliance": {
-    "titleLine1": "Meet compliance requirements.",
-    "titleLine2Before": "Build ",
-    "titleLine2Accent": "smarter trust.",
+    "titleLine1": "Đáp ứng yêu cầu tuân thủ.",
+    "titleLine2Before": "Xây dựng ",
+    "titleLine2Accent": "niềm tin vững chắc.",
     "description": "Dùng các khối xây dựng linh hoạt của {name} để dữ liệu khách hàng của bạn luôn an toàn và tuân thủ quy định.",
     "ctaPrimary": "Yêu cầu demo",
     "ctaSecondary": "Gọi cho chúng tôi"
@@ -485,7 +485,6 @@
       "heading": "8. Liên hệ",
       "intro": "Nếu bạn có bất kỳ câu hỏi nào về Chính sách bảo mật, vui lòng liên hệ:",
       "company": "Công ty",
-      "taxCode": "Mã số thuế",
       "email": "Email",
       "phone": "Điện thoại",
       "address": "Địa chỉ"
@@ -494,9 +493,9 @@
   },
   "cta": {
     "eyebrow": "Liên hệ",
-    "titleBefore": "Bắt đầu dự án cùng ",
-    "titleAccent": "DVL Tech",
-    "description": "Bạn đang có ý tưởng xây dựng một hệ thống mới, cần phát triển phần mềm hoặc muốn nâng cấp hệ thống hiện tại? Hãy liên hệ với DVL Tech để cùng trao đổi về dự án.",
+    "titleLine1": "Bạn đang có một dự án phần mềm?",
+    "titleLine2": "Hãy bắt đầu bằng một cuộc trao đổi.",
+    "description": "Chia sẻ với DVL Tech về bài toán, ý tưởng hoặc nhu cầu công nghệ của doanh nghiệp.",
     "contact": {
       "email": "Email",
       "phone": "Điện thoại",
@@ -617,8 +616,7 @@
       "privacy": "Chính sách bảo mật",
       "terms": "Điều khoản sử dụng"
     },
-    "rights": "© {year} DVL Tech. Bảo lưu mọi quyền.",
-    "taxCode": "Mã số thuế"
+    "rights": "© {year} DVL Tech. Bảo lưu mọi quyền."
   },
   "floatingActions": {
     "scrollTop": "Cuộn lên đầu trang",

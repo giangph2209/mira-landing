@@ -485,7 +485,6 @@
       "heading": "8. Contact",
       "intro": "If you have any questions about this Privacy Policy, please get in touch:",
       "company": "Company",
-      "taxCode": "Tax code",
       "email": "Email",
       "phone": "Phone",
       "address": "Address"
@@ -494,9 +493,9 @@
   },
   "cta": {
     "eyebrow": "Contact",
-    "titleBefore": "Start your project with ",
-    "titleAccent": "DVL Tech",
-    "description": "Have an idea for a new system, need software built, or want to modernise what you already run? Get in touch with DVL Tech and let's talk it through.",
+    "titleLine1": "Have a software project in mind?",
+    "titleLine2": "Let it start with a conversation.",
+    "description": "Tell DVL Tech about the problem you are solving, the idea you have, or what your business needs from technology.",
     "contact": {
       "email": "Email",
       "phone": "Phone",
@@ -617,8 +616,7 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Use"
     },
-    "rights": "© {year} DVL Tech. All rights reserved.",
-    "taxCode": "Tax code"
+    "rights": "© {year} DVL Tech. All rights reserved."
   },
   "floatingActions": {
     "scrollTop": "Scroll back to top",

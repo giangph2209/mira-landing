@@ -156,8 +156,11 @@ export default function CTASection({ dict }: { dict: Dictionary["cta"] }) {
               eyebrow={dict.eyebrow}
               title={
                 <>
-                  {dict.titleBefore}
-                  <span className="text-accent">{dict.titleAccent}</span>
+                  {dict.titleLine1}
+                  <br />
+                  {/* Dòng thứ hai là lời mời hành động nên được nhấn gradient,
+                      dòng đầu chỉ là câu hỏi dẫn dắt. */}
+                  <span className="text-accent">{dict.titleLine2}</span>
                 </>
               }
               description={dict.description}

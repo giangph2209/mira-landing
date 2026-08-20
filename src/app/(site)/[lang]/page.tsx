@@ -29,7 +29,6 @@ function buildOrganizationJsonLd(description: string) {
   "@type": "Organization",
   name: SITE.name,
   legalName: SITE.legalName,
-  taxID: SITE.taxCode,
   url: SITE.url,
   logo: `${SITE.url}${SITE.ogImage}`,
   email: SITE.email,

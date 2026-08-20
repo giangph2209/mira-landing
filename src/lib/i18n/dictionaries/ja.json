@@ -65,9 +65,9 @@
     "logoAlt": "DVL Tech のパートナー {name}"
   },
   "compliance": {
-    "titleLine1": "Meet compliance requirements.",
-    "titleLine2Before": "Build ",
-    "titleLine2Accent": "smarter trust.",
+    "titleLine1": "コンプライアンス要件を満たす。",
+    "titleLine2Before": "より確かな",
+    "titleLine2Accent": "信頼を築く。",
     "description": "{name} の柔軟なビルディングブロックで、お客様のデータを常に安全かつコンプライアンスに準拠した状態に保ちます。",
     "ctaPrimary": "デモを依頼する",
     "ctaSecondary": "電話で問い合わせる"
@@ -485,7 +485,6 @@
       "heading": "8. お問い合わせ",
       "intro": "本プライバシーポリシーに関するご質問は、以下までご連絡ください。",
       "company": "会社名",
-      "taxCode": "納税者番号",
       "email": "メール",
       "phone": "電話",
       "address": "住所"
@@ -494,9 +493,9 @@
   },
   "cta": {
     "eyebrow": "お問い合わせ",
-    "titleBefore": "プロジェクトを ",
-    "titleAccent": "DVL Tech",
-    "description": "新しいシステムの構想、ソフトウェア開発のご依頼、既存システムの刷新など、まずは DVL Tech にご相談ください。",
+    "titleLine1": "ソフトウェアプロジェクトをお考えですか？",
+    "titleLine2": "まずは一度ご相談ください。",
+    "description": "御社の課題やアイデア、技術面のご要望を DVL Tech にお聞かせください。",
     "contact": {
       "email": "メール",
       "phone": "電話",
@@ -617,8 +616,7 @@
       "privacy": "プライバシーポリシー",
       "terms": "利用規約"
     },
-    "rights": "© {year} DVL Tech. All rights reserved.",
-    "taxCode": "納税者番号"
+    "rights": "© {year} DVL Tech. All rights reserved."
   },
   "floatingActions": {
     "scrollTop": "ページ上部へ戻る",

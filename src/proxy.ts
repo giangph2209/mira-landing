@@ -115,7 +115,7 @@ export function proxy(request: NextRequest) {
 
   const locale = resolveLocale(request);
   const url = request.nextUrl.clone();
-  // pathname "/" -> "/vi" (không phải "/vi/"), các path khác giữ nguyên phần đuôi
+  // pathname "/" -> "/en" (không phải "/en/"), các path khác giữ nguyên phần đuôi
   url.pathname = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
 
   return NextResponse.redirect(url);

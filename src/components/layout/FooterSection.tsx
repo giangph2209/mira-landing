@@ -29,23 +29,14 @@ const COMPANY_LINKS: {
   { key: "about", href: "#why-us" },
   { key: "team", href: "#team" },
   { key: "caseStudies", href: "#case-studies" },
-  { key: "careers" },
 ];
 
-const SOCIALS = [
-  {
-    label: "LinkedIn",
-    href: "#",
-    path: "M15 2H3C2.4 2 2 2.4 2 3V15C2 15.6 2.4 16 3 16H15C15.6 16 16 15.6 16 15V3C16 2.4 15.6 2 15 2ZM6.3 13.5H4.3V7.2H6.3V13.5ZM5.3 6.3C4.7 6.3 4.2 5.8 4.2 5.2C4.2 4.6 4.7 4.1 5.3 4.1C5.9 4.1 6.4 4.6 6.4 5.2C6.4 5.8 5.9 6.3 5.3 6.3ZM14 13.5H12V10.4C12 9.5 11.5 9 10.7 9C9.9 9 9.5 9.5 9.5 10.4V13.5H7.5V7.2H9.5V8.1C9.9 7.5 10.6 7 11.5 7C13 7 14 8 14 9.9V13.5Z",
-  },
-  {
-    label: "Twitter",
-    href: "#",
-    path: "M2 3L7.6 10.1L2 16H3.4L8.2 10.9L12.1 16H16.5L10.6 8.5L15.8 3H14.4L10 7.7L6.4 3H2ZM4.1 4H5.8L14.4 15H12.7L4.1 4Z",
-  },
-];
-
-const linkClass = "text-sm text-white/50 transition-colors hover:text-white";
+// Thang mau footer, tat ca deu dat WCAG AA (>= 4.5:1) tren nen #0d1f17:
+//   tieu de cot  white   17.14:1
+//   link         /75     10.03:1
+//   phu / meta   /60      6.82:1
+//   chua kha dung /50     5.15:1  <- muc thap nhat con dat AA
+const linkClass = "text-sm text-white/75 transition-colors hover:text-white";
 
 function FooterLinkItem({
   label,
@@ -54,9 +45,9 @@ function FooterLinkItem({
 }: FooterLink & { comingSoon: string }) {
   if (!href) {
     return (
-      <span className="inline-flex items-center gap-2 text-sm text-white/35">
+      <span className="inline-flex items-center gap-2 text-sm text-white/55">
         {label}
-        <span className="rounded-full bg-white/8 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white/40">
+        <span className="rounded-full bg-white/12 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white/60">
           {comingSoon}
         </span>
       </span>
@@ -109,7 +100,7 @@ export default function FooterSection({
       <div className="section-container pb-8 pt-12 sm:pb-10 sm:pt-16 lg:pt-20">
         <div className="grid grid-cols-1 gap-10 border-b border-white/10 pb-10 sm:grid-cols-2 sm:gap-y-12 sm:pb-12 lg:grid-cols-12 lg:gap-8">
           {/* brand */}
-          <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-4">
+          <div className="flex flex-col gap-5 sm:col-span-2 lg:col-span-3">
             <Link href={`/${lang}`}>
               <Image
                 src="/images/dvl-logo.png"
@@ -121,28 +112,30 @@ export default function FooterSection({
             </Link>
 
             <div>
-              <p className="font-heading text-base font-bold text-white">
+              {/* max-w ép tagline xuống dòng thay vì kéo dài một hàng */}
+              <p className="max-w-56 font-heading text-base font-bold leading-snug text-white">
                 {dict.tagline}
               </p>
-              <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1.5 text-sm text-white/50">
-                {dict.capabilities.map((item, index) => (
-                  <span key={item} className="inline-flex items-center gap-2">
-                    {index > 0 ? (
-                      <span className="text-white/25" aria-hidden>
-                        ·
-                      </span>
-                    ) : null}
+              {/* Mỗi năng lực một dòng: trước đây nối bằng dấu · nên khi hẹp thì
+                  dấu phân cách bị rớt xuống đầu dòng, nhìn như lỗi. */}
+              <ul className="mt-3 flex flex-col gap-1.5 text-sm text-white/60">
+                {dict.capabilities.map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <span
+                      aria-hidden
+                      className="h-1 w-1 shrink-0 rounded-full bg-primary-light"
+                    />
                     {item}
-                  </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             <div className="flex flex-wrap gap-2">
               {dict.markets.map((market) => (
                 <span
                   key={market}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/70"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-semibold text-white/80"
                 >
                   <span
                     className="h-1.5 w-1.5 rounded-full bg-primary-light"
@@ -152,31 +145,13 @@ export default function FooterSection({
                 </span>
               ))}
             </div>
-
-            <div className="flex gap-3">
-              {SOCIALS.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-white/50 transition-all hover:bg-primary hover:text-white"
-                >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    aria-hidden
-                  >
-                    <path d={social.path} fill="currentColor" />
-                  </svg>
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* services — two columns, it is the longest list */}
-          <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-4">
+          {/* col-span-5 (trước là 4): tên dịch vụ dài như "Software project
+              consulting" bị ngắt làm hai dòng khi cột hẹp. Lấy 1 cột từ khối
+              thương hiệu bù sang đây, tổng vẫn đủ 12. */}
+          <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-5">
             <SectionTitle>{dict.servicesTitle}</SectionTitle>
             <ul className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
               {dict.services.map((label) => (
@@ -211,7 +186,7 @@ export default function FooterSection({
             <ul className="flex flex-col gap-3">
               {contactItems.map((item) => (
                 <li key={item.label} className="flex flex-col gap-0.5">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-white/40">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-white/60">
                     {item.label}
                   </span>
                   {item.value && item.href ? (
@@ -219,7 +194,7 @@ export default function FooterSection({
                       {item.value}
                     </a>
                   ) : (
-                    <span className="text-sm text-white/35">
+                    <span className="text-sm text-white/60">
                       {item.value ?? dict.updating}
                     </span>
                   )}
@@ -231,11 +206,11 @@ export default function FooterSection({
 
         <div className="flex flex-col items-center justify-between gap-4 pt-8 sm:flex-row">
           <div className="flex flex-col items-center gap-1 sm:items-start">
-            <p className="text-[13px] text-white/30">
+            <p className="text-[13px] text-white/60">
               {t(dict.rights, { year: new Date().getFullYear() })}
             </p>
-            <p className="text-center text-[13px] text-white/30 sm:text-left">
-              {SITE.legalName} · {dict.taxCode}: {SITE.taxCode}
+            <p className="text-center text-[13px] text-white/60 sm:text-left">
+              {SITE.legalName}
             </p>
           </div>
           <div className="flex gap-6">
@@ -244,12 +219,12 @@ export default function FooterSection({
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-[13px] text-white/30 transition-colors hover:text-white/60"
+                  className="text-[13px] text-white/65 transition-colors hover:text-white"
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span key={item.label} className="text-[13px] text-white/20">
+                <span key={item.label} className="text-[13px] text-white/50">
                   {item.label}
                 </span>
               ),

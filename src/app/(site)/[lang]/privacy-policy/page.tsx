@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { HTML_LANG, LOCALES, isLocale } from "@/lib/i18n/config";
+import { DEFAULT_LOCALE, HTML_LANG, LOCALES, isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { t } from "@/lib/i18n/format";
 import { SITE } from "@/lib/site";
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
         ...Object.fromEntries(
           LOCALES.map((l) => [HTML_LANG[l], `/${l}/privacy-policy`]),
         ),
-        "x-default": "/vi/privacy-policy",
+        "x-default": `/${DEFAULT_LOCALE}/privacy-policy`,
       },
     },
   };
@@ -143,8 +143,7 @@ export default async function PrivacyPolicyPage({ params }: PageParams) {
           <p className={BODY}>{privacy.contactSection.intro}</p>
           <ul className={LIST}>
             <li>
-              {privacy.contactSection.company}: {SITE.legalName} (
-              {privacy.contactSection.taxCode}: {SITE.taxCode})
+              {privacy.contactSection.company}: {SITE.legalName}
             </li>
             <li>
               {privacy.contactSection.email}: {SITE.email}

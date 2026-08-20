@@ -4,7 +4,8 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, MouseEvent, ReactNode } from "react";
 import { isHashHref, scrollToHash } from "@/lib/scroll";
 
-type ButtonVariant = "primary" | "outline" | "ghost" | "white" | "danger";
+// `gradient`: bản nhấn mạnh của primary, dùng cho CTA chính ở hero (xem .btn-gradient)
+type ButtonVariant = "primary" | "gradient" | "outline" | "ghost" | "white" | "danger";
 type ButtonSize = "sm" | "md" | "lg";
 
 type BaseProps = {

@@ -47,6 +47,7 @@
     "languageLabel": "Language"
   },
   "hero": {
+    "eyebrow": "Software development partner",
     "titleLine1": "Turning ideas",
     "titleLine2": "into software that works",
     "lead": "DVL Tech provides software consulting and development for businesses — from analysing your needs and shaping the plan to deploying and running the system.",
@@ -235,9 +236,15 @@
       },
       "accessibilitySupport": {
         "title": "Accessibility support application",
-        "subtitle": "",
+        "subtitle": "Assistive technology for people who need support",
         "desc": "An application built to help vulnerable people reach the information, services and support that fit their needs.",
-        "features": [],
+        "features": [
+          "Screen reader",
+          "Large text",
+          "High contrast",
+          "Voice guidance",
+          "Support directory"
+        ],
         "problem": "Create a technology tool that makes support information and services genuinely easy to reach in everyday life.",
         "involvement": [
           "System development",
@@ -245,7 +252,7 @@
           "Testing",
           "Operational support"
         ],
-        "result": ""
+        "result": "The application makes information and support services far easier to reach for vulnerable users, lowering the barrier to using technology in everyday life."
       }
     },
     "viewCase": "View case study"

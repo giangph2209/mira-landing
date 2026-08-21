@@ -47,6 +47,7 @@
     "languageLabel": "Ngôn ngữ"
   },
   "hero": {
+    "eyebrow": "Đối tác phát triển phần mềm",
     "titleLine1": "Biến ý tưởng ",
     "titleLine2": "thành giải pháp phần mềm thực tế",
     "lead": "DVL Tech cung cấp dịch vụ tư vấn và phát triển phần mềm cho doanh nghiệp, từ phân tích nhu cầu, xây dựng kế hoạch đến triển khai và vận hành hệ thống.",
@@ -235,9 +236,15 @@
       },
       "accessibilitySupport": {
         "title": "Ứng dụng hỗ trợ người yếu thế",
-        "subtitle": "",
+        "subtitle": "Công nghệ tiếp cận cho người yếu thế",
         "desc": "Ứng dụng được xây dựng nhằm hỗ trợ người yếu thế tiếp cận thông tin, dịch vụ hoặc các nguồn hỗ trợ phù hợp với nhu cầu của họ.",
-        "features": [],
+        "features": [
+          "Đọc màn hình",
+          "Cỡ chữ lớn",
+          "Tương phản cao",
+          "Chỉ dẫn bằng giọng nói",
+          "Danh bạ hỗ trợ"
+        ],
         "problem": "Tạo ra một công cụ công nghệ giúp người dùng dễ dàng tiếp cận các thông tin và dịch vụ hỗ trợ trong cuộc sống.",
         "involvement": [
           "Phát triển hệ thống",
@@ -245,7 +252,7 @@
           "Kiểm thử",
           "Hỗ trợ vận hành"
         ],
-        "result": ""
+        "result": "Ứng dụng giúp người yếu thế tiếp cận thông tin và dịch vụ hỗ trợ thuận tiện hơn, giảm rào cản khi sử dụng công nghệ trong sinh hoạt hằng ngày."
       }
     },
     "viewCase": "Xem case study"

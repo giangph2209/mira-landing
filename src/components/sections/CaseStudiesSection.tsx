@@ -56,7 +56,7 @@ const CASES: CaseStudy[] = [
   {
     id: "accessibilitySupport",
     number: "05",
-    tech: [],
+    tech: ["Python", "React", "AWS"],
     image: "/images/case-studies/accessibility-support.webp",
     tone: "bg-gradient-to-br from-[#0d3b66] via-[#0e803f] to-[#66c047]",
   },
@@ -164,48 +164,81 @@ export default function CaseStudiesSection({
                     <div
                       className={`relative isolate flex min-h-[280px] shrink-0 flex-col gap-5 overflow-hidden px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[440px] lg:w-[38%] lg:px-10 lg:py-12 ${item.tone}`}
                     >
+                      {/* Nền sạch của panel. Phủ đè lên `tone` (gradient xanh đậm) để
+                          vùng đặt chữ là một mặt phẳng sạch, không phải ảnh bị làm mờ. */}
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-[linear-gradient(to_bottom,#ffffff_0%,#f6fcf9_38%,#e9f6ef_100%)]"
+                      />
+
                       {item.image ? (
                         <>
+                          {/* Ảnh giữ gần nguyên độ tươi và CHỈ hiện ở phần dưới, tan dần
+                              lên trên bằng mask.
+
+                              Cách cũ phủ một lớp trắng 0.94/0.88 lên toàn bộ ảnh: chỗ nào
+                              cũng nửa nền nửa ảnh nên bạc phếch. Ở đây mỗi vùng chỉ là một
+                              thứ — trên là nền sạch, dưới là ảnh thật — không có vùng nào
+                              nửa vời, nhờ vậy nhìn trong và gọn hơn hẳn. */}
                           <Image
                             src={item.image}
                             alt=""
                             fill
                             sizes="(max-width: 1024px) 100vw, 38vw"
-                            className="object-cover object-center"
+                            className="object-cover object-center saturate-[0.92] [-webkit-mask-image:linear-gradient(to_bottom,transparent_26%,rgba(0,0,0,0.45)_46%,rgba(0,0,0,0.85)_64%,rgba(0,0,0,1)_78%)] [mask-image:linear-gradient(to_bottom,transparent_26%,rgba(0,0,0,0.45)_46%,rgba(0,0,0,0.85)_64%,rgba(0,0,0,1)_78%)]"
                             aria-hidden
                           />
-                          {/* duotone — kéo ảnh về đúng hệ xanh brand, giữ nguyên độ sáng tối */}
+                          {/* Ánh xanh brand rất nhẹ, dùng CHUNG mask để không tràn lên
+                              vùng nền sạch phía trên. */}
                           <span
                             aria-hidden
-                            className="absolute inset-0 bg-primary opacity-70 mix-blend-color"
+                            className="pointer-events-none absolute inset-0 bg-primary/20 mix-blend-multiply [-webkit-mask-image:linear-gradient(to_bottom,transparent_26%,rgba(0,0,0,0.45)_46%,rgba(0,0,0,0.85)_64%,rgba(0,0,0,1)_78%)] [mask-image:linear-gradient(to_bottom,transparent_26%,rgba(0,0,0,0.45)_46%,rgba(0,0,0,0.85)_64%,rgba(0,0,0,1)_78%)]"
                           />
-                          {/* nhấn thêm sắc xanh sâu vào vùng tối của ảnh */}
+                          {/* Ranh giới nền/ảnh: một dải chuyển mềm để mép mask không lộ */}
                           <span
                             aria-hidden
-                            className="absolute inset-0 bg-primary-800/45 mix-blend-multiply"
+                            className="pointer-events-none absolute inset-x-0 top-[22%] h-40 bg-[linear-gradient(to_bottom,rgba(246,252,249,0.95)_0%,rgba(246,252,249,0)_100%)]"
                           />
                         </>
                       ) : null}
 
-                      {/* bóng mờ — tối hai đầu cho chữ trắng nổi, chừa sáng ở giữa cho chủ thể */}
                       <span
                         aria-hidden
-                        className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(1,32,21,0.74)_40%,rgba(2,45,29,0.7)_50%,rgba(2,45,29,0.7)_50%,rgba(2,33,21,0.88)_78%,rgba(1,17,10,0.98)_100%)]"
+                        className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary-light/20 blur-2xl"
                       />
+
+                      {/* Số thứ tự cỡ lớn làm hoa văn — cùng ngôn ngữ thiết kế với số
+                          ở lưới thẻ dịch vụ, giúp hai khu vực nhìn như một hệ. */}
                       <span
                         aria-hidden
-                        className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary-pale/25 blur-2xl"
+                        className="pointer-events-none absolute -bottom-6 right-2 select-none font-heading text-[7rem] font-bold leading-none text-primary/10 lg:text-[9rem]"
+                      >
+                        {item.number}
+                      </span>
+
+                      {/* Vệt sáng chéo mỏng ở góc trên, gợi khối cho bề mặt phẳng */}
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.5)_0%,rgba(255,255,255,0)_40%)]"
+                      />
+
+                      {/* Đường gradient ở mép phải — chỗ giáp panel trắng, tạo đường
+                          nối có chủ ý thay vì cắt cụt. Chỉ hiện từ lg khi hai panel
+                          nằm cạnh nhau theo chiều ngang. */}
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-y-0 right-0 hidden w-px bg-gradient-to-b from-transparent via-primary/25 to-transparent lg:block"
                       />
 
                       <div className="relative z-1">
-                        <span className="badge badge--white uppercase tracking-[0.18em]">
+                        <span className="badge border border-primary/20 bg-primary/10 uppercase tracking-[0.18em] text-primary-dark">
                           {dict.badge} {item.number}
                         </span>
-                        <h3 className="mt-5 font-heading text-2xl font-bold leading-tight text-white lg:text-[1.75rem]">
+                        <h3 className="mt-5 bg-gradient-to-r from-primary-800 via-primary-dark to-primary bg-clip-text font-heading text-2xl font-bold leading-tight text-transparent lg:text-[1.75rem]">
                           {copy.title}
                         </h3>
                         {copy.subtitle ? (
-                          <p className="mt-2 text-[15px] leading-relaxed text-white/75">
+                          <p className="mt-2 text-[15px] font-medium leading-relaxed text-primary-dark">
                             {copy.subtitle}
                           </p>
                         ) : null}
@@ -214,14 +247,14 @@ export default function CaseStudiesSection({
                       <div className="relative z-1 mt-8">
                         {item.tech.length ? (
                           <>
-                            <p className="text-xs font-bold uppercase tracking-[0.16em] text-white/60">
+                            <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
                               Technology
                             </p>
                             <div className="mt-3 flex flex-wrap gap-2">
                               {item.tech.map((tech) => (
                                 <span
                                   key={tech}
-                                  className="rounded-full bg-white/15 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur-sm"
+                                  className="rounded-full border border-primary/20 bg-white/80 px-3 py-1.5 text-xs font-semibold text-primary-dark shadow-[0_2px_8px_rgba(5,85,55,0.1)] backdrop-blur-md"
                                 >
                                   {tech}
                                 </span>

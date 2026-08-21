@@ -152,7 +152,7 @@ export default function CTASection({ dict }: { dict: Dictionary["cta"] }) {
           <Reveal className="flex flex-col gap-8">
             <SectionHeader
               align="left"
-              className="!mb-0"
+              className="!mb-0 section-header--compact"
               eyebrow={dict.eyebrow}
               title={
                 <>

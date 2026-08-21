@@ -184,6 +184,15 @@
     color: var(--color-primary-dark);
   }
 
+  /* Tiêu đề nhỏ hơn cho khối có tiêu đề DÀI (đang dùng ở CTA — hai dòng).
+     Ở cỡ mặc định 2.75rem, tiêu đề hai dòng chiếm chỗ áp đảo so với phần còn lại
+     của khối. Đặt thành modifier thay vì sửa .section-title vì lớp đó dùng chung
+     cho mọi section. */
+  .section-header--compact .section-title {
+    font-size: clamp(1.35rem, 2.8vw, 2rem);
+    line-height: 1.2;
+  }
+
   /* nhấn một cụm từ trong tiêu đề bằng gradient brand */
   .section-title .text-accent {
     background-image: linear-gradient(100deg,
@@ -792,13 +801,48 @@
   animation: hero-drift 18s ease-in-out infinite;
 }
 
+/* ── Chấm "đang hoạt động" ──────────────────────────────────────────────────
+   Một vòng sáng lan ra rồi tan, lặp lại — kiểu tín hiệu radar. Giữ nguyên vòng
+   tĩnh 3px sẵn có ở lớp đầu của box-shadow, vòng thứ hai mới là phần chuyển động.
+
+   Dùng box-shadow chứ không dùng phần tử riêng: chấm chỉ 6px nên chi phí repaint
+   không đáng kể, mà không phải thêm thẻ rỗng vào DOM. */
+@keyframes dot-pulse {
+  0% {
+    box-shadow:
+      0 0 0 3px rgba(29, 179, 64, 0.16),
+      0 0 0 0 rgba(29, 179, 64, 0.5);
+  }
+  70% {
+    box-shadow:
+      0 0 0 3px rgba(29, 179, 64, 0.16),
+      0 0 0 9px rgba(29, 179, 64, 0);
+  }
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(29, 179, 64, 0.16),
+      0 0 0 0 rgba(29, 179, 64, 0);
+  }
+}
+
+.section-eyebrow::before {
+  animation: dot-pulse 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Chấm rời (chip thị trường ở hero) — cùng nhịp để hai chỗ đồng bộ */
+.pulse-dot {
+  animation: dot-pulse 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 /* PHẢI đặt sau .text-gradient-animated và .hero-orb ở trên.
    @media không cộng thêm độ đặc hiệu — cùng một class thì quy tắc đứng sau thắng.
    Đặt block này lên đầu file sẽ bị chính hai quy tắc kia ghi đè, và người bật
    "giảm chuyển động" vẫn phải xem hiệu ứng chạy. */
 @media (prefers-reduced-motion: reduce) {
   .text-gradient-animated,
-  .hero-orb {
+  .hero-orb,
+  .section-eyebrow::before,
+  .pulse-dot {
     animation: none;
   }
 }

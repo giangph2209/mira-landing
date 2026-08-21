@@ -631,12 +631,12 @@
   min-height: 520px;
 }
 
-@media (min-width: 640px) {
+/* @media (min-width: 640px) {
   .banner-area {
     background-size: 140% auto;
     min-height: 580px;
   }
-}
+} */
 
 @media (min-width: 1024px) {
   .banner-area {

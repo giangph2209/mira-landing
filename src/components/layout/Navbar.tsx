@@ -70,10 +70,10 @@ export default function Navbar({
           : "border-b border-transparent bg-transparent",
       ].join(" ")}
     >
-      <div className="section-container relative flex h-[72px] items-center justify-between gap-8">
+      <div className="section-container relative flex h-[72px] items-center justify-between gap-2 md:gap-8">
         <Link
           href={`/${lang}`}
-          className="relative z-10 block w-13 shrink-0 md:w-40"
+          className="relative z-10 block w-30 shrink-0 md:w-40"
         >
           <Image
             src="/images/dvl-logo.png"
@@ -105,48 +105,54 @@ export default function Navbar({
           ))}
         </nav>
 
-        <div className="relative z-10 hidden items-center gap-1 xl:flex">
+        {/* MỘT khối duy nhất ở mép phải.
+            Trước đây bộ chuyển ngôn ngữ và nút hamburger là hai flex item riêng, nên
+            `justify-between` của thanh nav đẩy chúng ra hai phía và phải chèn `pl-15`
+            để vá. Gộp vào một container thì chúng tự nằm cạnh nhau, không cần hack. */}
+        <div className="relative z-10 flex items-center gap-1 sm:gap-2">
           <LanguageSwitcher current={lang} label={dict.languageLabel} />
-          <Button href="#contact" size="sm" iconRight={<ArrowRightIcon />}>
+
+          <Button
+            href="#contact"
+            size="sm"
+            className="hidden xl:inline-flex"
+            iconRight={<ArrowRightIcon />}
+          >
             {dict.contact}
           </Button>
-        </div>
 
-        <div className="relative z-10 flex items-center gap-1 xl:hidden pl-15">
-          <LanguageSwitcher current={lang} label={dict.languageLabel} />
-        </div>
-
-        <button
-          type="button"
-          className="relative z-10 rounded-lg p-2 text-text-muted lg:hidden"
-          onClick={() => setOpen(!open)}
-          aria-label={dict.toggleMenu}
-          aria-expanded={open}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden
+          <button
+            type="button"
+            className="rounded-lg p-2 text-text-muted lg:hidden"
+            onClick={() => setOpen(!open)}
+            aria-label={dict.toggleMenu}
+            aria-expanded={open}
           >
-            {open ? (
-              <path
-                d="M6 18L18 6M6 6l12 12"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            ) : (
-              <path
-                d="M4 6h16M4 12h16M4 18h16"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            )}
-          </svg>
-        </button>
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden
+            >
+              {open ? (
+                <path
+                  d="M6 18L18 6M6 6l12 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              ) : (
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {open ? (

@@ -75,7 +75,24 @@
   },
   "certifications": {
     "eyebrow": "Credentials",
-    "title": "Certifications"
+    "title": "Certifications",
+    "prev": "Previous certifications",
+    "next": "Next certifications",
+    "goToPage": "Go to page {n}",
+    "details": {
+      "aws": "AWS Certified Solutions Architect – Associate, by Amazon Web Services",
+      "java": "Oracle Certified Associate / Professional for the Java SE platform",
+      "mongodb": "MongoDB database developer certification",
+      "n2": "Japanese-Language Proficiency Test (JLPT), level N2",
+      "gcp": "Google Cloud Professional Cloud Developer certification",
+      "openstack": "Certified OpenStack Administrator (COA)",
+      "acp": "PMI Agile Certified Practitioner, for agile project delivery",
+      "oci": "Oracle Cloud Infrastructure – Foundation / Solution Architect",
+      "istqb": "ISTQB Certified Tester Foundation Level 4.0",
+      "istqbAdvanced": "ISTQB Certified Tester Advanced Level – Test Analyst",
+      "nng": "UX Certified by Nielsen Norman Group",
+      "googleUx": "Google UX Design Certificate with Professional Success Skills from Gies College of Business"
+    }
   },
   "expertise": {
     "eyebrow": "Tech stack",

@@ -404,6 +404,17 @@
     transform: none;
   }
 
+  /* Ẩn thanh cuộn của slider cuộn ngang — điều hướng đã có nút mũi tên và dấu chấm.
+     Vẫn cuộn/vuốt được bình thường, chỉ ẩn phần hiển thị. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   /* ----- Khu vực quản trị ----- */
 
   .admin-surface {

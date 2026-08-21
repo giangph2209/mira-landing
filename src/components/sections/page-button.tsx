@@ -36,7 +36,9 @@ function Hotline({ dict }: { dict: Dictionary["floatingActions"] }) {
       <button
         type="button"
         onClick={handleClick}
-        className="fixed bottom-6 cursor-pointer right-6 z-50 flex size-[50px] items-center justify-center rounded-full bg-gradient-to-r from-[#6BF2C6] to-[#279AE7] text-white shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-200"
+        // Nền trắng ngả xanh + viền và icon màu brand: cùng tông với site mà không hút
+        // mắt hơn các nút liên hệ ngay bên cạnh.
+        className="fixed bottom-6 cursor-pointer right-6 z-50 flex size-[50px] items-center justify-center rounded-full border border-primary/25 bg-white text-primary shadow-md hover:border-primary/50 hover:bg-[#edf7f0] hover:shadow-lg hover:scale-105 transition-all duration-200"
         aria-label={dict.scrollTop}
       >
         <ArrowUp size={20} />

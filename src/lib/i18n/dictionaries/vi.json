@@ -75,7 +75,24 @@
   },
   "certifications": {
     "eyebrow": "Credentials",
-    "title": "Certifications"
+    "title": "Certifications",
+    "prev": "Chứng chỉ trước",
+    "next": "Chứng chỉ tiếp theo",
+    "goToPage": "Tới trang {n}",
+    "details": {
+      "aws": "Chứng chỉ AWS Certified Solutions Architect – Associate của Amazon Web Services",
+      "java": "Chứng chỉ Oracle Certified Associate / Professional cho nền tảng Java SE",
+      "mongodb": "Chứng chỉ nhà phát triển cơ sở dữ liệu MongoDB",
+      "n2": "Chứng chỉ năng lực tiếng Nhật JLPT trình độ N2",
+      "gcp": "Chứng chỉ Google Cloud Professional Cloud Developer",
+      "openstack": "Chứng chỉ Certified OpenStack Administrator (COA)",
+      "acp": "Chứng chỉ PMI Agile Certified Practitioner về quản trị dự án Agile",
+      "oci": "Chứng chỉ Oracle Cloud Infrastructure – Foundation / Solution Architect",
+      "istqb": "Chứng chỉ ISTQB Certified Tester Foundation Level 4.0",
+      "istqbAdvanced": "Chứng chỉ ISTQB Certified Tester Advanced Level – Test Analyst",
+      "nng": "Chứng chỉ UX Certified của Nielsen Norman Group",
+      "googleUx": "Chứng chỉ Google UX Design kèm Professional Success Skills của Gies College of Business"
+    }
   },
   "expertise": {
     "eyebrow": "Tech stack",
@@ -512,7 +529,7 @@
       "name": "Họ và tên",
       "namePlaceholder": "Nguyễn Văn A",
       "phone": "Số điện thoại",
-      "phonePlaceholder": "09xx xxx xxx",
+      "phonePlaceholder": "+84 9xx xxx xxx",
       "email": "Email",
       "emailPlaceholder": "ten@congty.com",
       "company": "Công ty",

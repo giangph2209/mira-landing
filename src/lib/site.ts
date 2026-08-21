@@ -5,7 +5,8 @@ export const SITE = {
   // lọt qua `??` — mọi URL tuyệt đối (canonical, OG, JSON-LD) sẽ hỏng im lặng.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://dvltechco.com",
   email: "contact@dvltechco.com",
-  phone: "0387.989.300",
+  /** dạng hiển thị — luôn dùng tiền tố quốc tế +84, không dùng số 0 đầu */
+  phone: "+84 387 989 300",
   /** dạng tel: — chỉ số, tiền tố quốc gia */
   phoneHref: "+84387989300",
   address: {

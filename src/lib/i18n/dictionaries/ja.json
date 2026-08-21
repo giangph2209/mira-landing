@@ -75,7 +75,24 @@
   },
   "certifications": {
     "eyebrow": "Credentials",
-    "title": "Certifications"
+    "title": "Certifications",
+    "prev": "前の認定資格",
+    "next": "次の認定資格",
+    "goToPage": "{n} ページ目へ",
+    "details": {
+      "aws": "Amazon Web Services による AWS Certified Solutions Architect – Associate 認定",
+      "java": "Java SE プラットフォームの Oracle Certified Associate / Professional 認定",
+      "mongodb": "MongoDB データベース開発者認定",
+      "n2": "日本語能力試験（JLPT）N2 レベル",
+      "gcp": "Google Cloud Professional Cloud Developer 認定",
+      "openstack": "Certified OpenStack Administrator（COA）認定",
+      "acp": "アジャイル開発のための PMI Agile Certified Practitioner 認定",
+      "oci": "Oracle Cloud Infrastructure – Foundation / Solution Architect 認定",
+      "istqb": "ISTQB Certified Tester Foundation Level 4.0 認定",
+      "istqbAdvanced": "ISTQB Certified Tester Advanced Level – Test Analyst 認定",
+      "nng": "Nielsen Norman Group による UX Certified 認定",
+      "googleUx": "Google UX Design 認定および Gies College of Business の Professional Success Skills 認定"
+    }
   },
   "expertise": {
     "eyebrow": "Tech stack",
@@ -512,7 +529,7 @@
       "name": "お名前",
       "namePlaceholder": "山田 太郎",
       "phone": "電話番号",
-      "phonePlaceholder": "090-0000-0000",
+      "phonePlaceholder": "+84 9xx xxx xxx",
       "email": "メールアドレス",
       "emailPlaceholder": "you@company.com",
       "company": "会社名",

@@ -1,69 +1,48 @@
-import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
+import CertificationsSlider from "@/components/sections/CertificationsSlider";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 
-const CERTS = [
+type CertDetailKey = keyof Dictionary["certifications"]["details"];
+
+/**
+ * Tên chứng chỉ CỐ Ý để cứng ở đây thay vì đưa vào file ngôn ngữ: đây là tên riêng của
+ * chứng chỉ, luôn hiển thị bằng tiếng Anh ở mọi ngôn ngữ. Chỉ phần mô tả chi tiết
+ * (hiện khi rê chuột) mới được dịch — xem `certifications.details` trong dictionaries.
+ */
+const CERTS: { id: CertDetailKey; name: string; src: string }[] = [
+  { id: "aws", name: "Amazon Associate", src: "/images/certifications/aws.webp" },
+  { id: "java", name: "OCA / OCP Java SE", src: "/images/certifications/java.webp" },
+  { id: "mongodb", name: "MongoDB", src: "/images/certifications/mongodb.webp" },
+  { id: "n2", name: "N2 Japanese", src: "/images/certifications/n2.webp" },
   {
-    id: "1",
-    name: "Cisco Certified CCNA",
-    src: "/images/certifications/1.png",
+    id: "gcp",
+    name: "Professional Cloud Developer",
+    src: "/images/certifications/google.webp",
   },
+  { id: "openstack", name: "COA", src: "/images/certifications/openstack.webp" },
+  { id: "acp", name: "PMI-ACP", src: "/images/certifications/acp.webp" },
+  { id: "oci", name: "OCI", src: "/images/certifications/oci.webp" },
+  { id: "istqb", name: "ISTQB Foundation", src: "/images/certifications/istqb.webp" },
   {
-    id: "2",
-    name: "CompTIA A+",
-    src: "/images/certifications/2.png",
+    id: "istqbAdvanced",
+    name: "ISTQB Advanced",
+    src: "/images/certifications/istqb-advanced.webp",
   },
-  {
-    id: "3",
-    name: "PMI Registered Education Provider",
-    src: "/images/certifications/3.png",
-  },
-  {
-    id: "4",
-    name: "CompTIA Security+",
-    src: "/images/certifications/4.png",
-  },
-  // {
-  //   id: "5",
-  //   name: "Microsoft Certified Technology Specialist",
-  //   src: "/images/certifications/5.png",
-  // },
+  { id: "nng", name: "NN/g UX Certified", src: "/images/certifications/ux.webp" },
+  { id: "googleUx", name: "Google UX Design", src: "/images/certifications/ux-google.webp" },
 ];
-
-function CertCard({ name, src }: { name: string; src: string }) {
-  return (
-    <article className="flex w-full flex-col overflow-hidden rounded-2xl shadow-[0_10px_28px_rgba(14,128,63,0.1)]">
-      <div className="relative z-10 bg-white px-4 pt-6 sm:px-5 sm:pt-8">
-        <div className="mx-auto mb-1 flex h-[80px] w-full items-center justify-center sm:h-[96px] lg:h-[110px]">
-          <Image
-            src={src}
-            alt={name}
-            width={160}
-            height={96}
-            className="h-16 w-auto max-w-full object-contain sm:h-20"
-          />
-        </div>
-        <div
-          className="pointer-events-none absolute -bottom-5 left-1/2 h-10 w-[125%] -translate-x-1/2 rounded-[100%] bg-white shadow-[0_10px_18px_rgba(0,0,0,0.06)]"
-          aria-hidden
-        />
-      </div>
-
-      <div className="relative flex min-h-[64px] items-center justify-center bg-[#edf7f0] px-3 pb-5 pt-9 sm:min-h-[72px] sm:pb-6 sm:pt-10">
-        <p className="text-center text-xs font-medium leading-snug text-text-dark sm:text-sm">
-          {name}
-        </p>
-      </div>
-    </article>
-  );
-}
 
 export default function CertificationsSection({
   dict,
 }: {
   dict: Dictionary["certifications"];
 }) {
+  const items = CERTS.map((cert) => ({
+    ...cert,
+    detail: dict.details[cert.id],
+  }));
+
   return (
     <section id="certifications" className="bg-[#f5f6f5] py-14 lg:py-16">
       <div className="mx-auto w-full max-w-7xl section-container">
@@ -71,13 +50,12 @@ export default function CertificationsSection({
           <SectionHeader eyebrow={dict.eyebrow} title={dict.title} />
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-4 lg:gap-5">
-          {CERTS.map((cert, i) => (
-            <Reveal key={cert.id} delay={i * 50}>
-              <CertCard name={cert.name} src={cert.src} />
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={80}>
+          <CertificationsSlider
+            items={items}
+            labels={{ prev: dict.prev, next: dict.next, goToPage: dict.goToPage }}
+          />
+        </Reveal>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ export const SITE = {
   // `||` chứ không phải `??`: build arg không truyền sẽ inline thành chuỗi rỗng, và ""
   // lọt qua `??` — mọi URL tuyệt đối (canonical, OG, JSON-LD) sẽ hỏng im lặng.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://dvltechco.com",
-  email: "dvltechs@gmail.com",
+  email: "contact@dvltechco.com",
   phone: "0387.989.300",
   /** dạng tel: — chỉ số, tiền tố quốc gia */
   phoneHref: "+84387989300",

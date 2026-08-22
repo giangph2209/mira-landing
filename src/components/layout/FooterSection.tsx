@@ -107,7 +107,7 @@ export default function FooterSection({
                 alt="DVL Tech"
                 width={180}
                 height={68}
-                className="h-15 w-auto object-contain brightness-0 invert"
+                className="h-10 w-auto object-contain brightness-0 invert"
               />
             </Link>
 

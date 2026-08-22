@@ -78,10 +78,10 @@ export default function Navbar({
           <Image
             src="/images/dvl-logo.png"
             alt={SITE.name}
-            width={100}
-            height={50}
+            width={200}
+            height={60}
             priority
-            className="h-auto w-full object-contain"
+            className="h-auto w-full"
           />
         </Link>
 

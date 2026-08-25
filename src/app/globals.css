@@ -13,7 +13,10 @@
   --color-primary-600: #159940;
   --color-primary-700: #055537;
   --color-primary-800: #033d28;
-  --color-brand-blue: #1a36a3;
+  /* Xanh biển sâu. Trước đây là navy #1a36a3 — cách xanh lá thương hiệu quá xa
+     trên vòng màu, nên gradient blue → green đi qua vùng xám xỉn (#145b71) ở giữa.
+     Màu này chuyển qua mòng két nên đoạn giữa sạch, mà vẫn đọc rõ là xanh dương. */
+  --color-brand-blue: #075985;
   --color-text-dark: #1f2a37;
   --color-text-muted: #333333;
   --color-text-gray: #737373;

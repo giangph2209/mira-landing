@@ -46,7 +46,12 @@ export default function HeroSection({ dict }: { dict: Dictionary["hero"] }) {
             hero trước đây dùng chung font với body nên không có nét riêng nào.
             tracking âm nhẹ giúp dòng chữ lớn bớt rời rạc. */}
           <h1 className="font-heading text-[clamp(1.7rem,5.4vw,4.25rem)] font-bold leading-[1.08] tracking-[-0.03em]">
-            <p className="text-gradient-animated bg-gradient-to-r from-brand-blue to-primary bg-clip-text text-transparent leading-10 lg:leading-22">
+            {/* Cố ý KHÔNG dùng text-gradient-animated ở dòng này.
+                Lớp đó đặt background-size:200% rồi trượt background-position, nên chỉ
+                một phần dải màu lọt vào khung chữ tại mỗi thời điểm — có lúc chữ gần như
+                thành một màu xanh đậm đặc thay vì giữ được chuyển sắc xanh dương → xanh lá.
+                Bỏ nó ra thì background-size về 100%, cả dải gradient hiện đủ và đứng yên. */}
+            <p className="bg-gradient-to-r from-brand-blue to-primary bg-clip-text text-transparent leading-10 lg:leading-22">
               {dict.titleLine1}
             </p>
             <span className="relative inline-block">

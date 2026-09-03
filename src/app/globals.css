@@ -637,8 +637,15 @@
 
 .banner-area {
   background-color: #ffffff;
-  background-image: image-set(url("/images/hero/banner.png") type("image/png"),
-      url("/images/hero/banner.png"));
+  /* Ảnh nền hero là gradient mượt, trước đây lưu PNG 24-bit 1.4 MB — định dạng tệ
+     nhất cho loại nội dung này. AVIF/WebP giảm còn 24/44 KB mà mắt không phân biệt
+     được. Trình duyệt chọn mục ĐẦU TIÊN nó hiểu, nên xếp từ nén tốt nhất xuống.
+
+     Dòng url() phía trên là dự phòng cho trình duyệt không hiểu image-set. */
+  background-image: url("/images/hero/banner.png");
+  background-image: image-set(url("/images/hero/banner.avif") type("image/avif"),
+      url("/images/hero/banner.webp") type("image/webp"),
+      url("/images/hero/banner.png") type("image/png"));
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

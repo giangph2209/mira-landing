@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import AnalyticsBeacon from "@/components/analytics/AnalyticsBeacon";
-import { ibmPlexSans, notoSansJP, roboto } from "@/lib/fonts";
+import { ibmPlexSans, roboto } from "@/lib/fonts";
 import {
   DEFAULT_LOCALE,
   HTML_LANG,
@@ -20,6 +20,14 @@ import "../../globals.css";
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
 }
+
+/**
+ * themeColor phải nằm ở export `viewport`, KHÔNG phải trong `metadata` — Next đã
+ * tách ra từ v13 và để nhầm chỗ thì nó bị bỏ qua âm thầm.
+ */
+export const viewport: Viewport = {
+  themeColor: "#0e803f",
+};
 
 type LayoutParams = { params: Promise<{ lang: string }> };
 
@@ -98,9 +106,9 @@ export default async function SiteRootLayout({
 
   const locale: Locale = lang;
 
+  // Tiếng Nhật dùng font hệ thống, khai ở html[lang="ja"] trong globals.css —
+  // xem chú thích trong src/lib/fonts.ts về lý do không dùng next/font cho CJK.
   const fontVars = [ibmPlexSans.variable, roboto.variable];
-  // Chỉ nạp font Nhật cho /ja — xem chú thích ở src/lib/fonts.ts
-  if (locale === "ja") fontVars.push(notoSansJP.variable);
 
   return (
     <html lang={HTML_LANG[locale]} className={fontVars.join(" ")}>

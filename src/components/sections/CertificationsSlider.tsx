@@ -31,7 +31,7 @@ function CertCard({ item }: { item: CertItem }) {
       tabIndex={0}
       aria-label={item.name}
       aria-describedby={`cert-detail-${item.id}`}
-      className="group flex h-full w-full cursor-pointer snap-start flex-col overflow-hidden rounded-2xl shadow-[0_10px_28px_rgba(14,128,63,0.1)] outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-primary/40"
+      className="group flex h-full w-full cursor-pointer snap-start flex-col overflow-hidden rounded-2xl shadow-[0_5px_10px_rgba(14,128,63,0.1)] outline-none transition-shadow focus-visible:ring-2 focus-visible:ring-primary/40"
     >
       <div className="relative z-10 bg-white px-4 pt-6 sm:px-5 sm:pt-8">
         <div className="mx-auto mb-1 flex h-[80px] w-full items-center justify-center sm:h-[96px] lg:h-[110px]">
@@ -205,7 +205,9 @@ export default function CertificationsSlider({
                 aria-current={index === page ? "true" : undefined}
                 className={[
                   "h-2.5 rounded-full transition-all",
-                  index === page ? "w-7 bg-primary" : "w-2.5 bg-gray-300 hover:bg-gray-400",
+                  index === page
+                    ? "w-7 bg-primary"
+                    : "w-2.5 bg-gray-300 hover:bg-gray-400",
                 ].join(" ")}
               />
             ))}

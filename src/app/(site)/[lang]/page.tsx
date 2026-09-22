@@ -25,33 +25,37 @@ import { SITE } from "@/lib/site";
 // cả /privacy-policy và toàn bộ khu vực /admin.
 function buildOrganizationJsonLd(description: string) {
   return {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE.name,
-  legalName: SITE.legalName,
-  url: SITE.url,
-  logo: `${SITE.url}${SITE.ogImage}`,
-  email: SITE.email,
-  telephone: SITE.phoneHref,
-  description,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: SITE.address.street,
-    addressLocality: SITE.address.district,
-    addressRegion: SITE.address.city,
-    addressCountry: SITE.address.country,
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    legalName: SITE.legalName,
+    url: SITE.url,
+    logo: `${SITE.url}${SITE.ogImage}`,
     email: SITE.email,
     telephone: SITE.phoneHref,
+    description,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE.address.street,
+      addressLocality: SITE.address.district,
+      addressRegion: SITE.address.city,
+      addressCountry: SITE.address.country,
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: SITE.email,
+      telephone: SITE.phoneHref,
       availableLanguage: ["Vietnamese", "English", "Japanese"],
     },
   };
 }
 
-export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
 
@@ -72,7 +76,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <AIServicesSection dict={dict.services} />
       <WhyUsSection dict={dict.whyUs} />
       <TeamSection dict={dict.team} />
-      <TestimonialsSection dict={dict.testimonials} />
+      {/* <TestimonialsSection dict={dict.testimonials} /> */}
       <EngagementModelsSection dict={dict.engagement} />
       <DevelopmentProcessSection dict={dict.process} />
       <TechnicalExpertiseSection dict={dict.expertise} />

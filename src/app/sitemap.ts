@@ -5,7 +5,11 @@ import { SITE } from "@/lib/site";
 /** Các trang công khai, tính theo đường dẫn SAU tiền tố locale. */
 const PATHS = [
   { path: "", changeFrequency: "weekly" as const, priority: 1 },
-  { path: "/privacy-policy", changeFrequency: "yearly" as const, priority: 0.5 },
+  {
+    path: "/privacy-policy",
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

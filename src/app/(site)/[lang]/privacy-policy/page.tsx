@@ -152,7 +152,7 @@ export default async function PrivacyPolicyPage({ params }: PageParams) {
               {privacy.contactSection.phone}: {SITE.phone}
             </li>
             <li>
-              {privacy.contactSection.address}: {SITE.address.full}
+              {privacy.contactSection.address}: {SITE.address.full[lang]}
             </li>
           </ul>
         </Section>

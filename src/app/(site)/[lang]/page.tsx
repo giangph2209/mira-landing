@@ -83,7 +83,7 @@ export default async function Home({
       <CaseStudiesSection dict={dict.caseStudies} />
       <CertificationsSection dict={dict.certifications} />
       <RegionSectionLazy dict={dict.region} />
-      <CTASection dict={dict.cta} />
+      <CTASection dict={dict.cta} lang={lang} />
       <ComplianceBannerSection dict={dict.compliance} />
       <FooterSection dict={dict.footer} lang={lang} />
       <HomeHashScroll />

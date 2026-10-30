@@ -6,16 +6,19 @@ import { ArrowRightIcon } from "@/components/ui/Icons";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { inputClass, labelClass } from "@/components/ui/form-classes";
+import type { Locale } from "@/lib/i18n/config";
 import type { Dictionary } from "@/lib/i18n/dictionaries";
 import { SITE } from "@/lib/site";
 
 type ContactId = keyof Dictionary["cta"]["contact"];
 type ServiceId = keyof Dictionary["cta"]["serviceOptions"];
 
-const CONTACT_ITEMS: { id: ContactId; value: string; Icon: typeof Mail }[] = [
+const contactItems = (
+  lang: Locale,
+): { id: ContactId; value: string; Icon: typeof Mail }[] => [
   { id: "email", value: SITE.email, Icon: Mail },
   { id: "phone", value: SITE.phone, Icon: Phone },
-  { id: "address", value: SITE.address.full, Icon: MapPin },
+  { id: "address", value: SITE.address.full[lang], Icon: MapPin },
 ];
 
 /**
@@ -49,7 +52,13 @@ type SubmitStatus = {
   message: string;
 } | null;
 
-export default function CTASection({ dict }: { dict: Dictionary["cta"] }) {
+export default function CTASection({
+  dict,
+  lang,
+}: {
+  dict: Dictionary["cta"];
+  lang: Locale;
+}) {
   const [form, setForm] = useState<FormState>({
     fullName: "",
     email: "",
@@ -167,7 +176,7 @@ export default function CTASection({ dict }: { dict: Dictionary["cta"] }) {
             />
 
             <div className="flex flex-col gap-4">
-              {CONTACT_ITEMS.map((item, index) => (
+              {contactItems(lang).map((item, index) => (
                 <div
                   key={item.id}
                   className="relative flex items-center gap-4 rounded-2xl bg-white py-4 pl-5 pr-6 shadow-[0_8px_24px_rgba(14,128,63,0.08)]"

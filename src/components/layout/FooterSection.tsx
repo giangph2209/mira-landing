@@ -87,7 +87,7 @@ export default function FooterSection({
       value: SITE.phone,
       href: `tel:${SITE.phoneHref}`,
     },
-    { label: dict.contact.address, value: SITE.address.full },
+    { label: dict.contact.address, value: SITE.address.full[lang] },
   ];
 
   const legalLinks: FooterLink[] = [
